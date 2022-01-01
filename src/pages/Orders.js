@@ -34,12 +34,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Orders() {
   const classes = useStyles();
+
+  useEffect(() => {
+    const init = async () => {
+      await getTrading();
+    };
+    setTimeout(() => {
+      init();
+    });
+  }, []);
+
   // 트레이딩 정보
   const [article, setArticle] = useState({});
-
-  tradingRepository.getTrading().then((result) => {
-    setArticle(result);
-  });
+  const getTrading = async () => {
+    await tradingRepository.getTrading().then((result) => {
+      setArticle(result);
+    });
+  };
+  // const init = async () => {
+  //   await tradingRepository.getTrading();
+  // };
 
   return (
     <div className={classes.root}>

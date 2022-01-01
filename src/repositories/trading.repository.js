@@ -22,7 +22,7 @@ class tradingRepository {
    * @returns {Promise<*>}
    */
   getTrading(params) {
-    let url = new URL(constants.API_BASE_URL + this.STATIC_URL);
+    let url = new URL(constants.API_BASE_URL + "/car/specification");
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
