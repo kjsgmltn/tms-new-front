@@ -16,6 +16,14 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
+      <Link style={{ textDecoration: "none" }} to="/">
+        <ListItemText primary="메인" />
+      </Link>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
       <Link style={{ textDecoration: "none" }} to="/main/Deposits">
         <ListItemText primary="N잡 수입/손실 현황판" />
       </Link>

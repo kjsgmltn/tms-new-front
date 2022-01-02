@@ -24,6 +24,7 @@ import Deposits from "../pages/Deposits";
 import Orders from "../pages/Orders";
 import Event from "../pages/Event";
 import ChartPatten from "../pages/ChartPatten";
+import MainContent from "../pages/MainContent";
 
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 function Copyright() {
@@ -152,6 +153,7 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             component="h1"
             variant="h6"
@@ -161,6 +163,7 @@ export default function Dashboard() {
           >
             트레이딩 관리 시스템
           </Typography>
+
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
@@ -193,6 +196,7 @@ export default function Dashboard() {
             <Route path="Orders" element={<Orders />} />
             <Route path="Event" element={<Event />} />
             <Route path="ChartPatten" element={<ChartPatten />} />
+            <Route path="/" element={<MainContent />} />
           </Routes>
         </Container>
       </main>

@@ -1,15 +1,16 @@
 // Components/Routes.js
-import React from 'react';
-import { Route ,Routes,Link} from 'react-router-dom';
+import React from "react";
+import { Route, Routes, Link } from "react-router-dom";
 import Main from "./layouts/main";
 
-const mainRoutes =() => {
+const mainRoutes = () => {
   return (
-    <div >
+    <div>
       <Routes>
-             <Route  path="/main/*" element={<Main/>} />
-       </Routes>
+        <Route path="/*" element={<Main />} />
+        <Route path="/main/*" element={<Main />} />
+      </Routes>
     </div>
   );
-}
+};
 export default mainRoutes;
