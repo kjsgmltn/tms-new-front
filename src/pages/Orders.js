@@ -47,9 +47,14 @@ export default function Orders() {
   // 트레이딩 정보
   const [article, setArticle] = useState({});
   const getTrading = async () => {
-    await tradingRepository.getTrading().then((result) => {
-      setArticle(result);
-    });
+    await tradingRepository
+      .getTrading({
+        menuKey: "test",
+        ivName: "huisu",
+      })
+      .then((result) => {
+        setArticle(result);
+      });
   };
   // const init = async () => {
   //   await tradingRepository.getTrading();
