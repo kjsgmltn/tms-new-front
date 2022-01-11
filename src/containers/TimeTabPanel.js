@@ -6,12 +6,11 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { Bar } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
 // import {Chart, ArcElement} from 'chart.js'
 // Chart.register(ArcElement);
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
-import { ColorLensOutlined } from "@material-ui/icons";
 Chart.register(CategoryScale);
 const options = {
   legend: {
@@ -34,23 +33,11 @@ const options = {
 };
 const data = {
   // 각 막대별 라벨
-  labels: [
-    "비트코인",
-    "한국주식",
-    "미국주식",
-    "NFT",
-    "배달",
-    "게임",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ],
+  labels: ["비트코인", "한국주식", "미국주식", "NFT", "배달", "게임"],
   datasets: [
     {
       borderWidth: 1, // 테두리 두께
-      data: [1, 2, 3, 3, 2, 1, 10, 100, 50, 40], // 수치
+      data: [1, 2, 3, 3, 2, 1], // 수치
       backgroundColor: ["yellow", "red", "green"], // 각 막대 색
     },
   ],
@@ -97,13 +84,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ScrollableTabsButtonAuto({ rank }) {
-  // console.log("세번째-------");
-  // console.log(rank);
-  // console.log("세번째-------");
+export default function ScrollableTabsButtonAuto() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  console.log(rank);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -121,7 +104,7 @@ export default function ScrollableTabsButtonAuto({ rank }) {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="N잡 랭킹 " {...a11yProps(0)} />
+          <Tab label="시간관리 랭킹" {...a11yProps(0)} />
           <Tab label="일별 순수익" {...a11yProps(1)} />
           <Tab label="주별 순수익" {...a11yProps(2)} />
           <Tab label="월별 순수익" {...a11yProps(3)} />
@@ -129,7 +112,7 @@ export default function ScrollableTabsButtonAuto({ rank }) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Bar data={rank} options={options} height={300} />
+        <Doughnut data={data} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two

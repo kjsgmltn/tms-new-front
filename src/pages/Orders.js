@@ -56,9 +56,6 @@ export default function Orders() {
         setArticle(result);
       });
   };
-  // const init = async () => {
-  //   await tradingRepository.getTrading();
-  // };
 
   return (
     <div className={classes.root}>
@@ -66,10 +63,8 @@ export default function Orders() {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <div style={{ textAlign: "center" }}>매매 근거 현황판</div>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
+            <br />
+            <br />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>총 투자금액</div>
               <div className={classes.box}>매수 비중</div>

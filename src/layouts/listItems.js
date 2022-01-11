@@ -24,7 +24,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <Link style={{ textDecoration: "none" }} to="/main/Deposits">
+      <Link style={{ textDecoration: "none" }} to="/main/PayDashBoard">
         <ListItemText primary="N잡 수입/손실 현황판" />
       </Link>
     </ListItem>
@@ -34,6 +34,14 @@ export const mainListItems = (
       </ListItemIcon>
       <Link style={{ textDecoration: "none" }} to="/main/Orders">
         <ListItemText primary="매매 근거 현황판" />
+      </Link>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <Link style={{ textDecoration: "none" }} to="/main/LossDashBoard">
+        <ListItemText primary="손절 기록 현황판" />
       </Link>
     </ListItem>
     <ListItem button>
@@ -86,7 +94,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <Link style={{ textDecoration: "none" }} to="/main">
+      <Link style={{ textDecoration: "none" }} to="/main/TimeManage">
         <ListItemText primary="시간관리" />
       </Link>
     </ListItem>
@@ -102,7 +110,9 @@ export const secondaryListItems = (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="..." />
+      <Link style={{ textDecoration: "none" }} to="/main/CodeManage">
+        <ListItemText primary="코드관리" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>

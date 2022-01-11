@@ -16,6 +16,30 @@ class tradingRepository {
   }
 
   /**
+   * 수입/손실
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getPay(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getBnsRowData");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+
+  /**
+   * 랭킹
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getRank(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getBnsRank");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+
+  /**
    * 상세조회
    * @param id
    * @param params

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -20,11 +20,15 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
 //import Chart from './Chart';
-import Deposits from "../pages/Deposits";
+import PayDashBoard from "../pages/PayDashBoard";
 import Orders from "../pages/Orders";
 import Event from "../pages/Event";
 import ChartPatten from "../pages/ChartPatten";
 import MainContent from "../pages/MainContent";
+import TimeManage from "../pages/TimeManage";
+import CodeManage from "../pages/CodeManage";
+import LossDashBoard from "../pages/LossDashBoard";
+import BnsDashBoard from "../pages/BnsDashBoard";
 
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 function Copyright() {
@@ -131,6 +135,7 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
@@ -192,10 +197,13 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Routes>
-            <Route path="Deposits" element={<Deposits />} />
+            <Route path="PayDashBoard" element={<BnsDashBoard />} />
             <Route path="Orders" element={<Orders />} />
             <Route path="Event" element={<Event />} />
             <Route path="ChartPatten" element={<ChartPatten />} />
+            <Route path="TimeManage" element={<TimeManage />} />
+            <Route path="LossDashBoard" element={<LossDashBoard />} />
+            <Route path="CodeManage" element={<CodeManage />} />
             <Route path="/" element={<MainContent />} />
           </Routes>
         </Container>
