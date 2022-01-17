@@ -29,11 +29,17 @@ const useStyles = makeStyles((theme) => ({
     margin: 14,
     border: 12,
     border: "1px solid #BDBDBD",
-    fontSize: 25,
+    fontSize: 15,
   },
 }));
 
-export default function CenteredGrid({ chatData }) {
+export default function CenteredGrid({
+  chatData,
+  dayChatData,
+  weekChatData,
+  monthChatData,
+  yearChatData,
+}) {
   const classes = useStyles();
 
   useEffect(() => {
@@ -64,7 +70,7 @@ export default function CenteredGrid({ chatData }) {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <div style={{ textAlign: "center" }}>
-              N잡 수입/손실 현황판 (2021년12월)
+              N잡 수입/손실 현황판
               <br />
               <br />
             </div>
@@ -86,7 +92,6 @@ export default function CenteredGrid({ chatData }) {
                 </div>
               </div>
               <div className={classes.box}>
-                {" "}
                 이번주 순이익:
                 <br />
                 이번달 순이익:
@@ -95,12 +100,11 @@ export default function CenteredGrid({ chatData }) {
                 <br />
               </div>
               <div className={classes.box}>
-                {" "}
-                이번주 이익:
+                이번주 이익:{article.week_final_price} 원
                 <br />
-                이번달 이익:
+                이번달 이익:{article.month_final_price} 원
                 <br />
-                올해 이익:
+                올해 이익: {article.year_final_price} 원
                 <br />
               </div>
               <div className={classes.box}>
@@ -122,7 +126,13 @@ export default function CenteredGrid({ chatData }) {
             *보고싶은 기간을 선택해 주세요 :
             <br />
             <br />
-            <TabPanel rank={chatData} />
+            <TabPanel
+              rank={chatData}
+              dayChatData={dayChatData}
+              weekChatData={weekChatData}
+              monthChatData={monthChatData}
+              yearChatData={yearChatData}
+            />
             <br />
             <br />
             <br />

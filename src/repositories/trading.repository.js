@@ -40,6 +40,52 @@ class tradingRepository {
   }
 
   /**
+   * 일별매출
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getBnsGroupDay(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getBnsGroupDay");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+
+  /**
+   * 주간매출
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getBnsGroupWeek(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getBnsGroupWeek");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+
+  /**
+   * 월간매출
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getBnsGroupMonth(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getBnsGroupMonth");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+  /**
+   * 년간매출
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getBnsGroupYear(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getBnsGroupYear");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+  /**
    * 상세조회
    * @param id
    * @param params

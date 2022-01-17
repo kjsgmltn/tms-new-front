@@ -29,8 +29,9 @@ import TimeManage from "../pages/TimeManage";
 import CodeManage from "../pages/CodeManage";
 import LossDashBoard from "../pages/LossDashBoard";
 import BnsDashBoard from "../pages/BnsDashBoard";
-
-import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import moment from "moment";
+import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
+import NavBar from "./index";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -129,12 +130,24 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  //시계 start
+  let timer = null;
+  const [time, setTime] = useState(moment());
+  useEffect(() => {
+    timer = setInterval(() => {
+      setTime(moment());
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -166,7 +179,13 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            트레이딩 관리 시스템
+            <div>
+              <div className="neon pink" style={{ fontFamily: "alarm_clock" }}>
+                트레이딩 관리 시스템 : {time.format("YYYY-MM-DD")}{" "}
+                {time.format("HH-mm-ss")}
+              </div>
+              <div className="neon blue"></div>
+            </div>
           </Typography>
 
           <IconButton color="inherit">
@@ -183,29 +202,31 @@ export default function Dashboard() {
         }}
         open={open}
       >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
+        <div className={classes.toolbarIcon}></div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>
+          <NavBar
+            onMobileClose={() => setMobileNavOpen(false)}
+            openMobile={isMobileNavOpen}
+          />
+        </List>
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
+
         <Container maxWidth="lg" className={classes.container}>
-          <Routes>
-            <Route path="PayDashBoard" element={<BnsDashBoard />} />
-            <Route path="Orders" element={<Orders />} />
-            <Route path="Event" element={<Event />} />
-            <Route path="ChartPatten" element={<ChartPatten />} />
-            <Route path="TimeManage" element={<TimeManage />} />
-            <Route path="LossDashBoard" element={<LossDashBoard />} />
-            <Route path="CodeManage" element={<CodeManage />} />
-            <Route path="/" element={<MainContent />} />
-          </Routes>
+          <Switch>
+            <Route path="/PayDashBoard" component={BnsDashBoard} />
+            <Route path="/Orders" component={Orders} />
+            <Route path="/Event" component={Event} />
+            <Route path="/ChartPatten" component={ChartPatten} />
+            <Route path="/TimeManage" component={TimeManage} />
+            <Route path="/LossDashBoard" component={LossDashBoard} />
+            <Route path="/CodeManage" component={CodeManage} />
+            <Route path="/" component={MainContent} />
+          </Switch>
         </Container>
       </main>
     </div>

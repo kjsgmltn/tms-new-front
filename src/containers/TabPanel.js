@@ -97,14 +97,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ScrollableTabsButtonAuto({ rank }) {
-  // console.log("세번째-------");
-  // console.log(rank);
-  // console.log("세번째-------");
+export default function ScrollableTabsButtonAuto({
+  rank,
+  dayChatData,
+  weekChatData,
+  monthChatData,
+  yearChatData,
+}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  console.log(rank);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -122,26 +123,26 @@ export default function ScrollableTabsButtonAuto({ rank }) {
           aria-label="scrollable auto tabs example"
         >
           <Tab label="N잡 랭킹 " {...a11yProps(0)} />
-          <Tab label="일별 순수익" {...a11yProps(1)} />
-          <Tab label="주별 순수익" {...a11yProps(2)} />
-          <Tab label="월별 순수익" {...a11yProps(3)} />
-          <Tab label="년별 순수익" {...a11yProps(4)} />
+          <Tab label="일별 " {...a11yProps(1)} />
+          <Tab label="주별 " {...a11yProps(2)} />
+          <Tab label="월별 " {...a11yProps(3)} />
+          <Tab label="년별 " {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <Bar data={rank} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Bar data={dayChatData} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Bar data={weekChatData} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <Bar data={monthChatData} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+        <Bar data={yearChatData} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={5}>
         Item Six
