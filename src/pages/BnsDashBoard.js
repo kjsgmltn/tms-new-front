@@ -118,7 +118,7 @@ const Testc = () => {
       })
       .then((result) => {
         setWeekChartData({
-          labels: result.map((item) => item.final_week),
+          labels: result.map((item) => item.final_date),
           datasets: [
             {
               ...chatData.datasets,
@@ -137,7 +137,7 @@ const Testc = () => {
       })
       .then((result) => {
         setMonthChartData({
-          labels: result.map((item) => item.final_month),
+          labels: result.map((item) => item.final_date),
           datasets: [
             {
               ...chatData.datasets,
@@ -155,7 +155,7 @@ const Testc = () => {
       })
       .then((result) => {
         setYearChartData({
-          labels: result.map((item) => item.final_year),
+          labels: result.map((item) => item.final_date),
           datasets: [
             {
               ...chatData.datasets,

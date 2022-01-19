@@ -48,7 +48,7 @@ export default function CenteredGrid() {
               <div>
                 준비중
                 <br />
-                <br />{" "}
+                <br />
               </div>
             </div>
           </Paper>

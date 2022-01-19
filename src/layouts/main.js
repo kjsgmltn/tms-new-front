@@ -18,7 +18,7 @@ import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import { mainListItems, secondaryListItems } from "./listItems";
+
 //import Chart from './Chart';
 import PayDashBoard from "../pages/PayDashBoard";
 import Orders from "../pages/Orders";
@@ -203,15 +203,15 @@ export default function Dashboard() {
         open={open}
       >
         <div className={classes.toolbarIcon}></div>
+
+        <NavBar
+          onMobileClose={() => setMobileNavOpen(false)}
+          openMobile={isMobileNavOpen}
+        />
+
         <Divider />
-        <List>
-          <NavBar
-            onMobileClose={() => setMobileNavOpen(false)}
-            openMobile={isMobileNavOpen}
-          />
-        </List>
+
         <Divider />
-        <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

@@ -62,20 +62,34 @@ export default function Orders() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ textAlign: "center" }}>매매 근거 현황판</div>
+            <div style={{ textAlign: "left" }}>종합 매매기록 현황판</div>
             <br />
             <br />
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>총 투자금액</div>
-              <div className={classes.box}>매수 비중</div>
-              <div className={classes.box}>매도 비중</div>
-              <div className={classes.box}>현금 비중</div>
+              <div className={classes.box}>
+                총 투자금액:
+                <br />
+              </div>
+              <div className={classes.box}>
+                기타 자산 비중:
+                <br />
+                매수 비중:
+                <br />
+                매도 비중:
+                <br />
+                대기 비중:
+              </div>
+              <div className={classes.box}>
+                유지 기간
+                <br />
+                현재 비율의 수익률
+                <br />
+                리밸런싱 유지기간
+              </div>
             </div>
           </Paper>
-        </Grid>
-        <Grid item xs={12}>
           <Paper className={classes.paper}>
-            Stage(진행중) (매매근거가 옳았는지 변화를 관찰)
+            Progress(매매 진행중)
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -101,10 +115,8 @@ export default function Orders() {
               </TableBody>
             </Table>
           </Paper>
-        </Grid>
-        <Grid item xs={12}>
           <Paper className={classes.paper}>
-            투자기록 (종료)
+            Closed 투자기록 (매매 종료)
             <br />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>암호화폐 매매 기록</div>

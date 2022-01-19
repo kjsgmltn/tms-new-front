@@ -56,12 +56,16 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "매매기록",
+            title: "종합 매매현황",
             href: "/Orders",
           },
           {
-            title: "손절 기록 현황판",
+            title: "손절 매매",
             href: "/LossDashBoard",
+          },
+          {
+            title: "익절 매매",
+            href: "/",
           },
         ],
       },
@@ -202,7 +206,7 @@ function reduceChildRoutes({ acc, pathname, item, depth = 0 }) {
       <NavItem
         depth={depth}
         icon={item.icon}
-        key={key}
+        //key={key}
         info={item.info}
         open={open === null ? true : Boolean(open)}
         title={item.title}
@@ -220,7 +224,7 @@ function reduceChildRoutes({ acc, pathname, item, depth = 0 }) {
         depth={depth}
         href={item.href}
         icon={item.icon}
-        key={key}
+        //  key={key}
         info={item.info}
         title={item.title}
       />
@@ -237,7 +241,7 @@ const useStyles = makeStyles(() => ({
   desktopDrawer: {
     position: "relative",
     width: 240,
-    top: 64,
+    top: 5,
     height: "calc(100% - 64px)",
   },
   avatar: {
