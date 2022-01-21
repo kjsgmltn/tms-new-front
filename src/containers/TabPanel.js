@@ -104,6 +104,11 @@ export default function ScrollableTabsButtonAuto({
   monthChatData,
   yearChatData,
 }) {
+  console.log("확인중--33--");
+  console.log(weekChatData);
+  console.log(monthChatData);
+  console.log(yearChatData);
+
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {

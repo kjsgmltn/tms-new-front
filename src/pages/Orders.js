@@ -7,7 +7,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { tradingRepository } from "../repositories";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,28 +33,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Orders() {
   const classes = useStyles();
-
-  useEffect(() => {
-    const init = async () => {
-      await getTrading();
-    };
-    setTimeout(() => {
-      init();
-    });
-  }, []);
-
-  // 트레이딩 정보
-  const [article, setArticle] = useState({});
-  const getTrading = async () => {
-    await tradingRepository
-      .getTrading({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setArticle(result);
-      });
-  };
 
   return (
     <div className={classes.root}>
@@ -116,7 +93,7 @@ export default function Orders() {
             </Table>
           </Paper>
           <Paper className={classes.paper}>
-            Closed 투자기록 (매매 종료)
+            Closed (매매 종료)
             <br />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>암호화폐 매매 기록</div>

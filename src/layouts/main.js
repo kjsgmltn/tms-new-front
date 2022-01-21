@@ -20,7 +20,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
 //import Chart from './Chart';
-import PayDashBoard from "../pages/PayDashBoard";
+
 import Orders from "../pages/Orders";
 import Event from "../pages/Event";
 import ChartPatten from "../pages/ChartPatten";
@@ -28,7 +28,7 @@ import MainContent from "../pages/MainContent";
 import TimeManage from "../pages/TimeManage";
 import CodeManage from "../pages/CodeManage";
 import LossDashBoard from "../pages/LossDashBoard";
-import BnsDashBoard from "../pages/BnsDashBoard";
+import PayDashBoard from "../pages/PayDashBoard";
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
 import NavBar from "./index";
@@ -218,7 +218,7 @@ export default function Dashboard() {
 
         <Container maxWidth="lg" className={classes.container}>
           <Switch>
-            <Route path="/PayDashBoard" component={BnsDashBoard} />
+            <Route path="/PayDashBoard" component={PayDashBoard} />
             <Route path="/Orders" component={Orders} />
             <Route path="/Event" component={Event} />
             <Route path="/ChartPatten" component={ChartPatten} />
