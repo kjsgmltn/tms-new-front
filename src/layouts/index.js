@@ -37,11 +37,11 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "N잡 수입/지출 관리",
+        title: "N 수입/지출 관리",
         icon: UsersIcon,
         items: [
           {
-            title: "N잡 수입/지출",
+            title: "N 수입/지출 현황판",
             href: "/PayDashBoard",
           },
         ],
@@ -56,15 +56,19 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "종합 매매현황",
-            href: "/Orders",
+            title: "종합 장부",
+            href: "/TradingDashBoard",
           },
           {
-            title: "손절 매매",
+            title: "손절 장부",
             href: "/LossDashBoard",
           },
           {
-            title: "익절 매매",
+            title: "익절 장부",
+            href: "/ProfitDashBoard",
+          },
+          {
+            title: "관찰 일지",
             href: "/",
           },
         ],

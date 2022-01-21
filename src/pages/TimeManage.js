@@ -39,32 +39,9 @@ export default function CenteredGrid() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ textAlign: "center" }}>시간관리 (2021년12월)</div>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div>
-                준비중
-                <br />
-                <br />
-              </div>
-            </div>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
             <TimeTabPanel />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>작업대기</div>
             </div>

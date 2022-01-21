@@ -222,11 +222,7 @@ export default function CenteredGrid() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ textAlign: "left" }}>
-              N잡 수입/손실 현황판
-              <br />
-              <br />
-            </div>
+            <div style={{ textAlign: "left" }}></div>
             <br />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ textAlign: "left" }}>

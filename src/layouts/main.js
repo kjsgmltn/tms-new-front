@@ -21,7 +21,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 
 //import Chart from './Chart';
 
-import Orders from "../pages/Orders";
+import TradingDashBoard from "../pages/TradingDashBoard";
 import Event from "../pages/Event";
 import ChartPatten from "../pages/ChartPatten";
 import MainContent from "../pages/MainContent";
@@ -29,6 +29,7 @@ import TimeManage from "../pages/TimeManage";
 import CodeManage from "../pages/CodeManage";
 import LossDashBoard from "../pages/LossDashBoard";
 import PayDashBoard from "../pages/PayDashBoard";
+import ProfitDashBoard from "../pages/ProfitDashBoard";
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
 import NavBar from "./index";
@@ -219,13 +220,14 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Switch>
             <Route path="/PayDashBoard" component={PayDashBoard} />
-            <Route path="/Orders" component={Orders} />
+            <Route path="/TradingDashBoard" component={TradingDashBoard} />
             <Route path="/Event" component={Event} />
             <Route path="/ChartPatten" component={ChartPatten} />
             <Route path="/TimeManage" component={TimeManage} />
             <Route path="/LossDashBoard" component={LossDashBoard} />
             <Route path="/CodeManage" component={CodeManage} />
-            <Route path="/" component={MainContent} />
+            <Route path="/CodeManage" component={CodeManage} />
+            <Route path="/ProfitDashBoard" component={ProfitDashBoard} />
           </Switch>
         </Container>
       </main>

@@ -8,7 +8,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import LossTab from "../containers/LossTab";
+import ProfitTab from "../containers/ProfitTab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,15 +54,16 @@ export default function MainPage() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <LossTab
+            <ProfitTab
             // rank={chatData}
             // dayChatData={dayChatData}
             // weekChatData={weekChatData}
             // monthChatData={monthChatData}
             // yearChatData={yearChatData}
             />
-            <div>손절기록 관리화면</div>
+            <div></div>
             <br />
+            익절 장부
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>

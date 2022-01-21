@@ -122,7 +122,6 @@ export default function ScrollableTabsButtonAuto({
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="N잡 랭킹 " {...a11yProps(0)} />
           <Tab label="일별 " {...a11yProps(1)} />
           <Tab label="주별 " {...a11yProps(2)} />
           <Tab label="월별 " {...a11yProps(3)} />
@@ -130,26 +129,22 @@ export default function ScrollableTabsButtonAuto({
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Bar data={rank} options={options} height={300} />
+        <Bar data={data} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Bar data={dayChatData} options={options} height={300} />
+        <Bar data={data} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Bar data={weekChatData} options={options} height={300} />
+        <Bar data={data} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <Bar data={monthChatData} options={options} height={300} />
+        <Bar data={data} options={options} height={300} />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <Bar data={yearChatData} options={options} height={300} />
+        <Bar data={data} options={options} height={300} />
       </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
+      <TabPanel value={value} index={5}></TabPanel>
+      <TabPanel value={value} index={6}></TabPanel>
     </div>
   );
 }

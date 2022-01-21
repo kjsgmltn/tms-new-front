@@ -7,6 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import TradingTab from "../containers/TradingTab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,9 +40,6 @@ export default function Orders() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ textAlign: "left" }}>종합 매매기록 현황판</div>
-            <br />
-            <br />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>
                 총 투자금액:
@@ -66,7 +64,50 @@ export default function Orders() {
             </div>
           </Paper>
           <Paper className={classes.paper}>
-            Progress(매매 진행중)
+            <br />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div className={classes.box}>
+                암호화폐 매매 빈도수
+                <br />
+                주:
+                <br />
+                월:
+                <br />
+                년:
+                <br />
+                대기 포지션:
+              </div>
+              <div className={classes.box}>
+                주식 매매 빈도수
+                <br />
+                주:
+                <br />
+                월:
+                <br />
+                년:
+                <br />
+                대기 포지션:
+              </div>
+              <div className={classes.box}>
+                NFT 매매 빈도수
+                <br />
+                주:
+                <br />
+                월:
+                <br />
+                년:
+                <br />
+                대기 포지션:
+              </div>
+            </div>
+            <TradingTab
+            // rank={chatData}
+            // dayChatData={dayChatData}
+            // weekChatData={weekChatData}
+            // monthChatData={monthChatData}
+            // yearChatData={yearChatData}
+            />
+            (매매 진행중)
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -92,14 +133,25 @@ export default function Orders() {
               </TableBody>
             </Table>
           </Paper>
+          <Paper className={classes.paper}></Paper>
           <Paper className={classes.paper}>
-            Closed (매매 종료)
-            <br />
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>암호화폐 매매 기록</div>
-              <div className={classes.box}>주식 매매 기록</div>
-              <div className={classes.box}>NFT 매매 기록</div>
-            </div>
+            (대기 포지션)
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center">대기 시작일</TableCell>
+                  <TableCell align="center">대기 종료일</TableCell>
+                  <TableCell align="center">대기 유지기간</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell align="center">dfdf</TableCell>
+                  <TableCell align="center">dfdf</TableCell>
+                  <TableCell align="center">dd</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </Paper>
         </Grid>
       </Grid>

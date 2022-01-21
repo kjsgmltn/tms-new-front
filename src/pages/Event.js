@@ -34,13 +34,10 @@ export default function Event() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ textAlign: "center" }}>
-              이벤트/세상이슈/트렌드 그리고 내생각{" "}
-            </div>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
+            이벤트/세상이슈/트렌드 그리고 내생각
+            <br />
+            <br />
+            <br />
             (1)네이버 금융:
             <Link href={"https://finance.naver.com/"}>
               https://finance.naver.com/
