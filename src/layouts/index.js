@@ -56,11 +56,11 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "종합 장부",
+            title: "매매 종합",
             href: "/TradingDashBoard",
           },
           {
-            title: "손절 장부",
+            title: "리스크 관리",
             href: "/LossDashBoard",
           },
           {
@@ -69,6 +69,11 @@ const navConfig = [
           },
           {
             title: "관찰 일지",
+            href: "/",
+          },
+
+          {
+            title: "자가 점검",
             href: "/",
           },
         ],

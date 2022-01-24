@@ -40,7 +40,7 @@ export default function MainPage() {
   const [article, setArticle] = useState([]);
   const getTrading = async () => {
     await tradingRepository
-      .getPay({
+      .getSellTradingData({
         menuKey: "test",
         ivName: "huisu",
       })

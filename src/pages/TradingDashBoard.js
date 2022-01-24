@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TradingTab from "../containers/TradingTab";
-
+import { tradingRepository } from "../repositories";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -34,6 +34,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Orders() {
   const classes = useStyles();
+
+  useEffect(() => {
+    const init = async () => {
+      await getTrading();
+    };
+    setTimeout(() => {
+      init();
+    });
+  }, []);
+
+  // 트레이딩 정보
+  const [article, setArticle] = useState([]);
+  const getTrading = async () => {
+    await tradingRepository
+      .getBuyTradingData({
+        menuKey: "test",
+        ivName: "huisu",
+      })
+      .then((result) => {
+        setArticle(result);
+      });
+  };
 
   return (
     <div className={classes.root}>
@@ -111,25 +133,50 @@ export default function Orders() {
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">국가</TableCell>
                   <TableCell align="center">종류</TableCell>
+                  <TableCell align="center">국가</TableCell>
                   <TableCell align="center">종목명</TableCell>
                   <TableCell align="center">진입일</TableCell>
-                  <TableCell align="center">경과기간</TableCell>
-                  <TableCell align="center">매수금액/총금액</TableCell>
-                  <TableCell align="center">비중</TableCell>
+                  <TableCell align="center">경과일</TableCell>
+                  <TableCell align="center">매매 시즌/매매 시간대</TableCell>
+                  <TableCell align="center">진입금액/총금액</TableCell>
+                  <TableCell align="center">포지션 종류</TableCell>
+                  <TableCell align="center">매수,매도 근거</TableCell>
+                  <TableCell align="center">리스크 관리</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow>
-                  <TableCell align="center">dfdf</TableCell>
-                  <TableCell align="center">dfdf</TableCell>
-                  <TableCell align="center">dd</TableCell>
-                  <TableCell align="center">xxx</TableCell>
-                  <TableCell align="center">nnn</TableCell>
-                  <TableCell align="center">nnn</TableCell>
-                  <TableCell align="center">nnn</TableCell>
-                </TableRow>
+                {article.map((item, index) => {
+                  const labelId = `enhanced-table-${index}`;
+                  return (
+                    <TableRow hover key={item.id}>
+                      <TableCell
+                        align="center"
+                        id={labelId}
+                        className={classes.bodyCell}
+                      ></TableCell>
+                      <TableCell align="center" className={classes.bodyCell}>
+                        {item.d_code}
+                      </TableCell>
+                      <TableCell align="center" className={classes.bodyCell}>
+                        {item.iv_name}
+                      </TableCell>
+                      <TableCell align="center" className={classes.bodyCell}>
+                        {item.all_price}
+                      </TableCell>
+                      <TableCell align="center" className={classes.bodyCell}>
+                        {item.buy_grounds}
+                      </TableCell>
+                      <TableCell
+                        align="center"
+                        className={classes.bodyCell}
+                      ></TableCell>
+                      <TableCell align="center" className={classes.bodyCell}>
+                        {item.final_price}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </Paper>

@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainPage() {
   const classes = useStyles();
-
   useEffect(() => {
     const init = async () => {
       await getTrading();
@@ -40,7 +39,7 @@ export default function MainPage() {
   const [article, setArticle] = useState([]);
   const getTrading = async () => {
     await tradingRepository
-      .getPay({
+      .getSellTradingData({
         menuKey: "test",
         ivName: "huisu",
       })
@@ -48,7 +47,6 @@ export default function MainPage() {
         setArticle(result);
       });
   };
-
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>

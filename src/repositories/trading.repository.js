@@ -5,13 +5,25 @@ class tradingRepository {
   STATIC_URL = "/migoNoticeArticle";
 
   /**
-   * 종합 매매현황
+   * 매수
    * @param id
    * @param params
    * @returns {Promise<*>}
    */
-  getPay(params) {
+  getBuyTradingData(params) {
     let url = new URL(constants.API_BASE_URL + "/trading/getBuyTradingData");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
+
+  /**
+   * 매도
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getSellTradingData(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getSellTradingData");
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
