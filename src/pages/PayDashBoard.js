@@ -4,7 +4,8 @@ import TabPanel from "../containers/TabPanel";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { bnsRepository } from "../repositories";
-
+import { useQuery } from "react-query";
+import axios from "axios";
 function preventDefault(event) {
   event.preventDefault();
 }
@@ -32,27 +33,9 @@ const useStyles = makeStyles((theme) => ({
 export default function CenteredGrid() {
   const classes = useStyles();
 
-  useEffect(() => {
-    const init = async () => {
-      await getPay();
-    };
-    setTimeout(() => {
-      init();
-    });
-  }, []);
-
-  // 트레이딩 정보
-  const [article, setArticle] = useState([]);
-  const getPay = async () => {
-    await bnsRepository
-      .getPay({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setArticle(result);
-      });
-  };
+  const { isLoading, error, data, isFetching } = useQuery("fetchLuke", () =>
+    fetch("http://localhost:8080/bns/getBnsRowData").then((res) => res.json())
+  );
 
   useEffect(() => {
     const init = async () => {
@@ -238,7 +221,8 @@ export default function CenteredGrid() {
               <div className={classes.box}>
                 <div>
                   총 누적 순수입 :<br />
-                  {article.final_price - article.loss_final_price} 원
+                  {data ? data.final_price + data.loss_final_price : ""}
+                  원
                   <br />
                   <br />
                   <br />
@@ -246,43 +230,58 @@ export default function CenteredGrid() {
               </div>
               <div className={classes.box}>
                 이번주 순이익:
-                {article.w_final_price + article.loss_w_final_price}원
+                {data ? data.w_final_price + data.loss_w_final_price : ""}
+                원
                 <br />
                 이번달 순이익:
-                {article.m_final_price + article.loss_m_final_price}원
+                {data ? data.m_final_price + data.loss_m_final_price : ""}
+                원
                 <br />
-                올해 순이익:{article.y_final_price + article.loss_y_final_price}
+                올해 순이익:
+                {data ? data.y_final_price + data.loss_y_final_price : ""}
                 원
                 <br />
               </div>
               =
               <div className={classes.box}>
-                이번주 이익:{article.w_final_price} 원
+                이번주 이익:
+                {data ? data.w_final_price : ""}원
                 <br />
-                이번달 이익:{article.m_final_price} 원
+                이번달 이익:
+                {data ? data.m_final_price : ""}원
                 <br />
-                올해 이익: {article.y_final_price} 원
+                올해 이익:
+                {data ? data.y_final_price : ""}
+                원
                 <br />
               </div>
               +
               <div className={classes.box}>
-                이번주 손실:{article.loss_w_final_price} 원
+                이번주 손실:
+                {data ? data.loss_w_final_price : ""}
+                원
                 <br />
-                이번달 손실:{article.loss_m_final_price} 원
+                이번달 손실:
+                {data ? data.loss_m_final_price : ""}
+                원
                 <br />
-                올해 손실:{article.loss_y_final_price} 원
+                올해 손실: {data ? data.loss_y_final_price : ""}원
                 <br />
               </div>
             </div>
           </Paper>
           <Paper className={classes.paper}>
-            <TabPanel
-              rank={chatData}
-              dayChatData={dayChatData}
-              weekChatData={weekChatData}
-              monthChatData={monthChatData}
-              yearChatData={yearChatData}
-            />
+            {isLoading ? (
+              "Updating..."
+            ) : (
+              <TabPanel
+                rank={chatData}
+                dayChatData={dayChatData}
+                weekChatData={weekChatData}
+                monthChatData={monthChatData}
+                yearChatData={yearChatData}
+              />
+            )}
             <br />
             <br />
           </Paper>

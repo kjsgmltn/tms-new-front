@@ -87,48 +87,13 @@ export default function Orders() {
           </Paper>
           <Paper className={classes.paper}>
             <br />
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>
-                암호화폐 매매 빈도수
-                <br />
-                주:
-                <br />
-                월:
-                <br />
-                년:
-                <br />
-                대기 포지션:
-              </div>
-              <div className={classes.box}>
-                주식 매매 빈도수
-                <br />
-                주:
-                <br />
-                월:
-                <br />
-                년:
-                <br />
-                대기 포지션:
-              </div>
-              <div className={classes.box}>
-                NFT 매매 빈도수
-                <br />
-                주:
-                <br />
-                월:
-                <br />
-                년:
-                <br />
-                대기 포지션:
-              </div>
-            </div>
-            <TradingTab
+            {/* <TradingTab
             // rank={chatData}
             // dayChatData={dayChatData}
             // weekChatData={weekChatData}
             // monthChatData={monthChatData}
             // yearChatData={yearChatData}
-            />
+            /> */}
             (매매 진행중)
             <Table className={classes.table} aria-label="simple table">
               <TableHead>

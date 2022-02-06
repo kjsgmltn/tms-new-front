@@ -1,6 +1,6 @@
 import { constants } from "../commons";
 import { apiHelper } from "../helpers";
-
+import { useQuery } from "react-query";
 class bnsRepository {
   STATIC_URL = "/migoNoticeArticle";
 
