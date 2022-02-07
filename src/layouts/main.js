@@ -22,14 +22,18 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 //import Chart from './Chart';
 
 import TradingDashBoard from "../pages/TradingDashBoard";
+import ShotTradingDashBoard from "../pages/ShortTradingDashBoard";
 import Event from "../pages/Event";
-import ChartPatten from "../pages/ChartPatten";
-import MainContent from "../pages/MainContent";
+// import ChartPatten from "../pages/ChartPatten";
+
 import TimeManage from "../pages/TimeManage";
 import CodeManage from "../pages/CodeManage";
 import LossDashBoard from "../pages/LossDashBoard";
 import PayDashBoard from "../pages/PayDashBoard";
 import ProfitDashBoard from "../pages/ProfitDashBoard";
+import ObserveBoard from "../pages/ObserveBoard ";
+import SelfCheck from "../pages/SelfCheck";
+import PayForm from "../pages/PayForm";
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
 import NavBar from "./index";
@@ -222,12 +226,18 @@ export default function Dashboard() {
             <Route path="/PayDashBoard" component={PayDashBoard} />
             <Route path="/TradingDashBoard" component={TradingDashBoard} />
             <Route path="/Event" component={Event} />
-            <Route path="/ChartPatten" component={ChartPatten} />
+            {/* <Route path="/ChartPatten" component={ChartPatten} /> */}
             <Route path="/TimeManage" component={TimeManage} />
             <Route path="/LossDashBoard" component={LossDashBoard} />
             <Route path="/CodeManage" component={CodeManage} />
-            <Route path="/CodeManage" component={CodeManage} />
             <Route path="/ProfitDashBoard" component={ProfitDashBoard} />
+            <Route path="/ObserveBoard" component={ObserveBoard} />
+            <Route path="/SelfCheck" component={SelfCheck} />
+            <Route path="/PayForm" component={PayForm} />
+            <Route
+              path="/ShortTradingDashBoard"
+              component={ShotTradingDashBoard}
+            />
           </Switch>
         </Container>
       </main>

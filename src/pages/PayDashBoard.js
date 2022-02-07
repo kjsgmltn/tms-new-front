@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     width: 200,
-    height: 90,
+    height: 120,
     padding: 8,
     margin: 5,
     border: 5,
@@ -295,8 +295,18 @@ export default function CenteredGrid() {
                 }}
               >
                 activity
-                <div className={classes.box}>비트코인</div>
-                <div className={classes.box}>한국주식</div>
+                <div className={classes.box}>
+                  가상화폐 <br />
+                  <br />
+                  순수익: 1000원 <br />
+                  이익: 50원 <br /> 손실: -50원
+                </div>
+                <div className={classes.box}>
+                  한국주식 <br />
+                  <br />
+                  순수익: 1000원 <br />
+                  이익: 50원 <br /> 손실: -50원
+                </div>
                 <div className={classes.box}>미국주식</div>
               </div>
 

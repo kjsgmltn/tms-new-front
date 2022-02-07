@@ -76,25 +76,12 @@ export default function Orders() {
                 <br />
                 대기 비중:
               </div>
-              <div className={classes.box}>
-                유지 기간
-                <br />
-                현재 비율의 수익률
-                <br />
-                리밸런싱 유지기간
-              </div>
+              <div className={classes.box}>현재 비율의 수익률</div>
             </div>
           </Paper>
           <Paper className={classes.paper}>
             <br />
-            {/* <TradingTab
-            // rank={chatData}
-            // dayChatData={dayChatData}
-            // weekChatData={weekChatData}
-            // monthChatData={monthChatData}
-            // yearChatData={yearChatData}
-            /> */}
-            (매매 진행중)
+            (장기 진행중)
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -139,6 +126,18 @@ export default function Orders() {
                       <TableCell align="center" className={classes.bodyCell}>
                         {item.final_price}
                       </TableCell>
+                      <TableCell
+                        align="center"
+                        className={classes.bodyCell}
+                      ></TableCell>
+                      <TableCell
+                        align="center"
+                        className={classes.bodyCell}
+                      ></TableCell>
+                      <TableCell
+                        align="center"
+                        className={classes.bodyCell}
+                      ></TableCell>
                     </TableRow>
                   );
                 })}
@@ -147,7 +146,7 @@ export default function Orders() {
           </Paper>
           <Paper className={classes.paper}></Paper>
           <Paper className={classes.paper}>
-            (대기 포지션)
+            (장기 마지막 매매일 )
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>

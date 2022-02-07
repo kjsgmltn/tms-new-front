@@ -27,7 +27,7 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "메인",
+        title: "중요 일정",
         icon: PieChartIcon,
         href: "/Test",
       },
@@ -41,8 +41,12 @@ const navConfig = [
         icon: UsersIcon,
         items: [
           {
-            title: "N 수입/지출 현황판",
+            title: "N 수입/지출 현황",
             href: "/PayDashBoard",
+          },
+          {
+            title: "N 수입/지출 입력",
+            href: "/PayForm",
           },
         ],
       },
@@ -56,8 +60,12 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "매매 종합",
+            title: "장기투자 종합",
             href: "/TradingDashBoard",
+          },
+          {
+            title: "단기투자 종합",
+            href: "/ShortTradingDashBoard",
           },
           {
             title: "리스크 관리",
@@ -69,12 +77,12 @@ const navConfig = [
           },
           {
             title: "관찰 일지",
-            href: "/",
+            href: "/ObserveBoard",
           },
 
           {
             title: "자가 점검",
-            href: "/",
+            href: "/SelfCheck",
           },
         ],
       },
