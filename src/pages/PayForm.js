@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { tradingRepository } from "../repositories";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import LossTab from "../containers/LossTab";
-
+import NativeSelect from "@material-ui/core/NativeSelect";
+import TextField from "@material-ui/core/TextField";
+import { bnsRepository } from "../repositories";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -25,17 +21,48 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BoardNew({
-  changeInput,
-  inputData,
-  onSaveButtonClick,
-  resetForm,
-}) {
+export default function BoardNew({ changeInput }) {
   const classes = useStyles();
+  const [replyArticle, setReplyArticle] = useState({});
 
+  // const [state, setState] = React.useState({
+  //   age: "",
+  //   name: "hai",
+  // });
+
+  //객체 셋팅
+  // const handleChange = async (event) => {
+  //   let name = event.target.name;
+  //   let value = event.target.value;
+
+  //   setReplyArticle((prev) => {
+  //     return {
+  //       ...prev,
+  //       [name]: value,
+  //     };
+  //   });
+  // };
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    setReplyArticle({
+      ...replyArticle,
+      [name]: event.target.value,
+    });
+  };
+
+  //저장하기
+  const saveProfit = () => {
+    bnsRepository
+      .saveProfit({
+        ...replyArticle,
+      })
+      .then(() => {});
+  };
+  //저장버튼 눌렀을때
   const saveBtnClick = (e) => {
-    onSaveButtonClick(inputData);
-    resetForm();
+    console.log(replyArticle);
+    saveProfit();
   };
 
   const {
@@ -43,57 +70,66 @@ export default function BoardNew({
     register,
     formState: { errors },
   } = useForm();
-  console.log(errors);
+
   return (
     <div>
       <form onSubmit={handleSubmit(saveBtnClick)}>
         <div>
           코드 종류 :{" "}
-          <input
-            type="text"
-            {...register("boardTitle", { required: true })}
-            onChange={changeInput}
-          />
-          {errors.boardTitle && "제목을 입력해주세요"}
+          <FormControl className={classes.formControl}>
+            <NativeSelect
+              value={replyArticle.d_code}
+              onChange={handleChange}
+              name="d_code"
+              className={classes.selectEmpty}
+              inputProps={{ "aria-label": "d_code" }}
+            >
+              <option value="">None</option>
+              <option value={10}>Ten</option>
+              <option value={20}>Twenty</option>
+              <option value={30}>Thirty</option>
+            </NativeSelect>
+          </FormControl>
         </div>
         <div>
           실현금액 :{" "}
-          <input
-            type="text"
-            name="boardContent"
-            {...register("boardContent", { required: true, minLength: 5 })}
-            onChange={changeInput}
+          <TextField
+            name="final_price"
+            onChange={handleChange}
+            {...register("final_price", { required: true })}
           />
-          {(errors.boardContent &&
-            errors.boardContent.type == "required" &&
-            "내용을 입력해주세요") ||
-            "최소 5글자 입력해주세요"}
+          {errors.final_price &&
+            errors.final_price.type == "required" &&
+            "내용을 입력해주세요 "}
         </div>
-        <div>
+        {/* <div>
           실현 기준일 :{" "}
           <input
-            type="text"
-            name="boardContent"
-            {...register("boardContent", { required: true, minLength: 5 })}
-            onChange={changeInput}
+            type="datetime-local"
+            name="final_date"
+            {...register("final_date", { required: true })}
+            onChange={handleChange}
           />
-          {(errors.boardContent &&
-            errors.boardContent.type == "required" &&
-            "내용을 입력해주세요") ||
-            "최소 5글자 입력해주세요"}
-        </div>
+          {errors.final_date &&
+            errors.final_date.type == "required" &&
+            "내용을 입력해주세요"}
+        </div> */}
         <div>
           수익 손실 구분 :{" "}
-          <input
-            type="text"
-            name="boardContent"
-            {...register("boardContent", { required: true, minLength: 5 })}
-            onChange={changeInput}
-          />
-          {(errors.boardContent &&
-            errors.boardContent.type == "required" &&
-            "내용을 입력해주세요") ||
-            "최소 5글자 입력해주세요"}
+          <FormControl className={classes.formControl}>
+            <NativeSelect
+              value={replyArticle.iv_name}
+              onChange={handleChange}
+              name="iv_name"
+              className={classes.selectEmpty}
+              inputProps={{ "aria-label": "iv_name" }}
+            >
+              <option value="">None</option>
+              <option value={10}>Ten</option>
+              <option value={20}>Twenty</option>
+              <option value={30}>Thirty</option>
+            </NativeSelect>
+          </FormControl>
         </div>
         <input type="hidden" name="boardId" onChange={changeInput} />
         <button type="submit">저장</button>

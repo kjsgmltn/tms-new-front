@@ -77,6 +77,7 @@ export default function Orders() {
                 대기 비중:
               </div>
               <div className={classes.box}>현재 비율의 수익률</div>
+              <div className={classes.box}>마지막 매매 빈도수</div>
             </div>
           </Paper>
           <Paper className={classes.paper}>
@@ -146,13 +147,13 @@ export default function Orders() {
           </Paper>
           <Paper className={classes.paper}></Paper>
           <Paper className={classes.paper}>
-            (장기 마지막 매매일 )
+            (매매종료 )
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">대기 시작일</TableCell>
-                  <TableCell align="center">대기 종료일</TableCell>
-                  <TableCell align="center">대기 유지기간</TableCell>
+                  <TableCell align="center">....</TableCell>
+                  <TableCell align="center">....</TableCell>
+                  <TableCell align="center">....</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

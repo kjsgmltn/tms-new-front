@@ -74,6 +74,20 @@ class bnsRepository {
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
+
+  /**
+   * 수익 등록
+   * @param registerOfficeAdminRequest
+   * @returns {Promise<*>}
+   */
+  saveProfit(registerArticleRequest) {
+    let url = new URL(constants.API_BASE_URL + "/bns/saveBnsProfit");
+    return apiHelper.request({
+      url,
+      method: "POST",
+      body: JSON.stringify(registerArticleRequest),
+    });
+  }
 }
 
 export default new bnsRepository();

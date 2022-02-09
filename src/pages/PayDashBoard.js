@@ -3,19 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import TabPanel from "../containers/TabPanel";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { bnsRepository } from "../repositories";
 import { useQuery } from "react-query";
-import axios from "axios";
-function preventDefault(event) {
-  event.preventDefault();
-}
+import NativeSelect from "@material-ui/core/NativeSelect";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(10),
     //textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -37,183 +33,44 @@ export default function CenteredGrid() {
     fetch("http://localhost:8080/bns/getBnsRowData").then((res) => res.json())
   );
 
-  useEffect(() => {
-    const init = async () => {
-      await getRank();
-      await getBnsGroupDay();
-      await getBnsGroupWeek();
-      await getBnsGroupMonth();
-      await getBnsGroupYear();
-    };
-    setTimeout(() => {
-      init();
-    });
-  }, []);
-
-  // N잡 랭킹
-
-  const [chatData, setChartData] = useState({
-    labels: [],
-    datasets: [
-      {
-        borderWidth: 1, // 테두리 두께
-        data: [],
-        backgroundColor: ["yellow", "red", "green"], // 각 막대 색
-      },
-    ],
-  });
-
-  const [dayChatData, setDayChartData] = useState({
-    labels: [],
-    datasets: [
-      {
-        borderWidth: 1, // 테두리 두께
-        data: [],
-        backgroundColor: ["yellow", "red", "green"], // 각 막대 색
-      },
-    ],
-  });
-
-  const [weekChatData, setWeekChartData] = useState({
-    labels: [],
-    datasets: [
-      {
-        borderWidth: 1, // 테두리 두께
-        data: [],
-        backgroundColor: ["yellow", "red", "green"], // 각 막대 색
-      },
-    ],
-  });
-
-  const [monthChatData, setMonthChartData] = useState({
-    labels: [],
-    datasets: [
-      {
-        borderWidth: 1, // 테두리 두께
-        data: [],
-        backgroundColor: ["yellow", "red", "green"], // 각 막대 색
-      },
-    ],
-  });
-
-  const [yearChatData, setYearChartData] = useState({
-    labels: [],
-    datasets: [
-      {
-        borderWidth: 1, // 테두리 두께
-        data: [],
-        backgroundColor: ["yellow", "red", "green"], // 각 막대 색
-      },
-    ],
-  });
-  const getRank = async () => {
-    await bnsRepository
-      .getRank({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setChartData({
-          labels: result.map((item) => item.d_code),
-          datasets: [
-            {
-              ...chatData.datasets,
-              data: result.map((item) => item.final_price),
-            },
-          ],
-        });
-      });
-  };
-
-  const getBnsGroupDay = async () => {
-    await bnsRepository
-      .getBnsGroupDay({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setDayChartData({
-          labels: result.map((item) => item.final_date),
-          datasets: [
-            {
-              ...chatData.datasets,
-              data: result.map((item) => item.final_price),
-            },
-          ],
-        });
-      });
-  };
-
-  const getBnsGroupWeek = async () => {
-    await bnsRepository
-      .getBnsGroupWeek({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setWeekChartData({
-          labels: result.map((item) => item.final_week),
-          datasets: [
-            {
-              ...chatData.datasets,
-              data: result.map((item) => item.final_price),
-            },
-          ],
-        });
-      });
-  };
-
-  const getBnsGroupMonth = async () => {
-    await bnsRepository
-      .getBnsGroupMonth({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setMonthChartData({
-          labels: result.map((item) => item.final_month),
-          datasets: [
-            {
-              ...chatData.datasets,
-              data: result.map((item) => item.final_price),
-            },
-          ],
-        });
-      });
-  };
-  const getBnsGroupYear = async () => {
-    await bnsRepository
-      .getBnsGroupYear({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setYearChartData({
-          labels: result.map((item) => item.final_year),
-          datasets: [
-            {
-              ...chatData.datasets,
-              data: result.map((item) => item.final_price),
-            },
-          ],
-        });
-      });
-  };
-
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ textAlign: "left" }}></div>
-            <br />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ textAlign: "left" }}>
-                *보고싶은 N잡 종목을 선택해주세요 :총수익금액
-                ,비트코인,한국주식,미국주식 <br />
-                *옵션을 선택해 주세요 : 순수익,이익,손실
+                * N잡 선택:
+                <NativeSelect
+                  value=""
+                  onChange=""
+                  name="age"
+                  className={classes.selectEmpty}
+                  inputProps={{ "aria-label": "age" }}
+                >
+                  <option value="">None</option>
+                  <option value={10}>Ten</option>
+                  <option value={20}>Twenty</option>
+                  <option value={30}>Thirty</option>
+                </NativeSelect>
+                {/* 총수익금액 ,비트코인,한국주식,미국주식 */}
                 <br />
-                *보고싶은 기간을 선택해 주세요 :
+                *옵션 선택:
+                <NativeSelect
+                  value=""
+                  onChange=""
+                  name="age"
+                  className={classes.selectEmpty}
+                  inputProps={{ "aria-label": "age" }}
+                >
+                  <option value="">None</option>
+                  <option value={10}>Ten</option>
+                  <option value={20}>Twenty</option>
+                  <option value={30}>Thirty</option>
+                </NativeSelect>
+                {/* 순수익,이익,손실 */}
+                <br />
+                *기간 선택 :
                 <br />
                 <br />
               </div>
@@ -269,78 +126,38 @@ export default function CenteredGrid() {
                 <br />
               </div>
             </div>
-          </Paper>
-          <Paper className={classes.paper}>
-            {isLoading ? (
-              "Updating..."
-            ) : (
-              <TabPanel
-                rank={chatData}
-                dayChatData={dayChatData}
-                weekChatData={weekChatData}
-                monthChatData={monthChatData}
-                yearChatData={yearChatData}
-              />
-            )}
+            <br />
+            <br />
+            <br />
+            <br />
+            {isLoading ? "Updating..." : <TabPanel />}
             <br />
             <br />
           </Paper>
+        </Grid>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div style={{ alignItems: "center", display: "flex" }}>
-              <div
-                style={{
-                  alignItems: "center",
-                  marginRight: 150,
-                  overflow: "scroll",
-                }}
-              >
-                activity
-                <div className={classes.box}>
-                  가상화폐 <br />
-                  <br />
-                  순수익: 1000원 <br />
-                  이익: 50원 <br /> 손실: -50원
-                </div>
-                <div className={classes.box}>
-                  한국주식 <br />
-                  <br />
-                  순수익: 1000원 <br />
-                  이익: 50원 <br /> 손실: -50원
-                </div>
-                <div className={classes.box}>미국주식</div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div className={classes.box}>
+                가상화폐 <br />
+                <br />
+                순수익: 1000원 <br />
+                이익: 50원 <br /> 손실: -50원
               </div>
+              <div className={classes.box}>한국주식</div>
+              <div className={classes.box}>미국주식</div>
+            </div>
 
-              <div
-                style={{
-                  alignItems: "center",
-                  marginRight: 150,
-                  overflow: "scroll",
-                }}
-              >
-                ready
-                <div className={classes.box}>NFT</div>
-                <div className={classes.box}>배달</div>
-                <div className={classes.box}>게임</div>
-              </div>
-              <br />
-              <div
-                style={{
-                  alignItems: "center",
-                  marginRight: 150,
-                  overflow: "scroll",
-                }}
-              >
-                studying
-                <div className={classes.box}>외주 개발</div>
-                <div className={classes.box}>교육</div>
-                <div className={classes.box}>영상편집</div>
-              </div>
-              <div style={{ alignItems: "center", overflow: "scroll" }}>
-                rest
-                <div className={classes.box}>외주 개발</div>
-                <div className={classes.box}>교육</div>
-                <div className={classes.box}>영상편집</div>
-              </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div className={classes.box}>NFT</div>
+              <div className={classes.box}>배달</div>
+              <div className={classes.box}>게임</div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div className={classes.box}>외주 개발</div>
+              <div className={classes.box}>교육</div>
+              <div className={classes.box}>영상편집</div>
             </div>
           </Paper>
         </Grid>
