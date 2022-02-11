@@ -88,6 +88,18 @@ class bnsRepository {
       body: JSON.stringify(registerArticleRequest),
     });
   }
+
+  /**
+   * 개별종목 조회
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getIvProfit(params) {
+    let url = new URL(constants.API_BASE_URL + "/bns/getIvProfit");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
 }
 
 export default new bnsRepository();

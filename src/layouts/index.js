@@ -60,6 +60,14 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
+            title: "시황 브리핑",
+            href: "/",
+          },
+          {
+            title: "관심투자 종목",
+            href: "/ObserveBoard",
+          },
+          {
             title: "장기투자 종합",
             href: "/TradingDashBoard",
           },
@@ -68,16 +76,16 @@ const navConfig = [
             href: "/ShortTradingDashBoard",
           },
           {
+            title: "거래소 연동",
+            href: "/",
+          },
+          {
             title: "리스크 관리",
             href: "/LossDashBoard",
           },
           {
             title: "익절 장부",
             href: "/ProfitDashBoard",
-          },
-          {
-            title: "관찰 일지",
-            href: "/ObserveBoard",
           },
 
           {
