@@ -47,6 +47,33 @@ const pageWrap = css`
   position: relative;
 `;
 
+const container = css`
+  height: auto;
+  padding: 10px 50px;
+  display: flex;
+`;
+
+const wrap = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+`;
+
+const title = css`
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+const sub = css`
+  color: #333333;
+  display: flex;
+
+  & + & {
+    margin-top: 5px;
+  }
+`;
 export default function Table({
   data = [],
   detailNo,
@@ -90,9 +117,9 @@ export default function Table({
                 <tr
                   key={row.idx}
                   css={[tbodyTr, detailNo === row.idx && tbodyDetail]}
-                  onClick={() =>
-                    handleDetail(detailNo === row.idx ? null : row.idx)
-                  }
+                  // onClick={() =>
+                  //   handleDetail(detailNo === row.idx ? null : row.idx)
+                  // }
                 >
                   {header.map((h) => (
                     <td key={h.idx} width={h.width}>
@@ -100,13 +127,13 @@ export default function Table({
                     </td>
                   ))}
                 </tr>
-                {detailNo === row.idx && (
+                {/* {detailNo === row.idx && (
                   <tr css={tbodyTr}>
                     <td colSpan={header.length}>
                       <Detail idx={row.idx} />
                     </td>
                   </tr>
-                )}
+                )} */}
               </>
             ))
           )}

@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 export default function BoardNew({ changeInput }) {
   const classes = useStyles();
   const [replyArticle, setReplyArticle] = useState({});
+  const [name, setName] = useState("");
 
   // const [state, setState] = React.useState({
   //   age: "",
@@ -45,9 +46,18 @@ export default function BoardNew({ changeInput }) {
 
   const handleChange = (event) => {
     const name = event.target.name;
+
     setReplyArticle({
       ...replyArticle,
       [name]: event.target.value,
+    });
+  };
+  const handleChange_2 = (e) => {
+    const name = e.target.name;
+
+    setReplyArticle({
+      ...replyArticle,
+      [name]: e.target.value,
     });
   };
 
@@ -84,23 +94,34 @@ export default function BoardNew({ changeInput }) {
               className={classes.selectEmpty}
               inputProps={{ "aria-label": "d_code" }}
             >
-              <option value="">None</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
+              <option value="">선택해주세요</option>
+              <option value="k-stock">k-stock</option>
+              <option value="bit-coin">bit-coin</option>
+              <option value="game">game</option>
             </NativeSelect>
           </FormControl>
         </div>
         <div>
           실현금액 :{" "}
-          <TextField
-            name="final_price"
-            onChange={handleChange}
-            {...register("final_price", { required: true })}
-          />
-          {errors.final_price &&
-            errors.final_price.type == "required" &&
-            "내용을 입력해주세요 "}
+          <FormControl className={classes.formControl}>
+            <TextField
+              value={replyArticle.final_price}
+              //onChange={(e) => handleChange(e.target.name, e.target.value)}
+              onChange={handleChange_2}
+              // onChange={(event) => {
+              //   const { eventCount, target, text } = event.nativeEvent;
+              //   alert("zzzzz");
+              //   setName(text);
+              // }}
+              name="final_price"
+              // className={classes.selectEmpty}
+              // inputProps={{ "aria-label": "final_price" }}
+              // {...register("final_price", { required: true })}
+            />
+            {errors.final_price &&
+              errors.final_price.type == "required" &&
+              "내용을 입력해주세요 "}
+          </FormControl>
         </div>
         {/* <div>
           실현 기준일 :{" "}
@@ -124,10 +145,9 @@ export default function BoardNew({ changeInput }) {
               className={classes.selectEmpty}
               inputProps={{ "aria-label": "iv_name" }}
             >
-              <option value="">None</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
+              <option value="">선택해주세요</option>
+              <option value={10}>수익</option>
+              <option value={20}>손실</option>
             </NativeSelect>
           </FormControl>
         </div>

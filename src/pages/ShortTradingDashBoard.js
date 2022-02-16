@@ -64,45 +64,16 @@ export default function Orders() {
           <Paper className={classes.paper}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>
-                총 투자금액:
+                상황 관찰 브리핑
                 <br />
               </div>
-              <div className={classes.box}>
-                기타 자산 비중:
-                <br />
-                매수 비중:
-                <br />
-                매도 비중:
-                <br />
-                대기 기간:
-              </div>
-              <div className={classes.box}>단기투자 수익률</div>
-              <div className={classes.box}>마지막 매매 빈도수</div>
             </div>
           </Paper>
           <Paper className={classes.paper}>
             <br />
           </Paper>
 
-          <Paper className={classes.paper}>
-            (매매 종료 )
-            <Table className={classes.table} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">...</TableCell>
-                  <TableCell align="center">...</TableCell>
-                  <TableCell align="center">...</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell align="center">dfdf</TableCell>
-                  <TableCell align="center">dfdf</TableCell>
-                  <TableCell align="center">dd</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
       </Grid>
     </div>

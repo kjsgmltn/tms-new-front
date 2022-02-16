@@ -37,6 +37,7 @@ export default function CenteredGrid() {
 
   const payQuery = useQuery(["pay-profit"], () => bnsRepository.getPay());
   const payData = payQuery.isLoading ? [] : payQuery.data;
+
   // 하단 개별종목 조회
   const ivQuery = useQuery(["iv-profit"], () => bnsRepository.getIvProfit());
   const ivData = ivQuery.isLoading ? [] : ivQuery.data;
@@ -76,6 +77,9 @@ export default function CenteredGrid() {
       clearInterval(timer);
     };
   }, []);
+  function priceFormet(priceFormat) {
+    return priceFormat.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
   function weekNumberByMonth(dateFormat) {
     const inputDate = new Date(dateFormat);
@@ -190,7 +194,9 @@ export default function CenteredGrid() {
                 <div>
                   누적 순수입 :<br />
                   {payData
-                    ? payData.final_price + payData.loss_final_price
+                    ? priceFormet(
+                        payData.final_price + payData.loss_final_price
+                      )
                     : ""}
                   원
                   <br />
@@ -201,19 +207,25 @@ export default function CenteredGrid() {
               <div className={classes.box}>
                 {weekNo}주차 순이익:
                 {payData
-                  ? payData.w_final_price + payData.loss_w_final_price
+                  ? priceFormet(
+                      payData.w_final_price + payData.loss_w_final_price
+                    )
                   : ""}
                 원
                 <br />
                 {time.format("MM")} 월 순이익:
                 {payData
-                  ? payData.m_final_price + payData.loss_m_final_price
+                  ? priceFormet(
+                      payData.m_final_price + payData.loss_m_final_price
+                    )
                   : ""}
                 원
                 <br />
                 {time.format("YYYY")} 년 순이익:
                 {payData
-                  ? payData.y_final_price + payData.loss_y_final_price
+                  ? priceFormet(
+                      payData.y_final_price + payData.loss_y_final_price
+                    )
                   : ""}
                 원
                 <br />
@@ -221,28 +233,28 @@ export default function CenteredGrid() {
               =
               <div className={classes.box}>
                 {weekNo}주차 이익:
-                {payData ? payData.w_final_price : ""}원
+                {payData ? priceFormet(payData.w_final_price + 0) : ""}원
                 <br />
                 {time.format("MM")} 월 이익:
-                {payData ? payData.m_final_price : ""}원
+                {payData ? priceFormet(payData.m_final_price + 0) : ""}원
                 <br />
                 {time.format("YYYY")} 년 이익:
-                {payData ? payData.y_final_price : ""}
+                {payData ? priceFormet(payData.y_final_price + 0) : ""}
                 원
                 <br />
               </div>
               +
               <div className={classes.box}>
                 {weekNo}주차 손실:
-                {payData ? payData.loss_w_final_price : ""}
+                {payData ? priceFormet(payData.loss_w_final_price + 0) : ""}
                 원
                 <br />
                 {time.format("MM")} 월 손실:
-                {payData ? payData.loss_m_final_price : ""}
+                {payData ? priceFormet(payData.loss_m_final_price + 0) : ""}
                 원
                 <br />
-                {time.format("YYYY")} 년 손실:{" "}
-                {payData ? payData.loss_y_final_price : ""}원
+                {time.format("YYYY")} 년 손실:
+                {payData ? priceFormet(payData.loss_y_final_price + 0) : ""}원
                 <br />
               </div>
             </div>
@@ -261,13 +273,12 @@ export default function CenteredGrid() {
               <div className={classes.box}>
                 가상화폐 <br />
                 <br />
-                순수익: {bitCoin.final_price ? bitCoin.final_price : ""}원{" "}
-                <br />
+                순수익: {bitCoin ? bitCoin.final_price : ""}원 <br />
               </div>
               <div className={classes.box}>
                 한국주식 <br />
                 <br />
-                순수익: {kStock.final_price ? kStock.final_price : ""}원 <br />
+                순수익: {kStock ? kStock.final_price : ""}원 <br />
               </div>
               <div className={classes.box}>미국주식</div>
             </div>
@@ -279,7 +290,7 @@ export default function CenteredGrid() {
                 게임
                 <br />
                 <br />
-                순수익: {game.final_price ? game.final_price : ""}원 <br />
+                순수익: {game ? game.final_price : ""}원 <br />
               </div>
             </div>
 

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 //import Table from "@material-ui/core/Table";
+import { css } from "@emotion/react";
 import Table from "../component/Table";
-
+import Button from "../component/Button";
+import SelectBox from "../component/SelectBox";
+import dayjs from "dayjs";
 import MtTable from "@material-ui/core/TableBody";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -16,7 +19,7 @@ import queryString from "query-string";
 // 테이블 정보
 import MAIN_TABLE from "./tableInfo";
 import { useQuery } from "react-query";
-
+import { Bar, Doughnut } from "react-chartjs-2";
 import {
   fetchList,
   genderList,
@@ -24,6 +27,26 @@ import {
   ethnicityList,
   chartStats,
 } from "../api";
+
+const container = css`
+  width: 100vw;
+  height: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+`;
+
+const contents = css`
+  width: 1200px;
+  margin-top: 50px;
+  height: 100%;
+`;
+
+const rowSelect = css`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,21 +67,23 @@ const useStyles = makeStyles((theme) => ({
     margin: 14,
     border: 12,
     border: "1px solid #BDBDBD",
-    fontSize: 10,
+    fontSize: 15,
   },
 }));
 
 export default function Orders() {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  function priceFormet(priceFormat) {
+    return priceFormat.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  const tradingDashQuery = useQuery(["trading-dash"], () =>
+    tradingRepository.getTradingDashData()
+  );
+  const tradingDashData = tradingDashQuery.isLoading
+    ? []
+    : tradingDashQuery.data;
 
-  useEffect(() => {
-    const init = async () => {
-      await getTrading();
-    };
-    setTimeout(() => {
-      init();
-    });
-  }, []);
   const location = useLocation();
   const queryParamsInit = queryString.parse(location.search);
 
@@ -136,17 +161,51 @@ export default function Orders() {
     { keepPreviousData: true }
   );
 
+  const data = listQuery.isLoading
+    ? []
+    : listQuery.data.list.map((item, i) => ({
+        key: i,
+        ...item,
+        idx: item.personID,
+        birthDatetime: dayjs(item.birthDatetime).format("YYYY-MM-DD"),
+        isDeath: item.isDeath ? "Y" : "N",
+      }));
+
   // 트레이딩 정보
   const [article, setArticle] = useState([]);
-  const getTrading = async () => {
-    await tradingRepository
-      .getBuyTradingData({
-        menuKey: "test",
-        ivName: "huisu",
-      })
-      .then((result) => {
-        setArticle(result);
-      });
+  const [totalLength, setTotalLength] = useState();
+  const [tradingPage, setTradingPage] = useState();
+
+  const ChartData = {
+    // 각 막대별 라벨
+    labels: ["가상화폐", "한국주식", "미국주식", "금", "채권", "CMA-현금"],
+    datasets: [
+      {
+        borderWidth: 1, // 테두리 두께
+        data: [1, 2, 3, 3, 2, 1], // 수치
+        backgroundColor: ["yellow", "red", "green"], // 각 막대 색
+      },
+    ],
+  };
+
+  const options = {
+    legend: {
+      display: false, // label 보이기 여부
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            min: 0, // y축 스케일에 대한 최소값 설정
+            stepSize: 1, // y축 그리드 한 칸당 수치
+          },
+        },
+      ],
+    },
+
+    // false : 사용자 정의 크기에 따라 그래프 크기가 결정됨.
+    // true : 크기가 알아서 결정됨.
+    maintainAspectRatio: false,
   };
 
   return (
@@ -155,34 +214,82 @@ export default function Orders() {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>
-                총 투자금액:
-                <br />
+              <div style={{ alignItems: "center" }}>
+                <div className={classes.box}>
+                  총 투자금액:{" "}
+                  {tradingDashData
+                    ? priceFormet(tradingDashData.total_price + 0)
+                    : ""}
+                  &nbsp;&nbsp;원
+                  <br />
+                </div>
+                <div className={classes.box}>
+                  {" "}
+                  장기 투자 유지기간:
+                  <br />
+                  스윙 투자 유지기간:
+                  <br />
+                  단기 투자 유지기간:
+                </div>
               </div>
-              <div className={classes.box}>
-                기타 자산 비중:
-                <br />
-                매수 비중:
-                <br />
-                매도 비중:
-                <br />
-                대기 비중:
+              <div style={{ alignItems: "center" }}>
+                <div className={classes.box}>
+                  장기 투자 배분:0%
+                  <br />
+                  스윙 투자 배분:100%
+                  <br />
+                  단기 투자 배분:0%
+                </div>
+                <div className={classes.box}>
+                  상방선택 빈도수:
+                  <br />
+                  하방선택 빈도수:
+                  <br />
+                  현금선택 빈도수:
+                </div>
               </div>
-              <div className={classes.box}>현재 비율의 수익률</div>
-              <div className={classes.box}>마지막 매매 빈도수</div>
+              <div style={{ alignItems: "center" }}>
+                ..................................................................................
+              </div>
+              <div style={{ alignItems: "center" }}>
+                <Doughnut data={ChartData} options={options} height={300} />
+              </div>
             </div>
           </Paper>
           <Paper className={classes.paper}>
             <br />
-            (장기 진행중)
+
+            {/* 페이지당 Row 개수*/}
+            <div css={rowSelect}>
+              {/* <Button
+                label="검색필터"
+                width="135px"
+                height="42px"
+                border="solid 1px #dddddd"
+                borderRadius="5px "
+                handleClick={() => setOpen(!open)}
+              /> */}
+              <SelectBox
+                value={pageRow}
+                setValue={setPageRow}
+                opt={[
+                  { label: "5개씩", value: 5 },
+                  { label: "10개씩", value: 10 },
+                  { label: "15개씩", value: 15 },
+                  { label: "20개씩", value: 20 },
+                  { label: "25개씩", value: 25 },
+                  { label: "30개씩", value: 30 },
+                ]}
+              />
+            </div>
             <Table
-              data={article}
+              data={data}
               header={MAIN_TABLE}
               page={page}
               setPage={setPage}
               align={align}
               orderBy={orderBy}
-              totalCount={listQuery.isLoading ? 1 : 100}
+              totalCount={listQuery.isLoading ? 1 : listQuery.data.totalLength}
             />
           </Paper>
           <Paper className={classes.paper}></Paper>

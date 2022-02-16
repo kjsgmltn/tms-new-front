@@ -27,6 +27,18 @@ class tradingRepository {
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
+
+  /**
+   * 트레이딩 현황
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getTradingDashData(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getTradingDashData");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
 }
 
 export default new tradingRepository();

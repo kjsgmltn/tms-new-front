@@ -60,37 +60,33 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "시황 브리핑",
-            href: "/",
+            title: "전체 조사/분석",
+            href: "/SelfCheck",
           },
           {
-            title: "관심투자 종목",
+            title: "개별 상황/관찰 ",
             href: "/ObserveBoard",
           },
           {
-            title: "장기투자 종합",
-            href: "/TradingDashBoard",
-          },
-          {
-            title: "단기투자 종합",
+            title: "상황/관찰 입력",
             href: "/ShortTradingDashBoard",
           },
+          {
+            title: "트레이딩 종합",
+            href: "/TradingDashBoard",
+          },
+
           {
             title: "거래소 연동",
             href: "/",
           },
           {
-            title: "리스크 관리",
+            title: "위험 관리",
             href: "/LossDashBoard",
           },
           {
-            title: "익절 장부",
+            title: "익절 관리",
             href: "/ProfitDashBoard",
-          },
-
-          {
-            title: "자가 점검",
-            href: "/SelfCheck",
           },
         ],
       },
@@ -103,14 +99,14 @@ const navConfig = [
         title: "매매기법 연구",
         icon: SystemUpdateAltIcon,
         items: [
-          {
-            title: "타인 의견/실패 참고",
-            href: "/qna",
-          },
-          {
-            title: "이벤트/트렌드 조사",
-            href: "/Event",
-          },
+          // {
+          //   title: "타인 의견/실패 참고",
+          //   href: "/qna",
+          // },
+          // {
+          //   title: "이벤트/트렌드 조사",
+          //   href: "/Event",
+          // },
           {
             title: "모투/기법 검증",
             href: "/policy",

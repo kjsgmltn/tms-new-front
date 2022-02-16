@@ -33,26 +33,26 @@ const sub = css`
 `;
 
 export default function Detail({ idx }) {
-  const detailQuery = useQuery(["detail", idx], () => patientDetail(idx), {
-    keepPreviousData: false,
-  });
+  // const detailQuery = useQuery(["detail", idx], () => patientDetail(idx), {
+  //   keepPreviousData: false,
+  // });
 
-  if (detailQuery.isLoading) {
-    return <Loading type="detail" />;
-  }
+  // if (detailQuery.isLoading) {
+  //   return <Loading type="detail" />;
+  // }
 
   return (
     <div css={container}>
       <div css={wrap}>
-        <div css={title}>Condition List</div>
-        {detailQuery.data.conditionList.map((d) => (
+        {/* <div css={title}>Condition List</div> */}
+        {/* {detailQuery.data.conditionList.map((d) => (
           <div key={d} css={sub}>
             {d}
           </div>
-        ))}
+        ))} */}
       </div>
       <div css={wrap}>
-        <div css={title}>Visit Count : {detailQuery.data.visitCount}</div>
+        {/* <div css={title}>Visit Count : {detailQuery.data.visitCount}</div> */}
       </div>
     </div>
   );

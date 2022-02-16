@@ -61,6 +61,8 @@ export default function MainPage() {
             />
             <div>손절기록 관리화면</div>
             <br />
+            가망없는 종목을 계획적 으로 손절하고 얼마만큼 손절했는지,어느
+            종목에서 복구 할지 전략 그리고 복구에 성공했는지
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
