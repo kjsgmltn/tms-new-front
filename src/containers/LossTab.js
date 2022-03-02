@@ -34,23 +34,11 @@ const options = {
 };
 const data = {
   // 각 막대별 라벨
-  labels: [
-    "비트코인",
-    "한국주식",
-    "미국주식",
-    "NFT",
-    "배달",
-    "게임",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ],
+  labels: ["1", "2", "3"],
   datasets: [
     {
       borderWidth: 1, // 테두리 두께
-      data: [1, 2, 3, 3, 2, 1, 10, 100, 50, 40], // 수치
+      data: [1, 2, 3], // 수치
       backgroundColor: ["yellow", "red", "green"], // 각 막대 색
     },
   ],
@@ -122,10 +110,10 @@ export default function ScrollableTabsButtonAuto({
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="일별 " {...a11yProps(1)} />
-          <Tab label="주별 " {...a11yProps(2)} />
-          <Tab label="월별 " {...a11yProps(3)} />
-          <Tab label="년별 " {...a11yProps(4)} />
+          <Tab label="일봉 " {...a11yProps(1)} />
+          <Tab label="주봉 " {...a11yProps(2)} />
+          <Tab label="월봉 " {...a11yProps(3)} />
+          <Tab label="년봉 " {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>

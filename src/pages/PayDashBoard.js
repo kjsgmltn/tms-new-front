@@ -165,13 +165,13 @@ export default function CenteredGrid() {
                   inputProps={{ "aria-label": "age" }}
                 >
                   <option value="">종합</option>
-                  <option value={10}>Ten</option>
-                  <option value={20}>Twenty</option>
-                  <option value={30}>Thirty</option>
+                  <option value={10}>가상화폐</option>
+                  <option value={20}>한국주식</option>
+                  <option value={30}>미국주식</option>
                 </NativeSelect>
                 {/* 총수익금액 ,비트코인,한국주식,미국주식 */}
                 <br />
-                *옵션 선택:
+                *범위 선택:
                 <NativeSelect
                   value=""
                   onChange=""
@@ -179,11 +179,13 @@ export default function CenteredGrid() {
                   className={classes.selectEmpty}
                   inputProps={{ "aria-label": "age" }}
                 >
-                  <option value="">종합</option>
-                  <option value={10}>Ten</option>
-                  <option value={20}>Twenty</option>
-                  <option value={30}>Thirty</option>
+                  <option value={10}>10단위</option>
+                  <option value={20}>30단위</option>
+                  <option value={30}>180단위</option>
+                  <option value={30}>280단위</option>
                 </NativeSelect>
+                <br />
+                <button type="submit">조회</button>
                 {/* 순수익,이익,손실 */}
                 <br />
                 <br />
@@ -213,7 +215,7 @@ export default function CenteredGrid() {
                   : ""}
                 원
                 <br />
-                {time.format("MM")} 월 순이익:
+                {time.format("MM")}월 순이익:
                 {payData
                   ? priceFormet(
                       payData.m_final_price + payData.loss_m_final_price
@@ -221,7 +223,7 @@ export default function CenteredGrid() {
                   : ""}
                 원
                 <br />
-                {time.format("YYYY")} 년 순이익:
+                {time.format("YYYY")}년 순이익:
                 {payData
                   ? priceFormet(
                       payData.y_final_price + payData.loss_y_final_price
@@ -235,10 +237,10 @@ export default function CenteredGrid() {
                 {weekNo}주차 이익:
                 {payData ? priceFormet(payData.w_final_price + 0) : ""}원
                 <br />
-                {time.format("MM")} 월 이익:
+                {time.format("MM")}월 이익:
                 {payData ? priceFormet(payData.m_final_price + 0) : ""}원
                 <br />
-                {time.format("YYYY")} 년 이익:
+                {time.format("YYYY")}년 이익:
                 {payData ? priceFormet(payData.y_final_price + 0) : ""}
                 원
                 <br />
@@ -249,11 +251,11 @@ export default function CenteredGrid() {
                 {payData ? priceFormet(payData.loss_w_final_price + 0) : ""}
                 원
                 <br />
-                {time.format("MM")} 월 손실:
+                {time.format("MM")}월 손실:
                 {payData ? priceFormet(payData.loss_m_final_price + 0) : ""}
                 원
                 <br />
-                {time.format("YYYY")} 년 손실:
+                {time.format("YYYY")}년 손실:
                 {payData ? priceFormet(payData.loss_y_final_price + 0) : ""}원
                 <br />
               </div>
@@ -269,6 +271,7 @@ export default function CenteredGrid() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
+            (주간 캘린더 도입 고민중)
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>
                 가상화폐 <br />
@@ -282,7 +285,6 @@ export default function CenteredGrid() {
               </div>
               <div className={classes.box}>미국주식</div>
             </div>
-
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>NFT</div>
               <div className={classes.box}>배달</div>
@@ -293,7 +295,6 @@ export default function CenteredGrid() {
                 순수익: {game ? game.final_price : ""}원 <br />
               </div>
             </div>
-
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className={classes.box}>외주 개발</div>
               <div className={classes.box}>교육</div>

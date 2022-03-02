@@ -39,6 +39,18 @@ class tradingRepository {
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
+
+  /**
+   * 자산배분 조회
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getAssets(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getAssets");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
 }
 
 export default new tradingRepository();

@@ -54,6 +54,9 @@ export default function MainPage() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
+            (익절금액)
+            <br />
+            <br />
             <ProfitTab
             // rank={chatData}
             // dayChatData={dayChatData}
@@ -63,7 +66,7 @@ export default function MainPage() {
             />
             <div></div>
             <br />
-            익절 장부
+            (익절관리중 리스트)
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -112,6 +115,9 @@ export default function MainPage() {
                 })}
               </TableBody>
             </Table>
+            <br />
+            <br />
+            익절성공여부 종료
           </Paper>
         </Grid>
       </Grid>

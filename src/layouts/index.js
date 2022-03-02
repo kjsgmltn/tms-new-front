@@ -27,9 +27,20 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "중요 일정",
+        title: "통합 캘린더",
         icon: PieChartIcon,
-        href: "/Test",
+        href: "/TimeManage",
+      },
+
+      {
+        title: "투자 캘린더",
+        icon: PieChartIcon,
+        href: "",
+      },
+      {
+        title: "입력",
+        icon: PieChartIcon,
+        href: "/",
       },
     ],
   },
@@ -60,17 +71,17 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "전체 조사/분석",
-            href: "/SelfCheck",
+            title: "전체 시장/분석",
+            href: "/MarketCheck",
           },
           {
-            title: "개별 상황/관찰 ",
+            title: "개별 종목/관찰 ",
             href: "/ObserveBoard",
           },
-          {
-            title: "상황/관찰 입력",
-            href: "/ShortTradingDashBoard",
-          },
+          // {
+          //   title: "상황/관찰 입력",
+          //   href: "/ShortTradingDashBoard",
+          // },
           {
             title: "트레이딩 종합",
             href: "/TradingDashBoard",
@@ -81,7 +92,7 @@ const navConfig = [
             href: "/",
           },
           {
-            title: "위험 관리",
+            title: "위험 관리(물림)",
             href: "/LossDashBoard",
           },
           {
@@ -123,7 +134,7 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "종합평가",
+        title: "종합평가(인문학)",
         icon: ClipboardIcon,
         items: [
           {

@@ -1,0 +1,91 @@
+import React, { useEffect, useState, useRef } from "react";
+
+const VirtualScroll = () => {
+  const useScroll = () => {
+    const [scrollTop, setScrollTop] = useState(0);
+    const ref = useRef();
+
+    const onScroll = (e) => {
+      requestAnimationFrame(() => {
+        setScrollTop(e.target.scrollTop);
+      });
+    };
+
+    useEffect(() => {
+      const scrollContainer = ref.current;
+      scrollContainer.addEventListener("scroll", onScroll);
+      setScrollTop(scrollContainer.scrollTop);
+      return () => {
+        scrollContainer.removeEventListener("scroll", onScroll);
+      };
+    }, []);
+
+    return [scrollTop, ref];
+  };
+
+  const Item = ({ index, height }) => (
+    <div
+      style={{
+        height,
+        backgroundColor: "#fafafa",
+      }}
+    >
+      Item {index}
+    </div>
+  );
+
+  const [scrollTop, ref] = useScroll();
+  const totalItemCount = 100000;
+  const itemHeight = 30;
+  const totalHeight = itemHeight * totalItemCount;
+  const containerHeight = 480;
+  const nodePadding = 5;
+
+  const startIndex = Math.max(
+    Math.floor(scrollTop / itemHeight) - nodePadding,
+    0
+  );
+  const visibleNodeCount = Math.floor(
+    containerHeight / itemHeight + 2 * nodePadding
+  );
+  const offsetY = startIndex * itemHeight;
+
+  const renderVisibleChildren = new Array(visibleNodeCount)
+    .fill(null)
+    .map((_, idx) => (
+      <Item
+        key={idx + startIndex}
+        index={idx + startIndex}
+        height={itemHeight}
+      />
+    ));
+
+  return (
+    <div
+      ref={ref}
+      id="viewport_container"
+      style={{
+        border: "1px solid black",
+        width: "200px",
+        margin: "auto",
+        height: containerHeight,
+        overflowY: "auto",
+      }}
+    >
+      <div
+        id="virtual_container"
+        style={{
+          height: totalHeight,
+          position: "relative",
+          width: "10%",
+        }}
+      >
+        <div style={{ transform: `translateY(${offsetY}px)` }}>
+          {renderVisibleChildren}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default VirtualScroll;

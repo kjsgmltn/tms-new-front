@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 //import Table from "@material-ui/core/Table";
 import { css } from "@emotion/react";
 import Table from "../component/Table";
+import MAIN_TABLE from "../component/tableInfo";
+//import MAIN_TABLE from "./tableInfo";
 import Button from "../component/Button";
 import SelectBox from "../component/SelectBox";
 import dayjs from "dayjs";
@@ -17,7 +19,6 @@ import { tradingRepository } from "../repositories";
 import { useLocation, useHistory } from "react-router";
 import queryString from "query-string";
 // 테이블 정보
-import MAIN_TABLE from "./tableInfo";
 import { useQuery } from "react-query";
 import { Bar, Doughnut } from "react-chartjs-2";
 import {
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     width: 350,
-    height: 100,
+    height: 120,
     padding: 8,
     margin: 14,
     border: 12,
@@ -109,6 +110,36 @@ export default function Orders() {
   // 오름차순 내림차순
   const [orderBy, setOrderBy] = useState(queryParamsInit.orderBy ?? null);
 
+  // 자산배분 조회
+  const ivAssetsQuery = useQuery(["ivAssets-profit"], () =>
+    tradingRepository.getAssets()
+  );
+  const ivAssetsData = ivAssetsQuery.isLoading ? [] : ivAssetsQuery.data;
+
+  //특정값이 몇번째 행에 있는지 찾기
+  function isBitCoin(element) {
+    if (element.d_code === "bit-coin") {
+      return true;
+    }
+  }
+
+  function isKstock(element) {
+    if (element.d_code === "k-stock") {
+      return true;
+    }
+  }
+
+  function isGame(element) {
+    if (element.d_code === "gold") {
+      return true;
+    }
+  }
+
+  const bitCoin = ivAssetsData.find(isBitCoin);
+  const kStock = ivAssetsData.find(isKstock);
+  const game = ivAssetsData.find(isGame);
+  console.log("확인중ㅋㅋㅋ");
+  console.log(bitCoin);
   // 환자 리스트
   const listQuery = useQuery(
     [
@@ -178,11 +209,18 @@ export default function Orders() {
 
   const ChartData = {
     // 각 막대별 라벨
-    labels: ["가상화폐", "한국주식", "미국주식", "금", "채권", "CMA-현금"],
+    labels: ["가상화폐", "한국주식", "미국주식"],
     datasets: [
       {
         borderWidth: 1, // 테두리 두께
-        data: [1, 2, 3, 3, 2, 1], // 수치
+        data: [
+          bitCoin ? bitCoin.total_price : "",
+          kStock ? kStock.total_price : "",
+          game ? game.total_price : "",
+          3,
+          2,
+          1,
+        ], // 수치
         backgroundColor: ["yellow", "red", "green"], // 각 막대 색
       },
     ],
@@ -192,16 +230,16 @@ export default function Orders() {
     legend: {
       display: false, // label 보이기 여부
     },
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            min: 0, // y축 스케일에 대한 최소값 설정
-            stepSize: 1, // y축 그리드 한 칸당 수치
-          },
-        },
-      ],
-    },
+    // scales: {
+    //   yAxes: [
+    //     {
+    //       ticks: {
+    //         min: 0, // y축 스케일에 대한 최소값 설정
+    //         stepSize: 1, // y축 그리드 한 칸당 수치
+    //       },
+    //     },
+    //   ],
+    // },
 
     // false : 사용자 정의 크기에 따라 그래프 크기가 결정됨.
     // true : 크기가 알아서 결정됨.
@@ -213,6 +251,7 @@ export default function Orders() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
+            (전체횟수/상방선택 횟수)
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ alignItems: "center" }}>
                 <div className={classes.box}>
@@ -224,29 +263,77 @@ export default function Orders() {
                   <br />
                 </div>
                 <div className={classes.box}>
-                  {" "}
-                  장기 투자 유지기간:
+                  {/* (주/월/분기/년별)
                   <br />
-                  스윙 투자 유지기간:
+                  상방선택 :
                   <br />
-                  단기 투자 유지기간:
+                  하방선택 :
+                  <br />
+                  현금선택 : */}
+                  <table>
+                    <tr>
+                      <td></td>
+                      <td>이번주</td>
+                      <td>이번달</td>
+                      <td>이번분기</td>
+                      <td>이번년</td>
+                    </tr>
+                    <tr>
+                      <td>상방선택</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>하방선택</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>현금선택</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
                 </div>
               </div>
               <div style={{ alignItems: "center" }}>
                 <div className={classes.box}>
-                  장기 투자 배분:0%
-                  <br />
-                  스윙 투자 배분:100%
-                  <br />
-                  단기 투자 배분:0%
+                  <table>
+                    <tr>
+                      <td></td>
+                      <td>이번주</td>
+                      <td>이번달</td>
+                      <td>이번분기</td>
+                      <td>이번년</td>
+                    </tr>
+                    <tr>
+                      <td>장기선택</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>스윙선택</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>단기선택</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
                 </div>
-                <div className={classes.box}>
-                  상방선택 빈도수:
-                  <br />
-                  하방선택 빈도수:
-                  <br />
-                  현금선택 빈도수:
-                </div>
+                <div className={classes.box}></div>
               </div>
               <div style={{ alignItems: "center" }}>
                 ..................................................................................

@@ -1,12 +1,16 @@
-import React from "react";
-import Link from "@material-ui/core/Link";
+import React, { useCallback, useRef } from "react";
+import { Calendar, Views, momentLocalizer } from "react-big-calendar";
+import events from "./events";
+
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import TabPanel from "../containers/TabPanel";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TimeTabPanel from "../containers/TimeTabPanel";
 
+//토스트 유아이 캘린더
+import TestCal from "./TestCal";
 function preventDefault(event) {
   event.preventDefault();
 }
@@ -14,9 +18,19 @@ function preventDefault(event) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    "& .rbc-time-header": {
+      // "& .rbc-time-header": {
+      // background: "red",
+      height: "100%",
+    },
+    "& .rbc-row-content": {
+      // background: "red",
+      height: "100%",
+    },
+    "& .rbc-time-content": { display: "none" },
   },
   paper: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(1),
     //textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -33,21 +47,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid() {
   const classes = useStyles();
-
+  moment.locale("ko-KR");
+  const localizer = momentLocalizer(moment);
+  let allViews = Object.keys(Views).map((k) => Views[k]);
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <TimeTabPanel />
-            <br />
-            <br />
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>작업대기</div>
-            </div>
-          </Paper>
-        </Grid>
-      </Grid>
-    </div>
+    <Grid item xs={12}>
+      <Paper className={classes.paper}>
+        <div className={classes.root}>
+          <h1>빅 캘린더 주간 달력 확인중</h1>
+          {/* <TestCal /> */}
+          {/* <Calendar
+            localizer={localizer}
+            style={{ height: 200 }}
+            defaultDate={new Date()}
+            step={60}
+            showMultiDayTimes
+          /> */}
+          {/* <TestCal /> */}
+          <Calendar
+            localizer={localizer}
+            views={allViews}
+            step={60}
+            events={events}
+            // events={myEventsList}
+            style={{ height: 860 }}
+          />
+        </div>
+      </Paper>
+    </Grid>
   );
 }

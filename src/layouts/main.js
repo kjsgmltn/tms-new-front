@@ -32,7 +32,7 @@ import LossDashBoard from "../pages/LossDashBoard";
 import PayDashBoard from "../pages/PayDashBoard";
 import ProfitDashBoard from "../pages/ProfitDashBoard";
 import ObserveBoard from "../pages/ObserveBoard ";
-import SelfCheck from "../pages/SelfCheck";
+import MarketCheck from "../pages/MarketCheck";
 import PayForm from "../pages/PayForm";
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
@@ -232,7 +232,7 @@ export default function Dashboard() {
             <Route path="/CodeManage" component={CodeManage} />
             <Route path="/ProfitDashBoard" component={ProfitDashBoard} />
             <Route path="/ObserveBoard" component={ObserveBoard} />
-            <Route path="/SelfCheck" component={SelfCheck} />
+            <Route path="/MarketCheck" component={MarketCheck} />
             <Route path="/PayForm" component={PayForm} />
             <Route
               path="/ShortTradingDashBoard"

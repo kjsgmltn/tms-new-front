@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import TextField from "@material-ui/core/TextField";
 import { bnsRepository } from "../repositories";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -80,7 +81,7 @@ export default function BoardNew({ changeInput }) {
     register,
     formState: { errors },
   } = useForm();
-
+  const selectedView = "month"; // default view  week month
   return (
     <div>
       <form onSubmit={handleSubmit(saveBtnClick)}>
