@@ -138,8 +138,7 @@ export default function Orders() {
   const bitCoin = ivAssetsData.find(isBitCoin);
   const kStock = ivAssetsData.find(isKstock);
   const game = ivAssetsData.find(isGame);
-  console.log("확인중ㅋㅋㅋ");
-  console.log(bitCoin);
+
   // 환자 리스트
   const listQuery = useQuery(
     [
@@ -304,6 +303,38 @@ export default function Orders() {
               <div style={{ alignItems: "center" }}>
                 <div className={classes.box}>
                   <table>
+                    <tr></tr>
+                    <tr>
+                      <td>주식</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>가상화폐</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>채권</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>금</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+                <div className={classes.box}>
+                  <table>
                     <tr>
                       <td></td>
                       <td>이번주</td>
@@ -333,7 +364,6 @@ export default function Orders() {
                     </tr>
                   </table>
                 </div>
-                <div className={classes.box}></div>
               </div>
               <div style={{ alignItems: "center" }}>
                 ..................................................................................
@@ -344,8 +374,207 @@ export default function Orders() {
             </div>
           </Paper>
           <Paper className={classes.paper}>
+            종목 레이팅
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">국내</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">HMM</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center">하림지주,하림,팬오션</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center">
+                      한국조선해양,현대미포조선,세진중공업
+                    </TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center">금호건설,대우건설</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">미국장</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">팔란티어,쿠팡,Zim</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center">테슬라</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">암호화폐</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">웨이브,비트코인</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+            </div>
             <br />
-
+            <br />
+            산업 레이팅
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">산업</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">해운,곡물,천연가스</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center">조선</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center">건설</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">뉴스</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">우크라이나 전쟁</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center">금리인상</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">트렌드</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">에너지 가격 인상</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center">전기차</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+            </div>
+            <br />
+            <br />
+            잘못된 트레이딩(위험관리,익절관리)
+            --------------------------------------------------------------------------
+            <br />
             {/* 페이지당 Row 개수*/}
             <div css={rowSelect}>
               {/* <Button
@@ -356,7 +585,7 @@ export default function Orders() {
                 borderRadius="5px "
                 handleClick={() => setOpen(!open)}
               /> */}
-              <SelectBox
+              {/* <SelectBox
                 value={pageRow}
                 setValue={setPageRow}
                 opt={[
@@ -367,9 +596,9 @@ export default function Orders() {
                   { label: "25개씩", value: 25 },
                   { label: "30개씩", value: 30 },
                 ]}
-              />
+              /> */}
             </div>
-            <Table
+            {/* <Table
               data={data}
               header={MAIN_TABLE}
               page={page}
@@ -377,27 +606,11 @@ export default function Orders() {
               align={align}
               orderBy={orderBy}
               totalCount={listQuery.isLoading ? 1 : listQuery.data.totalLength}
-            />
+            /> */}
           </Paper>
           <Paper className={classes.paper}></Paper>
           <Paper className={classes.paper}>
-            (장기 국내주식 매매종료 ) (장기 가상화폐 매매종료 )
-            <MtTable className={classes.table} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">....</TableCell>
-                  <TableCell align="center">....</TableCell>
-                  <TableCell align="center">....</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell align="center">dfdf</TableCell>
-                  <TableCell align="center">dfdf</TableCell>
-                  <TableCell align="center">dd</TableCell>
-                </TableRow>
-              </TableBody>
-            </MtTable>
+            {/* (장기 국내주식 매매종료 ) (장기 가상화폐 매매종료 ) */}
           </Paper>
         </Grid>
       </Grid>

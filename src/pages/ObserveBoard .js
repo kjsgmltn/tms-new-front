@@ -142,7 +142,7 @@ export default function MainPage() {
   //   ));
 
   return (
-    <div className={classes.root}>블로그 포스팅으로 대체</div>
+    <div className={classes.root}>나의 단점 / 나의 장점 </div>
     // <div className={classes.root}>
     //   <Grid container spacing={6}>
     //     <Grid item xs={12}>

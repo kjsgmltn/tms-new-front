@@ -271,32 +271,38 @@ export default function CenteredGrid() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            (주간 캘린더 도입 고민중)
+            (주간 정산 캘린더 디폴트 :월간,주간 정산 캘린더 도입 고민,창출
+            금액이 표시되어야 함 )
+            <br />
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>
-                가상화폐 <br />
-                <br />
-                순수익: {bitCoin ? bitCoin.final_price : ""}원 <br />
-              </div>
+              <div className={classes.box}>1등급</div>
               <div className={classes.box}>
                 한국주식 <br />
                 <br />
                 순수익: {kStock ? kStock.final_price : ""}원 <br />
               </div>
               <div className={classes.box}>미국주식</div>
+              <div className={classes.box}>
+                가상화폐 <br />
+                <br />
+                순수익: {bitCoin ? bitCoin.final_price : ""}원 <br />
+              </div>
             </div>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>NFT</div>
-              <div className={classes.box}>배달</div>
+              <div className={classes.box}>2등급</div>
               <div className={classes.box}>
                 게임
                 <br />
                 <br />
                 순수익: {game ? game.final_price : ""}원 <br />
               </div>
+              <div className={classes.box}>배달</div>
+              <div className={classes.box}>블로그</div>
+              <div className={classes.box}>외주 개발</div>
             </div>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className={classes.box}>외주 개발</div>
+              <div className={classes.box}>3등급</div>
+              <div className={classes.box}>NFT</div>
               <div className={classes.box}>교육</div>
               <div className={classes.box}>영상편집</div>
             </div>

@@ -51,6 +51,18 @@ class tradingRepository {
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
+
+  /**
+   * 거래소 연동 트레이딩 데이터 조회
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getAllUpbit(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getAllUpbit");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
 }
 
 export default new tradingRepository();

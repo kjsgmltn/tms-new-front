@@ -68,6 +68,13 @@ export default function MainPage() {
         http://www.paxnet.co.kr/newssise{" "}
       </Link>
       <br />
+      <br />
+      전체 시장/분석 <br />
+      개별 종목/관찰
+      <br />
+      ObserveBoard
+      <br />
+      블로그 api
     </div>
 
     // <div className={classes.root}>

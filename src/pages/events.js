@@ -119,13 +119,13 @@ export default [
   },
   {
     id: 14,
-    title: "Today",
+    title: "파워렛저",
     start: new Date(new Date().setHours(new Date().getHours() - 3)),
     end: new Date(new Date().setHours(new Date().getHours() + 3)),
   },
   {
     id: 15,
-    title: "Point in Time Event",
+    title: "샌드 박스",
     start: now,
     end: now,
   },

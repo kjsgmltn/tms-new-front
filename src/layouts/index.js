@@ -27,16 +27,16 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "통합 캘린더",
+        title: "가성비 평가",
         icon: PieChartIcon,
         href: "/TimeManage",
       },
 
-      {
-        title: "투자 캘린더",
-        icon: PieChartIcon,
-        href: "",
-      },
+      // {
+      //   title: "월간 투자 캘린더",
+      //   icon: PieChartIcon,
+      //   href: "",
+      // },
       {
         title: "입력",
         icon: PieChartIcon,
@@ -48,15 +48,15 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "N 수입/지출 관리",
+        title: "N 정산 관리",
         icon: UsersIcon,
         items: [
           {
-            title: "N 수입/지출 현황",
+            title: "N 정산 현황",
             href: "/PayDashBoard",
           },
           {
-            title: "N 수입/지출 입력",
+            title: "N 정산 입력",
             href: "/PayForm",
           },
         ],
@@ -71,34 +71,39 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "전체 시장/분석",
-            href: "/MarketCheck",
+            title: "자산시장 일정",
+            href: "/",
           },
-          {
-            title: "개별 종목/관찰 ",
-            href: "/ObserveBoard",
-          },
-          // {
-          //   title: "상황/관찰 입력",
-          //   href: "/ShortTradingDashBoard",
-          // },
           {
             title: "트레이딩 종합",
             href: "/TradingDashBoard",
           },
-
+          {
+            title: "트레이딩 정산",
+            href: "/",
+          },
           {
             title: "거래소 연동",
             href: "/MarketLinkage",
           },
-          {
-            title: "위험 관리(물림)",
-            href: "/LossDashBoard",
-          },
-          {
-            title: "익절 관리",
-            href: "/ProfitDashBoard",
-          },
+
+          // {
+          //   title: "개별 종목/관찰 ",
+          //   href: "/ObserveBoard",
+          // },
+          // {
+          //   title: "상황/관찰 입력",
+          //   href: "/ShortTradingDashBoard",
+          // },
+
+          // {
+          //   title: "위험 관리(물림)",
+          //   href: "/LossDashBoard",
+          // },
+          // {
+          //   title: "익절 관리",
+          //   href: "/ProfitDashBoard",
+          // },
         ],
       },
     ],
@@ -107,7 +112,7 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "매매기법 연구",
+        title: "시뮬레이션",
         icon: SystemUpdateAltIcon,
         items: [
           // {
@@ -119,34 +124,64 @@ const navConfig = [
           //   href: "/Event",
           // },
           {
-            title: "모투/기법 검증",
-            href: "/policy",
+            title: "블로그 연동",
+            href: "/MarketCheck",
+          },
+
+          {
+            title: "모의투자",
+            href: "/ShortTradingDashBoard",
           },
           {
-            title: "인사이트 분석  결과",
-            href: "/main",
+            title: "매매기법",
+            href: "/LossDashBoard",
           },
         ],
       },
     ],
   },
+
   {
     subheader: "",
     items: [
       {
-        title: "종합평가(인문학)",
+        title: "인사이트",
+        icon: SystemUpdateAltIcon,
+        items: [
+          // {
+          //   title: "타인 의견/실패 참고",
+          //   href: "/qna",
+          // },
+          // {
+          //   title: "이벤트/트렌드 조사",
+          //   href: "/Event",
+          // },
+          {
+            title: "인사이트 결과",
+            href: "/ObserveBoard",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    subheader: "",
+    items: [
+      {
+        title: "피지컬 관리",
         icon: ClipboardIcon,
         items: [
-          {
-            title: "매매평가",
-            href: "/notice",
-          },
+          // {
+          //   title: "매매평가",
+          //   href: "/notice",
+          // },
           {
             title: "자기관리",
             href: "/TimeManage",
           },
           {
-            title: "종합평가",
+            title: "자기관리 평가",
             href: "/main",
           },
         ],

@@ -265,7 +265,7 @@ export default function ScrollableTabsButtonAuto() {
         });
       });
   };
-
+  let calendarCount = 0;
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
