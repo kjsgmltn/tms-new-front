@@ -70,7 +70,7 @@ export default function CenteredGrid() {
             step={60}
             events={events}
             // events={myEventsList}
-            style={{ height: 860 }}
+            style={{ height: 260 }}
           />
         </div>
       </Paper>

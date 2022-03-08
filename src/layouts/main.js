@@ -34,6 +34,7 @@ import ProfitDashBoard from "../pages/ProfitDashBoard";
 import ObserveBoard from "../pages/ObserveBoard ";
 import MarketCheck from "../pages/MarketCheck";
 import PayForm from "../pages/PayForm";
+import MarketLinkage from "../pages/MarketLinkage";
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
 import NavBar from "./index";
@@ -220,7 +221,6 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-
         <Container maxWidth="lg" className={classes.container}>
           <Switch>
             <Route path="/PayDashBoard" component={PayDashBoard} />
@@ -234,6 +234,7 @@ export default function Dashboard() {
             <Route path="/ObserveBoard" component={ObserveBoard} />
             <Route path="/MarketCheck" component={MarketCheck} />
             <Route path="/PayForm" component={PayForm} />
+            <Route path="/MarketLinkage" component={MarketLinkage} />
             <Route
               path="/ShortTradingDashBoard"
               component={ShotTradingDashBoard}

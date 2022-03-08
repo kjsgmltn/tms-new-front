@@ -89,7 +89,7 @@ const navConfig = [
 
           {
             title: "거래소 연동",
-            href: "/",
+            href: "/MarketLinkage",
           },
           {
             title: "위험 관리(물림)",
