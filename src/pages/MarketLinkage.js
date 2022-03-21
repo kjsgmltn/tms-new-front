@@ -100,9 +100,101 @@ export default function MainPage() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            (외부 거래소 연동)
+            (가상화폐)
             <br />
             <br />
+            <table
+              style={{
+                width: "900px",
+                height: "100px",
+                // alignItems: "center",
+                border: "0.3px solid #BDBDBD",
+                borderCollapse: "collapse",
+              }}
+            >
+              <tr>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                ></td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  매매 휴식일
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  이득 종목 리스트
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  손실 종목 리스트
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td> </td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>월간</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>분기</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>년</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+            <br />
+            수익 종목 리스트/손실 종목 리스트
           </Paper>
         </Grid>
         <Grid item xs={12}>

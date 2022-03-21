@@ -260,15 +260,11 @@ export default function Orders() {
                     : ""}
                   &nbsp;&nbsp;원
                   <br />
+                  현금:
+                  <br />
+                  신용
                 </div>
                 <div className={classes.box}>
-                  {/* (주/월/분기/년별)
-                  <br />
-                  상방선택 :
-                  <br />
-                  하방선택 :
-                  <br />
-                  현금선택 : */}
                   <table>
                     <tr>
                       <td></td>
@@ -373,7 +369,75 @@ export default function Orders() {
               </div>
             </div>
           </Paper>
+
           <Paper className={classes.paper}>
+            <div
+              // className={classes.box}
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <table>
+                <tr>
+                  <td>최근 현금 유지기간</td>
+                </tr>
+                <tr>
+                  <td>0.5일 유지..</td>
+                </tr>
+              </table>
+              &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+              <table>
+                <tr>
+                  <td>국내증시</td>
+                  <td>종합</td>
+                  <td>1개월</td>
+                  <td>3개월</td>
+                  <td>6개월</td>
+                </tr>
+                <tr>
+                  <td>상태</td>
+                  <td>역금융</td>
+                  <td>하락</td>
+                  <td>횡보</td>
+                  <td>상승</td>
+                </tr>
+              </table>
+              &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+              <table>
+                <tr>
+                  <td>미국증시</td>
+                  <td>종합</td>
+                  <td>1개월</td>
+                  <td>3개월</td>
+                  <td>6개월</td>
+                </tr>
+                <tr>
+                  <td>상태</td>
+                  <td>역금융</td>
+                  <td>하락</td>
+                  <td>횡보</td>
+                  <td>상승</td>
+                </tr>
+              </table>
+              &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+              <table>
+                <tr>
+                  <td>암호화폐</td>
+                  <td>종합</td>
+                  <td>1개월</td>
+                  <td>3개월</td>
+                  <td>6개월</td>
+                </tr>
+                <tr>
+                  <td>상태</td>
+                  <td>역금융</td>
+                  <td>하락</td>
+                  <td>횡보</td>
+                  <td>상승</td>
+                </tr>
+              </table>
+            </div>
+            <br />
+            <br />
+            <br />
             종목 레이팅
             <div style={{ display: "flex", alignItems: "center" }}>
               <MtTable className={classes.table} aria-label="simple table">
@@ -387,12 +451,14 @@ export default function Orders() {
                 <TableBody>
                   <TableRow>
                     <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">HMM</TableCell>
+                    <TableCell align="center">
+                      HMM,하림지주,하림,팬오션,샘표,풀무원
+                    </TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">하림지주,하림,팬오션</TableCell>
+                    <TableCell align="center">한화에어로스페이스</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                   <TableRow>
@@ -425,7 +491,7 @@ export default function Orders() {
                   </TableRow>
                   <TableRow>
                     <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">테슬라</TableCell>
+                    <TableCell align="center"></TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                   <TableRow>
@@ -435,7 +501,7 @@ export default function Orders() {
                   </TableRow>
                   <TableRow>
                     <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center"></TableCell>
+                    <TableCell align="center">테슬라</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                 </TableBody>
@@ -492,17 +558,17 @@ export default function Orders() {
                   </TableRow>
                   <TableRow>
                     <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">조선</TableCell>
+                    <TableCell align="center">방산</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center">건설</TableCell>
+                    <TableCell align="center">조선</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center"></TableCell>
+                    <TableCell align="center">건설</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                 </TableBody>
@@ -560,6 +626,42 @@ export default function Orders() {
                   <TableRow>
                     <TableCell align="center">3등급</TableCell>
                     <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">4등급</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </MtTable>
+            </div>
+            <br />
+            <br />
+            위험,악재 키워드
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <MtTable className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">악재</TableCell>
+                    <TableCell align="center">....</TableCell>
+                    <TableCell align="center">....</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="center">1등급</TableCell>
+                    <TableCell align="center">러시아 디폴트</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">2등급</TableCell>
+                    <TableCell align="center">암호화폐 특근법</TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">3등급</TableCell>
+                    <TableCell align="center">긴축 속도</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                   <TableRow>

@@ -3,15 +3,6 @@ import { tradingRepository } from "../repositories";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import ObTable from "../component/ObTable";
-import MAIN_TABLE from "../component/ObtableInfo";
-import VirtualScroll from "../component/VirtualScroll";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import LossTab from "../containers/LossTab";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -142,62 +133,115 @@ export default function MainPage() {
   //   ));
 
   return (
-    <div className={classes.root}>나의 단점 / 나의 장점 </div>
-    // <div className={classes.root}>
-    //   <Grid container spacing={6}>
-    //     <Grid item xs={12}>
-    //       <Paper className={classes.paper}>퀵메뉴 : 전체 개별 관심종목</Paper>
-    //     </Grid>
-
-    //     <Grid item xs={3}>
-    //       <Paper className={classes.paper}>
-    //         종목 관찰기록(기본분석,차트분석,뉴스 이슈,레이팅)
-    //         <br />
-    //         <ObTable
-    //           // data={data}
-    //           header={MAIN_TABLE}
-    //           // page={page}
-    //           // setPage={setPage}
-    //           // align={align}
-    //           // orderBy={orderBy}
-    //           // totalCount={listQuery.isLoading ? 1 : listQuery.data.totalLength}
-    //         />
-    //         <div style={{ display: "flex", alignItems: "center" }}></div>
-    //       </Paper>
-    //     </Grid>
-
-    //     <Grid item xs={9}>
-    //       <Paper className={classes.paper}>
-    //         <div></div>
-    //         <br />
-    //         {/* <VirtualScroll /> */}
-
-    //         <div
-    //           ref={ref}
-    //           id="viewport_container"
-    //           style={{
-    //             border: "0.3px solid black",
-    //             width: "1100px",
-    //             margin: "auto",
-    //             height: containerHeight,
-    //             overflowY: "auto",
-    //           }}
-    //         >
-    //           <div
-    //             id="virtual_container"
-    //             style={{
-    //               height: totalHeight,
-    //               position: "relative",
-    //             }}
-    //           >
-    //             <div style={{ transform: `translateY(${offsetY}px)` }}>
-    //               {renderVisibleChildren}
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </Paper>
-    //     </Grid>
-    //   </Grid>
-    // </div>
+    <div className={classes.root}>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          투자 분석 보고서(주간보고서,월간 보고서,분기 보고서,년 보고서)
+          <br />
+          <br />
+          <br />
+          <table
+            style={{
+              width: "900px",
+              height: "100px",
+              // alignItems: "center",
+              border: "0.3px solid #BDBDBD",
+              borderCollapse: "collapse",
+            }}
+          >
+            <tr>
+              <td
+                style={{
+                  width: "30px",
+                  height: "50px",
+                  // alignItems: "center",
+                  border: "0.3px solid #BDBDBD",
+                  backgroundColor: "#EAEAEA",
+                }}
+              ></td>
+              <td
+                style={{
+                  width: "100px",
+                  height: "50px",
+                  // alignItems: "center",
+                  border: "0.3px solid #BDBDBD",
+                  backgroundColor: "#EAEAEA",
+                }}
+              >
+                보고서 본문내용
+              </td>
+            </tr>
+            <tr>
+              <td>주간</td>
+              <td>
+                {" "}
+                <br />
+                <br />
+                나의 장점 요즘은 적당히 빨간불 들어오면 익절하고 매도세가
+                강해지면 그때 다시 매수해야함 오래 포지션을 가져가는 장세가
+                아니다
+                <br />
+                불타기 할때도 기준이 없으니 충동결정 내리게 되는듯
+                <br />
+                최근에 수익 못내고 있는 원인을 스스로 뭐라고 생각하는지 :
+                <br />
+                <br />
+                <br />
+                아직도 코로나 초기 대상승장을 원하고 있다고 생각함
+                <br />
+                <br />
+                투자도 사업과 비슷함
+                <br />
+                상승전 마지막 발사대 만들때 올인하는거지 , 그 이외에는 올인
+                해서는 안된다
+              </td>
+            </tr>
+          </table>
+        </Paper>
+        <Paper className={classes.paper}>
+          <br />
+          <br />
+          <br />
+          <table
+            style={{
+              width: "900px",
+              height: "100px",
+              // alignItems: "center",
+              border: "0.3px solid #BDBDBD",
+              borderCollapse: "collapse",
+            }}
+          >
+            <tr>
+              <td
+                style={{
+                  width: "30px",
+                  height: "50px",
+                  // alignItems: "center",
+                  border: "0.3px solid #BDBDBD",
+                  backgroundColor: "#EAEAEA",
+                }}
+              ></td>
+              <td
+                style={{
+                  width: "100px",
+                  height: "50px",
+                  // alignItems: "center",
+                  border: "0.3px solid #BDBDBD",
+                  backgroundColor: "#EAEAEA",
+                }}
+              >
+                보고서 본문내용
+              </td>
+            </tr>
+            <tr>
+              <td>월간</td>
+              <td></td>
+            </tr>
+          </table>
+          <br />
+          <br />
+        </Paper>
+      </Grid>
+    </div>
   );
 }

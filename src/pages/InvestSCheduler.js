@@ -54,20 +54,7 @@ export default function CenteredGrid() {
     <Grid item xs={12}>
       <Paper className={classes.paper}>
         <div className={classes.root}>
-          <h1>가성비 평가</h1>
-          우선순위
-          <br />
-          <br />
-          <br />
-          1. 본업 그리고 기술 블로그
-          <br />
-          2.부업
-          <br />
-          3.투자 기술적 분석
-          <br />
-          4.투자 위험관리 도구 개발
-          <br />
-          5.투자 프로그램 개발
+          <h1>자산시장 일정</h1>
           {/* <TestCal /> */}
           {/* <Calendar
             localizer={localizer}
@@ -77,14 +64,14 @@ export default function CenteredGrid() {
             showMultiDayTimes
           /> */}
           {/* <TestCal /> */}
-          {/* <Calendar
+          <Calendar
             localizer={localizer}
             views={allViews}
             step={60}
             events={events}
             // events={myEventsList}
             style={{ height: 260 }}
-          /> */}
+          />
         </div>
       </Paper>
     </Grid>

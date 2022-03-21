@@ -192,72 +192,246 @@ export default function CenteredGrid() {
                 <br />
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div className={classes.box}>
-                <div>
-                  누적 순수입 :<br />
-                  {payData
-                    ? priceFormet(
-                        payData.final_price + payData.loss_final_price
-                      )
-                    : ""}
-                  원
-                  <br />
-                  <br />
-                  <br />
-                </div>
+              <div>
+                <table
+                  style={{
+                    width: "180px",
+                    height: "100px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    borderCollapse: "collapse",
+                  }}
+                >
+                  <tr>
+                    <td
+                      style={{
+                        width: "5px",
+                        height: "50px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      누적 순수입
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {payData
+                        ? priceFormet(
+                            payData.final_price + payData.loss_final_price
+                          )
+                        : ""}
+                      원
+                    </td>
+                  </tr>
+                </table>
               </div>
-              <div className={classes.box}>
-                {weekNo}주차 순이익:
-                {payData
-                  ? priceFormet(
-                      payData.w_final_price + payData.loss_w_final_price
-                    )
-                  : ""}
-                원
-                <br />
-                {time.format("MM")}월 순이익:
-                {payData
-                  ? priceFormet(
-                      payData.m_final_price + payData.loss_m_final_price
-                    )
-                  : ""}
-                원
-                <br />
-                {time.format("YYYY")}년 순이익:
-                {payData
-                  ? priceFormet(
-                      payData.y_final_price + payData.loss_y_final_price
-                    )
-                  : ""}
-                원
-                <br />
+              &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              <div>
+                <table
+                  style={{
+                    width: "180px",
+                    height: "100px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    borderCollapse: "collapse",
+                  }}
+                >
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {weekNo}주차 순이익:
+                    </td>
+                    <td>
+                      {payData
+                        ? priceFormet(
+                            payData.w_final_price + payData.loss_w_final_price
+                          )
+                        : ""}
+                      원
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {time.format("MM")}월 순이익:
+                    </td>
+                    <td>
+                      {payData
+                        ? priceFormet(
+                            payData.m_final_price + payData.loss_m_final_price
+                          )
+                        : ""}
+                      원
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{
+                        width: "25px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {time.format("YYYY")}년 순이익:
+                    </td>
+                    <td>
+                      {payData
+                        ? priceFormet(
+                            payData.y_final_price + payData.loss_y_final_price
+                          )
+                        : ""}
+                      원
+                    </td>
+                  </tr>
+                </table>
               </div>
               =
-              <div className={classes.box}>
-                {weekNo}주차 이익:
-                {payData ? priceFormet(payData.w_final_price + 0) : ""}원
-                <br />
-                {time.format("MM")}월 이익:
-                {payData ? priceFormet(payData.m_final_price + 0) : ""}원
-                <br />
-                {time.format("YYYY")}년 이익:
-                {payData ? priceFormet(payData.y_final_price + 0) : ""}
-                원
-                <br />
+              <div>
+                <table
+                  style={{
+                    width: "180px",
+                    height: "100px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    borderCollapse: "collapse",
+                  }}
+                >
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {weekNo}주차 이익:
+                    </td>
+                    <td>
+                      {payData ? priceFormet(payData.w_final_price + 0) : ""}원
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {time.format("MM")}월 이익:
+                    </td>
+                    <td>
+                      {payData ? priceFormet(payData.m_final_price + 0) : ""}원
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{
+                        width: "25px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {time.format("YYYY")}년 이익:
+                    </td>
+                    <td>
+                      {payData ? priceFormet(payData.y_final_price + 0) : ""}원
+                    </td>
+                  </tr>
+                </table>
               </div>
               +
-              <div className={classes.box}>
-                {weekNo}주차 손실:
-                {payData ? priceFormet(payData.loss_w_final_price + 0) : ""}
-                원
-                <br />
-                {time.format("MM")}월 손실:
-                {payData ? priceFormet(payData.loss_m_final_price + 0) : ""}
-                원
-                <br />
-                {time.format("YYYY")}년 손실:
-                {payData ? priceFormet(payData.loss_y_final_price + 0) : ""}원
-                <br />
+              <div>
+                <table
+                  style={{
+                    width: "180px",
+                    height: "100px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    borderCollapse: "collapse",
+                  }}
+                >
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {weekNo}주차 손실:
+                    </td>
+                    <td>
+                      {payData
+                        ? priceFormet(payData.loss_w_final_price + 0)
+                        : ""}
+                      원
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {time.format("MM")}월 손실:
+                    </td>
+                    <td>
+                      {payData
+                        ? priceFormet(payData.loss_m_final_price + 0)
+                        : ""}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{
+                        width: "25px",
+                        height: "20px",
+                        // alignItems: "center",
+                        border: "0.3px solid #BDBDBD",
+                        backgroundColor: "#EAEAEA",
+                      }}
+                    >
+                      {time.format("YYYY")}년 손실:
+                    </td>
+                    <td>
+                      {payData
+                        ? priceFormet(payData.loss_y_final_price + 0)
+                        : ""}
+                      원
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
             <br />

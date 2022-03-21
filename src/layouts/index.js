@@ -27,7 +27,7 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "가성비 평가",
+        title: "메인",
         icon: PieChartIcon,
         href: "/TimeManage",
       },
@@ -37,11 +37,6 @@ const navConfig = [
       //   icon: PieChartIcon,
       //   href: "",
       // },
-      {
-        title: "입력",
-        icon: PieChartIcon,
-        href: "/",
-      },
     ],
   },
   {
@@ -72,19 +67,31 @@ const navConfig = [
         items: [
           {
             title: "자산시장 일정",
-            href: "/",
+            href: "/InvestSCheduler",
           },
           {
             title: "트레이딩 종합",
             href: "/TradingDashBoard",
           },
           {
+            title: "레이팅 히스토리",
+            href: "/RatingHistoryDashBoard",
+          },
+          {
+            title: "레이팅 히스토리 입력",
+            href: "/",
+          },
+          {
             title: "트레이딩 정산",
             href: "/",
           },
           {
-            title: "거래소 연동",
+            title: "거래내역 통계",
             href: "/MarketLinkage",
+          },
+          {
+            title: "투자 형상관리",
+            href: "/",
           },
 
           // {
@@ -133,8 +140,12 @@ const navConfig = [
             href: "/ShortTradingDashBoard",
           },
           {
-            title: "매매기법",
+            title: "매매기술",
             href: "/LossDashBoard",
+          },
+          {
+            title: "위험분석 도구",
+            href: "/RiskDeviceBoard",
           },
         ],
       },
@@ -145,7 +156,7 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "인사이트",
+        title: "투자 인사이트",
         icon: SystemUpdateAltIcon,
         items: [
           // {
@@ -156,9 +167,10 @@ const navConfig = [
           //   title: "이벤트/트렌드 조사",
           //   href: "/Event",
           // },
+
           {
-            title: "인사이트 결과",
-            href: "/ObserveBoard",
+            title: "세상변화 맵",
+            href: "/",
           },
         ],
       },
@@ -180,9 +192,49 @@ const navConfig = [
             title: "자기관리",
             href: "/TimeManage",
           },
+        ],
+      },
+    ],
+  },
+  {
+    subheader: "",
+    items: [
+      {
+        title: "종합평가 보고서",
+        icon: ClipboardIcon,
+        items: [
+          // {
+          //   title: "매매평가",
+          //   href: "/notice",
+          // },
           {
-            title: "자기관리 평가",
-            href: "/main",
+            title: "달성목표/성과보고",
+            href: "/OutcomeBoard",
+          },
+          {
+            title: "투자 보고서",
+            href: "/ObserveBoard",
+          },
+
+          {
+            title: "시간소비/내인생",
+
+            href: "/",
+          },
+          {
+            title: "가성비 평가",
+
+            href: "/TimeManage",
+          },
+          // {
+          //   title: "월간 투자 캘린더",
+          //   icon: PieChartIcon,
+          //   href: "",
+          // },
+          {
+            title: "입력",
+
+            href: "/",
           },
         ],
       },
@@ -193,60 +245,79 @@ const navConfig = [
     items: [
       {
         title: "시스템설정",
-        icon: StatisticsIcon,
+        icon: ClipboardIcon,
         items: [
+          // {
+          //   title: "매매평가",
+          //   href: "/notice",
+          // },
           {
             title: "코드관리",
             href: "/CodeManage",
-            items: [
-              {
-                title: "",
-                href: "/statistics/user",
-              },
-              {
-                title: "",
-                href: "/statistics/vp",
-              },
-            ],
-          },
-          {
-            title: "",
-            href: "/notice",
-            items: [
-              {
-                title: "",
-                href: "/statistics/activity/content",
-              },
-              {
-                title: "",
-                href: "/statistics/activity/search",
-              },
-              {
-                title: "",
-                href: "/statistics/activity/vp-content",
-              },
-            ],
-          },
-          {
-            title: "",
-            href: "/statistics/user-distribution",
-          },
-          {
-            title: "",
-            href: "/statistics/user-cumulative",
-          },
-          {
-            title: "",
-            href: "/statistics/content-cumulative",
-          },
-          {
-            title: "",
-            href: "/statistics/connection",
           },
         ],
       },
     ],
   },
+  // {
+  //   subheader: "",
+  //   items: [
+  //     {
+  //       title: "시스템설정",
+  //       icon: StatisticsIcon,
+  //       items: [
+  //         {
+  //           title: "코드관리",
+  //           href: "/CodeManage",
+  //           items: [
+  //             {
+  //               title: "코드 관리설정",
+  //               href: "/CodeManage",
+  //             },
+  //             {
+  //               title: "",
+  //               href: "/statistics/vp",
+  //             },
+  //           ],
+  //         },
+  //         {
+  //           title: "",
+  //           href: "/notice",
+  //           items: [
+  //             {
+  //               title: "",
+  //               href: "/statistics/activity/content",
+  //             },
+  //             {
+  //               title: "",
+  //               href: "/statistics/activity/search",
+  //             },
+  //             {
+  //               title: "",
+  //               href: "/statistics/activity/vp-content",
+  //             },
+  //           ],
+  //         },
+  //         {
+  //           title: "",
+  //           href: "/statistics/user-distribution",
+  //         },
+  //         {
+  //           title: "",
+  //           href: "/statistics/user-cumulative",
+  //         },
+  //         {
+  //           title: "",
+  //           href: "/statistics/content-cumulative",
+  //         },
+  //         {
+  //           title: "",
+  //           href: "/statistics/connection",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 function renderNavItems({ items, ...rest }) {

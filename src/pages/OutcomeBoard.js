@@ -52,11 +52,43 @@ export default function MainPage() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            *매매기법 현황 통계(평가와 주간 자가점검 할때 여기에 내용들이 맵핑
-            되어야 함 )
+            종합 성과(주,월,년 이 지날때마다 얼마만큼 나아지고 있는지 보고싶다)
+            <br />
+            <br />
+            섹터 정리
+            <br />
+            <br />
+            느낀점: 골고루 노력 하니까 일반적인 다른사람들보다 나은 성과를
+            못내는듯 하다
+            <br />
+            <br />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <span>
+                *본업 부분 : 1가지
+                <br /> *부업 부분 : 3가지 <br />
+                *투자 부분 : 2가지
+              </span>
+              &nbsp;&nbsp;&nbsp;
+              <span>
+                *절약부분 : 4가지
+                <br />
+                *매력관리 부분 :3가지
+                <br />
+                *운동 부분:
+              </span>
+              &nbsp;&nbsp;&nbsp;
+              <span>
+                *자기계발 부분:2가지
+                <br />
+                *개인생활시간속 삶의질 향상 부분:2가지
+                <br />
+                *기타 등등:
+              </span>
+            </div>
             <br />
             <br />
             <br />
+            2022년 목표 진행중
             <table
               style={{
                 width: "900px",
@@ -76,8 +108,7 @@ export default function MainPage() {
                     backgroundColor: "#EAEAEA",
                   }}
                 >
-                  {" "}
-                  투자 지혜/격언 창고
+                  주간 성과목표
                 </td>
                 <td
                   style={{
@@ -88,7 +119,7 @@ export default function MainPage() {
                     backgroundColor: "#EAEAEA",
                   }}
                 >
-                  실제 매매 기법 창고
+                  월간 성과목표
                 </td>
                 <td
                   style={{
@@ -98,7 +129,9 @@ export default function MainPage() {
                     border: "0.3px solid #BDBDBD",
                     backgroundColor: "#EAEAEA",
                   }}
-                ></td>
+                >
+                  분기 성과목표
+                </td>
                 <td
                   style={{
                     width: "100px",
@@ -107,25 +140,27 @@ export default function MainPage() {
                     border: "0.3px solid #BDBDBD",
                     backgroundColor: "#EAEAEA",
                   }}
-                ></td>
-              </tr>
-              <tr>
-                <td>3개</td>
-                <td>2개</td>
-                <td></td>
-                <td></td>
+                >
+                  년간 성과목표
+                </td>
               </tr>
               <tr>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>주3회 도시락 챙기기</td>
+                <td>수공예 배우기</td>
+                <td>투자관리 프로그램 완성</td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
+                <td>포토샵 배우기</td>
+                <td>기술 블로그 완성</td>
+              </tr>
+              <tr>
                 <td></td>
                 <td></td>
+                <td>식물 키우기</td>
+                <td>반자동 매매 프로그램 완성</td>
               </tr>
               <tr>
                 <td></td>
@@ -147,48 +182,85 @@ export default function MainPage() {
               </tr>
             </table>
             <br />
-            *현재 적용중인 매매기법 리스트업
-            {/* 가망없는 종목을 계획적 으로 손절하고 얼마만큼 손절했는지,어느
-            종목에서 복구 할지 전략 그리고 복구에 성공했는지 */}
-            {/* (위험관리 복구성공여부 그리고 종료) */}
+            <br />
             <br />
           </Paper>
           <Paper className={classes.paper}>
-            투자 지혜/격언 창고(블로그 정리,적용사례 빈도수 )
+            대기중인 과제들
             <br />
             <br />
-            격언명/적용사례 빈도수/중요도
+            *본업 개발자 부분
             <br />
             <br />
-            예전에는 남는 돈이 있으면 전부 주식투자로 돌렸었는데, 그때 비로소
-            현금보유 중요성을 깨달았습니다 <br />
-            여기에 자금 부족으로 2008년부터 2011년까지 소액거래밖에 하지 못했던
-            경험도 있어서 현금의 필요성을 피부로 느꼇지요
-            <br /> 현금을 보유 하는 것은 손실에 따른 리스크를 억제하는 방어와
-            상승장이 찾아왔을때 운용자금을 늘릴 수 있는 공격의 효과를 동시에
-            누릴 수 있다고 한다
-          </Paper>
-          <Paper className={classes.paper}>
-            실제 매매 기법 창고(블로그 정리,적용사례 빈도수,반자동매매에
-            적용예정)
+            1.리액트 공부 그리고 기술 블로그 작성
             <br />
             <br />
-            매매기법명/적용사례 빈도수/중요도
+            <br />
+            *부업 부분(개발 부업은 보류 하자... 집에서도 코딩으로 부업 하고
+            있으면 정신병 생긴다)
             <br />
             <br />
-            1.농부 기법
+            1. 리니지 노하우 공부 그리고 개선
             <br />
-            2.다이나베조프 기법
+            2. 배달 노하우 연구
             <br />
-            3.공구리 기법
+            3. 블로그 포스팅
             <br />
-            4.확률적 매매기법
             <br />
-            5.예측 매매
+            *투자 부분
             <br />
-            6.예측이 아닌 기계적 매매
             <br />
-            7.기계적 원칙적용 한건지/ 탄력적으로 원칙 적용 한건지
+            1. 나만의 투자 관리 프로그램 개발
+            <br />
+            2. 위험을 감지 할수있는 분석법 연구
+            <br />
+            <br />
+            <br />
+            *매력관리 부분
+            <br />
+            <br />
+            1. 고데기 연습
+            <br />
+            2. 옷스타일링 연구
+            <br />
+            3. 발음 연습
+            <br />
+            <br />
+            <br />
+            *운동 부분
+            <br />
+            <br />
+            *자기계발 부분
+            <br />
+            <br />
+            1. 악기
+            <br />
+            2. 영어공부
+            <br />
+            <br />
+            *개인생활시간속 삶의질 향상 부분
+            <br />
+            <br />
+            1. 요리
+            <br />
+            2. 인테리어
+            <br />
+            <br />
+            <br />
+            <br />
+            *절약부분
+            <br />
+            <br />
+            <br />
+            1.외식보다는 집요리로 생활식비 절약 하고 싶다
+            <br />
+            식자재 마트 에서 대량구매 하면 낫지 않을까
+            <br />
+            2.물건구매시 리뷰 작성 합시다
+            <br />
+            3.편의점 이용시 적립할수 있는 방법 찾아봅시다
+            <br />
+            4.생활비 지출 확인 합시다
           </Paper>
         </Grid>
       </Grid>

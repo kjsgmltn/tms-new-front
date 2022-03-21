@@ -35,6 +35,10 @@ import ObserveBoard from "../pages/ObserveBoard ";
 import MarketCheck from "../pages/MarketCheck";
 import PayForm from "../pages/PayForm";
 import MarketLinkage from "../pages/MarketLinkage";
+import RatingHistoryDashBoard from "../pages/RatingHistoryDashBoard";
+import InvestSCheduler from "../pages/InvestSCheduler";
+import OutcomeBoard from "../pages/OutcomeBoard";
+import RiskDeviceBoard from "../pages/RiskDeviceBoard";
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
 import NavBar from "./index";
@@ -239,6 +243,13 @@ export default function Dashboard() {
               path="/ShortTradingDashBoard"
               component={ShotTradingDashBoard}
             />
+            <Route
+              path="/RatingHistoryDashBoard"
+              component={RatingHistoryDashBoard}
+            />
+            <Route path="/InvestSCheduler" component={InvestSCheduler} />
+            <Route path="/OutcomeBoard" component={OutcomeBoard} />
+            <Route path="/RiskDeviceBoard" component={RiskDeviceBoard} />
           </Switch>
         </Container>
       </main>
