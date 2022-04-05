@@ -52,11 +52,10 @@ export default function MainPage() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            *매매기법 현황 통계(평가와 주간 자가점검 할때 여기에 내용들이 맵핑
-            되어야 함 )
+            *현재 적용중인 매매기법 리스트업
             <br />
-            <br />
-            <br />
+            실제 매매 기법 창고(블로그 정리,적용사례 빈도수,반자동매매에
+            적용예정,평가와 주간 자가점검 할때 여기에 내용들이 맵핑 되어야 함)
             <table
               style={{
                 width: "900px",
@@ -77,7 +76,7 @@ export default function MainPage() {
                   }}
                 >
                   {" "}
-                  투자 지혜/격언 창고
+                  실제 매매 기법 창고
                 </td>
                 <td
                   style={{
@@ -88,7 +87,7 @@ export default function MainPage() {
                     backgroundColor: "#EAEAEA",
                   }}
                 >
-                  실제 매매 기법 창고
+                  투자 지혜/격언 창고
                 </td>
                 <td
                   style={{
@@ -147,49 +146,235 @@ export default function MainPage() {
               </tr>
             </table>
             <br />
-            *현재 적용중인 매매기법 리스트업
-            {/* 가망없는 종목을 계획적 으로 손절하고 얼마만큼 손절했는지,어느
-            종목에서 복구 할지 전략 그리고 복구에 성공했는지 */}
-            {/* (위험관리 복구성공여부 그리고 종료) */}
             <br />
+            <table
+              style={{
+                width: "900px",
+                height: "100px",
+                // alignItems: "center",
+                border: "0.3px solid #BDBDBD",
+                borderCollapse: "collapse",
+              }}
+            >
+              <tr>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  IDX
+                </td>
+
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  {" "}
+                  매매기술 명
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  분석 상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  {" "}
+                  현재 사용여부
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  적용사례 빈도수
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  중요도
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>농부 기법</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>다이나베조프 기법</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>공구리 기법</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>확률적 매매기법</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>예측/기계 매매</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
           </Paper>
           <Paper className={classes.paper}>
             투자 지혜/격언 창고(블로그 정리,적용사례 빈도수 )
             <br />
             <br />
-            격언명/적용사례 빈도수/중요도
+            <table
+              style={{
+                width: "900px",
+                height: "100px",
+                // alignItems: "center",
+                border: "0.3px solid #BDBDBD",
+                borderCollapse: "collapse",
+              }}
+            >
+              <tr>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  {" "}
+                  IDX
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  격언명
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  적용사례 빈도수
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  중요도
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
             <br />
             <br />
-            예전에는 남는 돈이 있으면 전부 주식투자로 돌렸었는데, 그때 비로소
+            {/* 예전에는 남는 돈이 있으면 전부 주식투자로 돌렸었는데, 그때 비로소
             현금보유 중요성을 깨달았습니다 <br />
             여기에 자금 부족으로 2008년부터 2011년까지 소액거래밖에 하지 못했던
             경험도 있어서 현금의 필요성을 피부로 느꼇지요
             <br /> 현금을 보유 하는 것은 손실에 따른 리스크를 억제하는 방어와
             상승장이 찾아왔을때 운용자금을 늘릴 수 있는 공격의 효과를 동시에
             누릴 수 있다고 한다
+            <br />
+            기계적 원칙적용 한건지/ 탄력적으로 원칙 적용 한건지 실제 매매 기법
+            창고(블로그 정리,적용사례 빈도수,반자동매매에 적용예정) */}
           </Paper>
-          <Paper className={classes.paper}>
-            실제 매매 기법 창고(블로그 정리,적용사례 빈도수,반자동매매에
-            적용예정)
-            <br />
-            <br />
-            매매기법명/적용사례 빈도수/중요도
-            <br />
-            <br />
-            1.농부 기법
-            <br />
-            2.다이나베조프 기법
-            <br />
-            3.공구리 기법
-            <br />
-            4.확률적 매매기법
-            <br />
-            5.예측 매매
-            <br />
-            6.예측이 아닌 기계적 매매
-            <br />
-            7.기계적 원칙적용 한건지/ 탄력적으로 원칙 적용 한건지
-          </Paper>
+          <Paper className={classes.paper}>빈 공간</Paper>
         </Grid>
       </Grid>
     </div>

@@ -89,8 +89,7 @@ export default function MainPage() {
     return tList;
   };
   const getInvestData = InvestData();
-  console.log("확인중--->");
-  console.log(getInvestData);
+
   //console.log(getInvestData[1].ask);
   //console.log(getInvestData[0].ask.map((item) => item));
   let calendarCount = 0;

@@ -31,12 +31,6 @@ const navConfig = [
         icon: PieChartIcon,
         href: "/TimeManage",
       },
-
-      // {
-      //   title: "월간 투자 캘린더",
-      //   icon: PieChartIcon,
-      //   href: "",
-      // },
     ],
   },
   {
@@ -86,31 +80,17 @@ const navConfig = [
             href: "/",
           },
           {
-            title: "거래내역 통계",
+            title: "코인 거래내역",
             href: "/MarketLinkage",
+          },
+          {
+            title: "주식 거래내역",
+            href: "/",
           },
           {
             title: "투자 형상관리",
             href: "/",
           },
-
-          // {
-          //   title: "개별 종목/관찰 ",
-          //   href: "/ObserveBoard",
-          // },
-          // {
-          //   title: "상황/관찰 입력",
-          //   href: "/ShortTradingDashBoard",
-          // },
-
-          // {
-          //   title: "위험 관리(물림)",
-          //   href: "/LossDashBoard",
-          // },
-          // {
-          //   title: "익절 관리",
-          //   href: "/ProfitDashBoard",
-          // },
         ],
       },
     ],
@@ -122,14 +102,6 @@ const navConfig = [
         title: "시뮬레이션",
         icon: SystemUpdateAltIcon,
         items: [
-          // {
-          //   title: "타인 의견/실패 참고",
-          //   href: "/qna",
-          // },
-          // {
-          //   title: "이벤트/트렌드 조사",
-          //   href: "/Event",
-          // },
           {
             title: "블로그 연동",
             href: "/MarketCheck",
@@ -159,15 +131,6 @@ const navConfig = [
         title: "투자 인사이트",
         icon: SystemUpdateAltIcon,
         items: [
-          // {
-          //   title: "타인 의견/실패 참고",
-          //   href: "/qna",
-          // },
-          // {
-          //   title: "이벤트/트렌드 조사",
-          //   href: "/Event",
-          // },
-
           {
             title: "세상변화 맵",
             href: "/",
@@ -184,10 +147,6 @@ const navConfig = [
         title: "피지컬 관리",
         icon: ClipboardIcon,
         items: [
-          // {
-          //   title: "매매평가",
-          //   href: "/notice",
-          // },
           {
             title: "자기관리",
             href: "/TimeManage",
@@ -203,10 +162,6 @@ const navConfig = [
         title: "종합평가 보고서",
         icon: ClipboardIcon,
         items: [
-          // {
-          //   title: "매매평가",
-          //   href: "/notice",
-          // },
           {
             title: "달성목표/성과보고",
             href: "/OutcomeBoard",
@@ -226,11 +181,7 @@ const navConfig = [
 
             href: "/TimeManage",
           },
-          // {
-          //   title: "월간 투자 캘린더",
-          //   icon: PieChartIcon,
-          //   href: "",
-          // },
+
           {
             title: "입력",
 
@@ -247,10 +198,6 @@ const navConfig = [
         title: "시스템설정",
         icon: ClipboardIcon,
         items: [
-          // {
-          //   title: "매매평가",
-          //   href: "/notice",
-          // },
           {
             title: "코드관리",
             href: "/CodeManage",
@@ -259,65 +206,6 @@ const navConfig = [
       },
     ],
   },
-  // {
-  //   subheader: "",
-  //   items: [
-  //     {
-  //       title: "시스템설정",
-  //       icon: StatisticsIcon,
-  //       items: [
-  //         {
-  //           title: "코드관리",
-  //           href: "/CodeManage",
-  //           items: [
-  //             {
-  //               title: "코드 관리설정",
-  //               href: "/CodeManage",
-  //             },
-  //             {
-  //               title: "",
-  //               href: "/statistics/vp",
-  //             },
-  //           ],
-  //         },
-  //         {
-  //           title: "",
-  //           href: "/notice",
-  //           items: [
-  //             {
-  //               title: "",
-  //               href: "/statistics/activity/content",
-  //             },
-  //             {
-  //               title: "",
-  //               href: "/statistics/activity/search",
-  //             },
-  //             {
-  //               title: "",
-  //               href: "/statistics/activity/vp-content",
-  //             },
-  //           ],
-  //         },
-  //         {
-  //           title: "",
-  //           href: "/statistics/user-distribution",
-  //         },
-  //         {
-  //           title: "",
-  //           href: "/statistics/user-cumulative",
-  //         },
-  //         {
-  //           title: "",
-  //           href: "/statistics/content-cumulative",
-  //         },
-  //         {
-  //           title: "",
-  //           href: "/statistics/connection",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
 ];
 
 function renderNavItems({ items, ...rest }) {

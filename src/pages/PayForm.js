@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
+
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
 import NativeSelect from "@material-ui/core/NativeSelect";
@@ -14,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(5),
-    //textAlign: 'center',
     color: theme.palette.text.secondary,
   },
   table: {
@@ -25,25 +23,6 @@ const useStyles = makeStyles((theme) => ({
 export default function BoardNew({ changeInput }) {
   const classes = useStyles();
   const [replyArticle, setReplyArticle] = useState({});
-  const [name, setName] = useState("");
-
-  // const [state, setState] = React.useState({
-  //   age: "",
-  //   name: "hai",
-  // });
-
-  //객체 셋팅
-  // const handleChange = async (event) => {
-  //   let name = event.target.name;
-  //   let value = event.target.value;
-
-  //   setReplyArticle((prev) => {
-  //     return {
-  //       ...prev,
-  //       [name]: value,
-  //     };
-  //   });
-  // };
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -107,35 +86,15 @@ export default function BoardNew({ changeInput }) {
           <FormControl className={classes.formControl}>
             <TextField
               value={replyArticle.final_price}
-              //onChange={(e) => handleChange(e.target.name, e.target.value)}
               onChange={handleChange_2}
-              // onChange={(event) => {
-              //   const { eventCount, target, text } = event.nativeEvent;
-              //   alert("zzzzz");
-              //   setName(text);
-              // }}
               name="final_price"
-              // className={classes.selectEmpty}
-              // inputProps={{ "aria-label": "final_price" }}
-              // {...register("final_price", { required: true })}
             />
             {errors.final_price &&
               errors.final_price.type == "required" &&
               "내용을 입력해주세요 "}
           </FormControl>
         </div>
-        {/* <div>
-          실현 기준일 :{" "}
-          <input
-            type="datetime-local"
-            name="final_date"
-            {...register("final_date", { required: true })}
-            onChange={handleChange}
-          />
-          {errors.final_date &&
-            errors.final_date.type == "required" &&
-            "내용을 입력해주세요"}
-        </div> */}
+
         <div>
           수익 손실 구분 :{" "}
           <FormControl className={classes.formControl}>

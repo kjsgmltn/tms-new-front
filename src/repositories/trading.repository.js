@@ -63,6 +63,18 @@ class tradingRepository {
     url.search = new URLSearchParams(params).toString();
     return apiHelper.request({ url, method: "GET" });
   }
+
+  /**
+   * 종목 리스트
+   * @param id
+   * @param params
+   * @returns {Promise<*>}
+   */
+  getStocksListRecode(params) {
+    let url = new URL(constants.API_BASE_URL + "/trading/getStocksListRecode");
+    url.search = new URLSearchParams(params).toString();
+    return apiHelper.request({ url, method: "GET" });
+  }
 }
 
 export default new tradingRepository();

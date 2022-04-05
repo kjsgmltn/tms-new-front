@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-//import Table from "@material-ui/core/Table";
+import styled from "styled-components";
 import { css } from "@emotion/react";
 import Table from "../component/Table";
 import MAIN_TABLE from "../component/tableInfo";
-//import MAIN_TABLE from "./tableInfo";
+
 import Button from "../component/Button";
 import SelectBox from "../component/SelectBox";
 import dayjs from "dayjs";
@@ -21,6 +21,7 @@ import queryString from "query-string";
 // 테이블 정보
 import { useQuery } from "react-query";
 import { Bar, Doughnut } from "react-chartjs-2";
+import ReactLoading from "react-loading";
 import {
   fetchList,
   genderList,
@@ -29,24 +30,40 @@ import {
   chartStats,
 } from "../api";
 
-const container = css`
-  width: 100vw;
-  height: 100%;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-`;
-
-const contents = css`
-  width: 1200px;
-  margin-top: 50px;
-  height: 100%;
-`;
-
 const rowSelect = css`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+`;
+
+const LoaderWrap = styled.div`
+  width: 350px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+`;
+
+const ItemWrap = styled.div`
+  width: 350px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  align-items: center;
+
+  .Item {
+    width: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9e5ff;
+    margin: 0.1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 6px;
+  }
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     width: 350,
-    height: 120,
+    height: 150,
     padding: 8,
     margin: 14,
     border: 12,
@@ -87,7 +104,38 @@ export default function Orders() {
 
   const location = useLocation();
   const queryParamsInit = queryString.parse(location.search);
+  //무한 스크롤 시작 ***
+  const [itemList, setItemList] = useState([1, 2]); // ItemList
+  const [target, setTarget] = useState(""); // target
+  const [rootTarget, setRootTarget] = useState(""); // target
+  const [isLoding, setIsLoding] = useState(false); // isloding
 
+  const onIntersect = async ([entry], observer) => {
+    if (entry.isIntersecting && !isLoding) {
+      observer.unobserve(entry.target);
+      setIsLoding(true);
+      // 데이터를 가져오는 부분
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      let Items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      setItemList((itemLists) => itemLists.concat(Items));
+      setIsLoding(false);
+      observer.observe(entry.target);
+    }
+  };
+
+  useEffect(() => {
+    let observer;
+    if (target) {
+      // callback 함수, option
+      observer = new IntersectionObserver(onIntersect, {
+        root: rootTarget,
+        threshold: 0.4,
+      });
+      observer.observe(target); // 타겟 엘리먼트 지정
+    }
+    return () => observer && observer.disconnect();
+  }, [target]);
+  //무한 스크롤 종료 ***
   // 검색필터 List 값
   const [inputs, setInputs] = useState({
     gender: queryParamsInit.gender ?? null,
@@ -201,11 +249,6 @@ export default function Orders() {
         isDeath: item.isDeath ? "Y" : "N",
       }));
 
-  // 트레이딩 정보
-  const [article, setArticle] = useState([]);
-  const [totalLength, setTotalLength] = useState();
-  const [tradingPage, setTradingPage] = useState();
-
   const ChartData = {
     // 각 막대별 라벨
     labels: ["가상화폐", "한국주식", "미국주식"],
@@ -250,7 +293,7 @@ export default function Orders() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            (전체횟수/상방선택 횟수)
+            (전체횟수/상방선택 횟수)히스토리
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ alignItems: "center" }}>
                 <div className={classes.box}>
@@ -267,27 +310,34 @@ export default function Orders() {
                 <div className={classes.box}>
                   <table>
                     <tr>
-                      <td></td>
+                      <td>퍼센트</td>
                       <td>이번주</td>
                       <td>이번달</td>
                       <td>이번분기</td>
                       <td>이번년</td>
                     </tr>
                     <tr>
-                      <td>상방선택</td>
+                      <td>장기 시도</td>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
                     </tr>
                     <tr>
-                      <td>하방선택</td>
+                      <td>스윙 시도</td>
                       <td></td>
                       <td></td>
                       <td></td>
                     </tr>
                     <tr>
-                      <td>현금선택</td>
+                      <td>단기 시도</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>현금 시도</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -332,31 +382,31 @@ export default function Orders() {
                 <div className={classes.box}>
                   <table>
                     <tr>
-                      <td></td>
-                      <td>이번주</td>
-                      <td>이번달</td>
-                      <td>이번분기</td>
-                      <td>이번년</td>
+                      <td>퍼센트</td>
+                      <td>1개월</td>
+                      <td>3개월</td>
+                      <td>6개월</td>
+                      <td>1년</td>
                     </tr>
                     <tr>
-                      <td>장기선택</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>국내증시</td>
+                      <td>역금융</td>
+                      <td>하락</td>
+                      <td>횡보</td>
+                      <td>상승</td>
                     </tr>
                     <tr>
-                      <td>스윙선택</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>미국증시</td>
+                      <td>역금융</td>
+                      <td>하락</td>
+                      <td>횡보</td>
                     </tr>
                     <tr>
-                      <td>단기선택</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>암호화폐</td>
+                      <td>역금융</td>
+                      <td>하락</td>
+                      <td>횡보</td>
+                      <td>상승</td>
                     </tr>
                   </table>
                 </div>
@@ -371,71 +421,128 @@ export default function Orders() {
           </Paper>
 
           <Paper className={classes.paper}>
-            <div
-              // className={classes.box}
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <table>
-                <tr>
-                  <td>최근 현금 유지기간</td>
-                </tr>
-                <tr>
-                  <td>0.5일 유지..</td>
-                </tr>
-              </table>
-              &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-              <table>
-                <tr>
-                  <td>국내증시</td>
-                  <td>종합</td>
-                  <td>1개월</td>
-                  <td>3개월</td>
-                  <td>6개월</td>
-                </tr>
-                <tr>
-                  <td>상태</td>
-                  <td>역금융</td>
-                  <td>하락</td>
-                  <td>횡보</td>
-                  <td>상승</td>
-                </tr>
-              </table>
-              &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-              <table>
-                <tr>
-                  <td>미국증시</td>
-                  <td>종합</td>
-                  <td>1개월</td>
-                  <td>3개월</td>
-                  <td>6개월</td>
-                </tr>
-                <tr>
-                  <td>상태</td>
-                  <td>역금융</td>
-                  <td>하락</td>
-                  <td>횡보</td>
-                  <td>상승</td>
-                </tr>
-              </table>
-              &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-              <table>
-                <tr>
-                  <td>암호화폐</td>
-                  <td>종합</td>
-                  <td>1개월</td>
-                  <td>3개월</td>
-                  <td>6개월</td>
-                </tr>
-                <tr>
-                  <td>상태</td>
-                  <td>역금융</td>
-                  <td>하락</td>
-                  <td>횡보</td>
-                  <td>상승</td>
-                </tr>
-              </table>
+            <div className="App">
+              <div
+                style={{
+                  width: "1500px",
+                  height: "50px",
+                  backgroundColor: "#ffffff",
+                  margin: "0.1rem",
+                  borderRadius: "6px",
+                  backgroundColor: "#EAEAEA",
+                }}
+              >
+                <div
+                  // className={classes.box}
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <br />
+                  &nbsp;트레이딩 일기
+                  <br />
+                </div>
+                <br />
+                <br />
+                <br />
+              </div>
+              <div
+                ref={setRootTarget}
+                style={{
+                  overflow: "scroll",
+                  width: "1500px",
+                  height: "400px",
+                  alignItems: "center",
+                  backgroundColor: "#FFFFFF",
+                }}
+              >
+                {/* <ItemWrap> */}
+                <br />
+                <table>
+                  {/* {itemList.map((item, index) => (
+                      <tr>
+                        <div className="Item" key={index}>
+                          <br />
+                          <br />
+                          <br />
+                          증시 초반 상승 출발
+                          {index + 1}
+                          <br />
+                          <br />
+                          <br />
+                        </div>
+                      </tr>
+                    ))}
+                    <tr>
+                      <div ref={setTarget}></div>
+                    </tr> */}
+
+                  <tr>
+                    <td>2022-04-05 화요일 메모</td>
+                  </tr>
+                  <tr>
+                    <td>국내주식 대형주에 대해서</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      환율이 떨어지거나 공매도 제도가 바뀌지 않은 이상은
+                      검은머리외인들은 박스권으로 가두고 차액 챙기는 것을
+                      좋아하는것 같다 그리고 역시 미국주식이 짱이다..
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>--------------------</td>
+                  </tr>
+
+                  <tr>
+                    <td>2022-03-29 화요일 메모</td>
+                  </tr>
+                  <tr>
+                    <td>테슬라 주식분할 이벤트 슈팅</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      HMM이 저번 상승 때 처럼 가파르게 오를거라 예상하지 말자{" "}
+                      <br />
+                      HMM 에 미련 버려야 돼 호두형이 계속 숏에 집착하는것과
+                      다를바 없음
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      급등나와도 다음날 다시 천천히 가고 싶어하는데 여기에
+                      템포를 맞춰야지 급하지 말자
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>--------------------</td>
+                  </tr>
+                  <tr>
+                    <td>2022-03-25 금요일 메모</td>
+                  </tr>
+                  <tr>
+                    <td>장 초반 상승 출발</td>
+                  </tr>
+                  <tr>
+                    <td>로봇주 슈팅</td>
+                  </tr>
+
+                  {/* <tr>
+                      {isLoding ? (
+                        <LoaderWrap
+                          style={{
+                            backgroundColor: "#EAEAEA",
+                          }}
+                        >
+                          <ReactLoading type="spin" color="#A593E0" />
+                        </LoaderWrap>
+                      ) : (
+                        ""
+                      )}
+                    </tr> */}
+                </table>
+                {/* </ItemWrap> */}
+              </div>
             </div>
-            <br />
             <br />
             <br />
             종목 레이팅
@@ -674,41 +781,6 @@ export default function Orders() {
             </div>
             <br />
             <br />
-            잘못된 트레이딩(위험관리,익절관리)
-            --------------------------------------------------------------------------
-            <br />
-            {/* 페이지당 Row 개수*/}
-            <div css={rowSelect}>
-              {/* <Button
-                label="검색필터"
-                width="135px"
-                height="42px"
-                border="solid 1px #dddddd"
-                borderRadius="5px "
-                handleClick={() => setOpen(!open)}
-              /> */}
-              {/* <SelectBox
-                value={pageRow}
-                setValue={setPageRow}
-                opt={[
-                  { label: "5개씩", value: 5 },
-                  { label: "10개씩", value: 10 },
-                  { label: "15개씩", value: 15 },
-                  { label: "20개씩", value: 20 },
-                  { label: "25개씩", value: 25 },
-                  { label: "30개씩", value: 30 },
-                ]}
-              /> */}
-            </div>
-            {/* <Table
-              data={data}
-              header={MAIN_TABLE}
-              page={page}
-              setPage={setPage}
-              align={align}
-              orderBy={orderBy}
-              totalCount={listQuery.isLoading ? 1 : listQuery.data.totalLength}
-            /> */}
           </Paper>
           <Paper className={classes.paper}></Paper>
           <Paper className={classes.paper}>

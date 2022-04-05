@@ -54,6 +54,8 @@ export default function MainPage() {
           <Paper className={classes.paper}>
             종합 성과(주,월,년 이 지날때마다 얼마만큼 나아지고 있는지 보고싶다)
             <br />
+            어떤요소가 나를 급격하게 변화시켜 줄수 있는지
+            <br />
             <br />
             섹터 정리
             <br />
@@ -88,7 +90,7 @@ export default function MainPage() {
             <br />
             <br />
             <br />
-            2022년 목표 진행중
+            33살 2022년 목표 과제
             <table
               style={{
                 width: "900px",
@@ -112,6 +114,17 @@ export default function MainPage() {
                 </td>
                 <td
                   style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
                     width: "100px",
                     height: "50px",
                     // alignItems: "center",
@@ -120,6 +133,17 @@ export default function MainPage() {
                   }}
                 >
                   월간 성과목표
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
                 </td>
                 <td
                   style={{
@@ -134,6 +158,17 @@ export default function MainPage() {
                 </td>
                 <td
                   style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
                     width: "100px",
                     height: "50px",
                     // alignItems: "center",
@@ -143,23 +178,37 @@ export default function MainPage() {
                 >
                   년간 성과목표
                 </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
               </tr>
               <tr>
-                <td></td>
                 <td>주3회 도시락 챙기기</td>
+                <td>진행중</td>
                 <td>수공예 배우기</td>
+                <td></td>
                 <td>투자관리 프로그램 완성</td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>포토샵 배우기</td>
+                <td></td>
                 <td>기술 블로그 완성</td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>식물 키우기</td>
+                <td></td>
                 <td>반자동 매매 프로그램 완성</td>
               </tr>
               <tr>
@@ -186,81 +235,300 @@ export default function MainPage() {
             <br />
           </Paper>
           <Paper className={classes.paper}>
+            <br />
             대기중인 과제들
-            <br />
-            <br />
-            *본업 개발자 부분
-            <br />
-            <br />
-            1.리액트 공부 그리고 기술 블로그 작성
-            <br />
+            <table
+              style={{
+                width: "900px",
+                height: "100px",
+                // alignItems: "center",
+                border: "0.3px solid #BDBDBD",
+                borderCollapse: "collapse",
+              }}
+            >
+              <tr>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  본업
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  부업
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  투자
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  매력관리
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  운동
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  자기계발
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  삶의질
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  절약
+                </td>
+                <td
+                  style={{
+                    width: "40px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
+                  상태
+                </td>
+              </tr>
+              <tr>
+                <td>리액트 공부 </td>
+                <td></td>
+                <td>기술 블로그 </td>
+                <td></td>
+                <td>투자 프로그램 </td>
+                <td></td>
+                <td>고데기 연습</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>악기</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>집요리</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>리니지 작업</td>
+                <td></td>
+                <td>위험감지 분석법 </td>
+                <td></td>
+                <td>옷스타일링 연구</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>영어공부</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>리뷰작성</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td>배달 작업</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>발음 연습</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>편의점 생활 적립</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>블로그 포스팅</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
             <br />
             <br />
             *부업 부분(개발 부업은 보류 하자... 집에서도 코딩으로 부업 하고
             있으면 정신병 생긴다)
-            <br />
-            <br />
-            1. 리니지 노하우 공부 그리고 개선
-            <br />
-            2. 배달 노하우 연구
-            <br />
-            3. 블로그 포스팅
-            <br />
-            <br />
-            *투자 부분
-            <br />
-            <br />
-            1. 나만의 투자 관리 프로그램 개발
-            <br />
-            2. 위험을 감지 할수있는 분석법 연구
-            <br />
-            <br />
-            <br />
-            *매력관리 부분
-            <br />
-            <br />
-            1. 고데기 연습
-            <br />
-            2. 옷스타일링 연구
-            <br />
-            3. 발음 연습
-            <br />
-            <br />
-            <br />
-            *운동 부분
-            <br />
-            <br />
-            *자기계발 부분
-            <br />
-            <br />
-            1. 악기
-            <br />
-            2. 영어공부
-            <br />
-            <br />
-            *개인생활시간속 삶의질 향상 부분
-            <br />
-            <br />
-            1. 요리
-            <br />
-            2. 인테리어
-            <br />
-            <br />
-            <br />
-            <br />
-            *절약부분
-            <br />
-            <br />
-            <br />
-            1.외식보다는 집요리로 생활식비 절약 하고 싶다
-            <br />
-            식자재 마트 에서 대량구매 하면 낫지 않을까
-            <br />
-            2.물건구매시 리뷰 작성 합시다
-            <br />
-            3.편의점 이용시 적립할수 있는 방법 찾아봅시다
-            <br />
-            4.생활비 지출 확인 합시다
           </Paper>
         </Grid>
       </Grid>

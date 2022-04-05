@@ -30,10 +30,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid() {
   const classes = useStyles();
-  //상단조회
-  // const { isLoading, error, data, isFetching } = useQuery("fetchLuke", () =>
-  //   fetch("http://localhost:8080/bns/getBnsRowData").then((res) => res.json())
-  // );
 
   const payQuery = useQuery(["pay-profit"], () => bnsRepository.getPay());
   const payData = payQuery.isLoading ? [] : payQuery.data;
@@ -435,6 +431,7 @@ export default function CenteredGrid() {
               </div>
             </div>
             <br />
+            수입/지출/손실 다 확인 합시다
             <br />
             <br />
             <br />
