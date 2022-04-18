@@ -90,8 +90,6 @@ export default function MainPage() {
   };
   const getInvestData = InvestData();
 
-  //console.log(getInvestData[1].ask);
-  //console.log(getInvestData[0].ask.map((item) => item));
   let calendarCount = 0;
 
   return (

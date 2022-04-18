@@ -59,12 +59,15 @@ export default function MainPage() {
             {/* 가망없는 종목을 계획적 으로 손절하고 얼마만큼 손절했는지,어느
             종목에서 복구 할지 전략 그리고 복구에 성공했는지 */}
             <br />
-            {/* (위험관리 복구성공여부 그리고 종료) */}
-            <br />
           </Paper>
           <Paper className={classes.paper}>
             경제 지표
             <br />
+            하이일드 스프레드
+            <br />
+            장단기 금리차
+            <br />
+            선물 옵션 흐름
           </Paper>
         </Grid>
       </Grid>

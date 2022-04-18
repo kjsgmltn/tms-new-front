@@ -308,7 +308,7 @@ export default function Orders() {
                   신용
                 </div>
                 <div className={classes.box}>
-                  <table>
+                  {/* <table>
                     <tr>
                       <td>퍼센트</td>
                       <td>이번주</td>
@@ -343,7 +343,18 @@ export default function Orders() {
                       <td></td>
                       <td></td>
                     </tr>
-                  </table>
+                  </table> */}
+                  현재 보유 종목
+                  <br />
+                  HMM
+                  <br />
+                  대한전선
+                  <br />
+                  대우조선해양
+                  <br />
+                  삼성중공업
+                  <br />
+                  포스코
                 </div>
               </div>
               <div style={{ alignItems: "center" }}>
@@ -380,7 +391,8 @@ export default function Orders() {
                   </table>
                 </div>
                 <div className={classes.box}>
-                  <table>
+                  올해 히스토리
+                  {/* <table>
                     <tr>
                       <td>퍼센트</td>
                       <td>1개월</td>
@@ -408,7 +420,7 @@ export default function Orders() {
                       <td>횡보</td>
                       <td>상승</td>
                     </tr>
-                  </table>
+                  </table> */}
                 </div>
               </div>
               <div style={{ alignItems: "center" }}>
@@ -419,7 +431,10 @@ export default function Orders() {
               </div>
             </div>
           </Paper>
-
+          <Paper className={classes.paper}>
+            04월18일월 ~ 04월22일 금 최종 시나리오 &nbsp; &nbsp; &nbsp; &nbsp;
+            더보기 과거이력
+          </Paper>
           <Paper className={classes.paper}>
             <div className="App">
               <div
@@ -474,7 +489,12 @@ export default function Orders() {
                     <tr>
                       <div ref={setTarget}></div>
                     </tr> */}
-
+                  <tr>
+                    <td>2022-04-17 메모 </td>
+                  </tr>
+                  <tr>
+                    <td>금융주 강세</td>
+                  </tr>
                   <tr>
                     <td>2022-04-05 화요일 메모</td>
                   </tr>

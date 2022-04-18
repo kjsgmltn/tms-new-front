@@ -39,6 +39,12 @@ import RatingHistoryDashBoard from "../pages/RatingHistoryDashBoard";
 import InvestSCheduler from "../pages/InvestSCheduler";
 import OutcomeBoard from "../pages/OutcomeBoard";
 import RiskDeviceBoard from "../pages/RiskDeviceBoard";
+import InternationalDashBoard from "../pages/InternationalDashBoard";
+import PoliticsDashBoard from "../pages/PoliticsDashBoard";
+import InterestDashBoard from "../pages/InterestDashBoard";
+import StrategyDashBoard from "../pages/StrategyDashBoard";
+import ScenarioDashBoard from "../pages/ScenarioDashBoard";
+
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
 import NavBar from "./index";
@@ -250,6 +256,14 @@ export default function Dashboard() {
             <Route path="/InvestSCheduler" component={InvestSCheduler} />
             <Route path="/OutcomeBoard" component={OutcomeBoard} />
             <Route path="/RiskDeviceBoard" component={RiskDeviceBoard} />
+            <Route
+              path="/InternationalDashBoard"
+              component={InternationalDashBoard}
+            />
+            <Route path="/PoliticsDashBoard" component={PoliticsDashBoard} />
+            <Route path="/InterestDashBoard" component={InterestDashBoard} />
+            <Route path="/StrategyDashBoard" component={StrategyDashBoard} />
+            <Route path="/ScenarioDashBoard" component={ScenarioDashBoard} />
           </Switch>
         </Container>
       </main>

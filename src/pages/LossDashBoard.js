@@ -190,6 +190,18 @@ export default function MainPage() {
                     backgroundColor: "#EAEAEA",
                   }}
                 >
+                  {" "}
+                  분석법 종류
+                </td>
+                <td
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                    // alignItems: "center",
+                    border: "0.3px solid #BDBDBD",
+                    backgroundColor: "#EAEAEA",
+                  }}
+                >
                   분석 상태
                 </td>
                 <td
@@ -230,6 +242,7 @@ export default function MainPage() {
               <tr>
                 <td>1</td>
                 <td>농부 기법</td>
+                <td>기술적</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -237,6 +250,7 @@ export default function MainPage() {
               <tr>
                 <td>2</td>
                 <td>다이나베조프 기법</td>
+                <td>기술적</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -244,6 +258,7 @@ export default function MainPage() {
               <tr>
                 <td>3</td>
                 <td>공구리 기법</td>
+                <td>기술적</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -251,6 +266,7 @@ export default function MainPage() {
               <tr>
                 <td>4</td>
                 <td>확률적 매매기법</td>
+                <td>기술적</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -258,6 +274,23 @@ export default function MainPage() {
               <tr>
                 <td>5</td>
                 <td>예측/기계 매매</td>
+                <td>기술적</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>지배구조 분석</td>
+                <td>기본적</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>재무제표 분석</td>
+                <td>기본적</td>
                 <td></td>
                 <td></td>
                 <td></td>

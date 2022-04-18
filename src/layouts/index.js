@@ -37,16 +37,20 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "N 정산 관리",
+        title: "종합 정산 관리",
         icon: UsersIcon,
         items: [
           {
-            title: "N 정산 현황",
+            title: "종합 정산 현황",
             href: "/PayDashBoard",
           },
           {
-            title: "N 정산 입력",
+            title: "종합 정산 입력",
             href: "/PayForm",
+          },
+          {
+            title: "트레이딩 정산",
+            href: "/",
           },
         ],
       },
@@ -56,7 +60,22 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "매매 기록 관리",
+        title: "------------------",
+        icon: SystemUpdateAltIcon,
+        items: [
+          {
+            title: "",
+            href: "/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    subheader: "",
+    items: [
+      {
+        title: "지금 작업",
         icon: AwardIcon,
         items: [
           {
@@ -68,16 +87,74 @@ const navConfig = [
             href: "/TradingDashBoard",
           },
           {
-            title: "레이팅 히스토리",
+            title: "손절심사&관리",
+            href: "/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    subheader: "",
+    items: [
+      {
+        title: "사전 작업",
+        icon: AwardIcon,
+        items: [
+          {
+            title: "(1).거시&국제정세",
+            href: "/InternationalDashBoard",
+          },
+          {
+            title: "(2).일상&미래변화 맵",
+            href: "/PoliticsDashBoard",
+          },
+
+          {
+            title: "(3).관심 대상 산출&분석",
+            href: "/InterestDashBoard",
+          },
+
+          {
+            title: "(4).레이팅&매매전략 선정",
+            href: "/StrategyDashBoard",
+          },
+          {
+            title: "(*)레이팅 히스토리",
             href: "/RatingHistoryDashBoard",
           },
           {
-            title: "레이팅 히스토리 입력",
+            title: "(*)레이팅 히스토리 입력",
             href: "/",
           },
+
           {
-            title: "트레이딩 정산",
+            title: "(5).시뮬레이션",
             href: "/",
+          },
+
+          {
+            title: "(6)위험분석 ",
+            href: "/RiskDeviceBoard",
+          },
+          {
+            title: "(7).최종 시나리오 산출",
+            href: "/ScenarioDashBoard",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    subheader: "",
+    items: [
+      {
+        title: "과거작업",
+        icon: SystemUpdateAltIcon,
+        items: [
+          {
+            title: "블로그 연동",
+            href: "/MarketCheck",
           },
           {
             title: "코인 거래내역",
@@ -99,14 +176,13 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "시뮬레이션",
+        title: "투자기술 연구소",
         icon: SystemUpdateAltIcon,
         items: [
           {
             title: "블로그 연동",
             href: "/MarketCheck",
           },
-
           {
             title: "모의투자",
             href: "/ShortTradingDashBoard",
@@ -115,24 +191,55 @@ const navConfig = [
             title: "매매기술",
             href: "/LossDashBoard",
           },
-          {
-            title: "위험분석 도구",
-            href: "/RiskDeviceBoard",
-          },
         ],
       },
     ],
   },
 
+  // {
+  //   subheader: "",
+  //   items: [
+  //     {
+  //       title: "투자 인사이트",
+  //       icon: SystemUpdateAltIcon,
+  //       items: [
+  //         {
+  //           title: "세상변화 맵",
+  //           href: "/",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+
   {
     subheader: "",
     items: [
       {
-        title: "투자 인사이트",
+        title: "기본소양",
+        icon: ClipboardIcon,
+        items: [
+          {
+            title: "컨디션&운동",
+            href: "/TimeManage",
+          },
+          {
+            title: "철학&문해력",
+            href: "/TimeManage",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    subheader: "",
+    items: [
+      {
+        title: "------------------",
         icon: SystemUpdateAltIcon,
         items: [
           {
-            title: "세상변화 맵",
+            title: "",
             href: "/",
           },
         ],
@@ -144,36 +251,20 @@ const navConfig = [
     subheader: "",
     items: [
       {
-        title: "피지컬 관리",
+        title: "평가 ",
         icon: ClipboardIcon,
         items: [
           {
-            title: "자기관리",
-            href: "/TimeManage",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    subheader: "",
-    items: [
-      {
-        title: "종합평가 보고서",
-        icon: ClipboardIcon,
-        items: [
-          {
-            title: "달성목표/성과보고",
+            title: "종합 평가",
             href: "/OutcomeBoard",
           },
           {
-            title: "투자 보고서",
+            title: "투자 평가",
             href: "/ObserveBoard",
           },
 
           {
             title: "시간소비/내인생",
-
             href: "/",
           },
           {
