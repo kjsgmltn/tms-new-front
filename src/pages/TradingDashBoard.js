@@ -29,7 +29,8 @@ import {
   ethnicityList,
   chartStats,
 } from "../api";
-
+import WeekViewCalendar from "../component/WeekViewCalendar";
+import events_2 from "./events_2";
 const rowSelect = css`
   display: flex;
   justify-content: space-between;
@@ -251,7 +252,7 @@ export default function Orders() {
 
   const ChartData = {
     // 각 막대별 라벨
-    labels: ["가상화폐", "한국주식", "미국주식"],
+    labels: ["현금", "신용", "마이너스통장"],
     datasets: [
       {
         borderWidth: 1, // 테두리 두께
@@ -297,7 +298,7 @@ export default function Orders() {
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ alignItems: "center" }}>
                 <div className={classes.box}>
-                  총 투자금액:{" "}
+                  {/* 총 투자금액:{" "}
                   {tradingDashData
                     ? priceFormet(tradingDashData.total_price + 0)
                     : ""}
@@ -306,6 +307,50 @@ export default function Orders() {
                   현금:
                   <br />
                   신용
+                  <br />
+                  마이너스통장
+                  <br /> ----------------------------------
+                  <br />
+                  현금:0원
+                  <br />
+                  신용:800만원 */}
+
+                  <table>
+                    <tr>
+                      <td></td>
+                      <td>지금투입금액</td>
+                      <td>사용가능금액</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>현금</td>
+                      <td></td>
+                      <td>0원</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>신용</td>
+                      <td></td>
+                      <td>100만원</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>마이너스통장</td>
+                      <td>940만원</td>
+                      <td>1100만원</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
                 </div>
                 <div className={classes.box}>
                   {/* <table>
@@ -344,8 +389,6 @@ export default function Orders() {
                       <td></td>
                     </tr>
                   </table> */}
-                  현재 보유 종목
-                  <br />
                   HMM
                   <br />
                   대한전선
@@ -359,69 +402,11 @@ export default function Orders() {
               </div>
               <div style={{ alignItems: "center" }}>
                 <div className={classes.box}>
-                  <table>
-                    <tr></tr>
-                    <tr>
-                      <td>주식</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>가상화폐</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>채권</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>금</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </table>
+                  *금지사항
+                  <br />
+                  아침 9시 ~ 아침 10시 매수 금지
                 </div>
-                <div className={classes.box}>
-                  올해 히스토리
-                  {/* <table>
-                    <tr>
-                      <td>퍼센트</td>
-                      <td>1개월</td>
-                      <td>3개월</td>
-                      <td>6개월</td>
-                      <td>1년</td>
-                    </tr>
-                    <tr>
-                      <td>국내증시</td>
-                      <td>역금융</td>
-                      <td>하락</td>
-                      <td>횡보</td>
-                      <td>상승</td>
-                    </tr>
-                    <tr>
-                      <td>미국증시</td>
-                      <td>역금융</td>
-                      <td>하락</td>
-                      <td>횡보</td>
-                    </tr>
-                    <tr>
-                      <td>암호화폐</td>
-                      <td>역금융</td>
-                      <td>하락</td>
-                      <td>횡보</td>
-                      <td>상승</td>
-                    </tr>
-                  </table> */}
-                </div>
+                <div className={classes.box}>요즘 장초 추세</div>
               </div>
               <div style={{ alignItems: "center" }}>
                 ..................................................................................
@@ -432,379 +417,364 @@ export default function Orders() {
             </div>
           </Paper>
           <Paper className={classes.paper}>
-            04월18일월 ~ 04월22일 금 최종 시나리오 &nbsp; &nbsp; &nbsp; &nbsp;
-            더보기 과거이력
+            <WeekViewCalendar todo={events_2} />
           </Paper>
           <Paper className={classes.paper}>
-            <div className="App">
+            <div style={{ display: "flex" }}>
+              <div>
+                <div className="App">
+                  <div
+                    style={{
+                      width: "1100px",
+                      height: "50px",
+                      backgroundColor: "#FFFFFF",
+                      margin: "0.1rem",
+                      borderRadius: "6px",
+                      border: "0.3px dashed #BDBDBD",
+                    }}
+                  >
+                    <br />
+                    &nbsp;트레이딩 메모
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </div>
+                  <div
+                    ref={setRootTarget}
+                    style={{
+                      overflow: "scroll",
+                      width: "1100px",
+                      height: "700px",
+                      alignItems: "center",
+                      backgroundColor: "#EAEAEA",
+                    }}
+                  >
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                              height: "30px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            육계,스포츠 행사 수혜주 의 날
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-04-26 화요일</td>
+                        </tr>
+
+                        <tr>
+                          <td>내용:</td>
+                          <td>
+                            팜스토리, 하림 계열사 그외 기타등등 상승
+                            <br />
+                            모든 상황이 들어맞으니 시세가 분출됨 <br />
+                            아쉽다
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                              height: "30px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            금리인상 충격과 우크라이나 전쟁여파
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-04-25 월요일</td>
+                        </tr>
+
+                        <tr>
+                          <td>내용:</td>
+                          <td>
+                            Fed 의 큰폭의 금리인상 발표 공개에 영향받아
+                            전주금요일 나스닥 크게 하락
+                            <br /> 오늘 국내증시 반등없이 2퍼센트 하락 <br />
+                            유일하게 사료,육계,수산 상승
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                              height: "30px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            국내증시 단기대응에 대해서
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-04-19 화요일</td>
+                        </tr>
+
+                        <tr>
+                          <td>내용:</td>
+                          <td>
+                            {" "}
+                            김영익 교수님 말씀이 옳을것 같다.
+                            <br /> 4월에 매집하고 5~7월에 매도 시기를 잡아봐도
+                            괜찮을듯
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            금리인상에 반응하는 섹터들..
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-04-15 금요일</td>
+                        </tr>
+                        <tr>
+                          <td>내용:</td>
+                          <td>국내 4대 금융주 강세</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            국내주식 대형주에 대해서
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-04-15 금요일</td>
+                        </tr>
+                        <tr>
+                          <td>내용:</td>
+                          <td>
+                            환율이 떨어지거나 공매도 제도가 바뀌지 않은 이상은
+                            검은머리외인들은 박스권으로 가두고 차액 챙기는 것을
+                            좋아하는것 같다 그리고 역시 미국주식이 짱이다..
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            테슬라와 HMM
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-03-29 화요일</td>
+                        </tr>
+                        <tr>
+                          <td>내용:</td>
+                          <td>
+                            테슬라 주식분할 이벤트 슈팅 HMM이 저번 상승 때 처럼
+                            가파르게 오를거라 예상하지 말자 <br />
+                            HMM 에 미련 버려야 돼 호두형이 계속 숏에
+                            집착하는것과 다를바 없음
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <div
+                      style={{
+                        height: "120px",
+                        alignItems: "center",
+                        backgroundColor: "#FFFFFF",
+                        border: "0.3px solid #c7c7c7",
+                        margin: "5px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <table>
+                        <tr>
+                          <td
+                            style={{
+                              width: "60px",
+                            }}
+                          >
+                            제목:
+                          </td>
+                          <td
+                            style={{
+                              width: "800px",
+                            }}
+                          >
+                            인구 감소
+                          </td>
+                          <td>날짜:</td>
+                          <td> 2022-03-29 화요일</td>
+                        </tr>
+                        <tr>
+                          <td>내용:</td>
+                          <td>로봇주 상승</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div
                 style={{
-                  width: "1500px",
-                  height: "50px",
-                  backgroundColor: "#ffffff",
+                  width: "1100px",
+                  height: "700px",
+                  backgroundColor: "#FFFFFF",
                   margin: "0.1rem",
                   borderRadius: "6px",
-                  backgroundColor: "#EAEAEA",
+                  border: "0.3px dashed #BDBDBD",
                 }}
               >
-                <div
-                  // className={classes.box}
-                  style={{ display: "flex", alignItems: "center" }}
-                >
-                  <br />
-                  &nbsp;트레이딩 일기
-                  <br />
-                </div>
+                <br />
+                지난매매 반성할점
                 <br />
                 <br />
-                <br />
-              </div>
-              <div
-                ref={setRootTarget}
-                style={{
-                  overflow: "scroll",
-                  width: "1500px",
-                  height: "400px",
-                  alignItems: "center",
-                  backgroundColor: "#FFFFFF",
-                }}
-              >
-                {/* <ItemWrap> */}
-                <br />
-                <table>
-                  {/* {itemList.map((item, index) => (
-                      <tr>
-                        <div className="Item" key={index}>
-                          <br />
-                          <br />
-                          <br />
-                          증시 초반 상승 출발
-                          {index + 1}
-                          <br />
-                          <br />
-                          <br />
-                        </div>
-                      </tr>
-                    ))}
-                    <tr>
-                      <div ref={setTarget}></div>
-                    </tr> */}
-                  <tr>
-                    <td>2022-04-17 메모 </td>
-                  </tr>
-                  <tr>
-                    <td>금융주 강세</td>
-                  </tr>
-                  <tr>
-                    <td>2022-04-05 화요일 메모</td>
-                  </tr>
-                  <tr>
-                    <td>국내주식 대형주에 대해서</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      환율이 떨어지거나 공매도 제도가 바뀌지 않은 이상은
-                      검은머리외인들은 박스권으로 가두고 차액 챙기는 것을
-                      좋아하는것 같다 그리고 역시 미국주식이 짱이다..
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>--------------------</td>
-                  </tr>
-
-                  <tr>
-                    <td>2022-03-29 화요일 메모</td>
-                  </tr>
-                  <tr>
-                    <td>테슬라 주식분할 이벤트 슈팅</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      HMM이 저번 상승 때 처럼 가파르게 오를거라 예상하지 말자{" "}
-                      <br />
-                      HMM 에 미련 버려야 돼 호두형이 계속 숏에 집착하는것과
-                      다를바 없음
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      급등나와도 다음날 다시 천천히 가고 싶어하는데 여기에
-                      템포를 맞춰야지 급하지 말자
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>--------------------</td>
-                  </tr>
-                  <tr>
-                    <td>2022-03-25 금요일 메모</td>
-                  </tr>
-                  <tr>
-                    <td>장 초반 상승 출발</td>
-                  </tr>
-                  <tr>
-                    <td>로봇주 슈팅</td>
-                  </tr>
-
-                  {/* <tr>
-                      {isLoding ? (
-                        <LoaderWrap
-                          style={{
-                            backgroundColor: "#EAEAEA",
-                          }}
-                        >
-                          <ReactLoading type="spin" color="#A593E0" />
-                        </LoaderWrap>
-                      ) : (
-                        ""
-                      )}
-                    </tr> */}
-                </table>
-                {/* </ItemWrap> */}
+                장초 매수 3회정도 함 <br />
+                장초에 펌핑되면 바로 팔아야 함 살때가 아님
               </div>
             </div>
-            <br />
-            <br />
-            종목 레이팅
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">국내</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">
-                      HMM,하림지주,하림,팬오션,샘표,풀무원
-                    </TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">한화에어로스페이스</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center">
-                      한국조선해양,현대미포조선,세진중공업
-                    </TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center">금호건설,대우건설</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">미국장</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">팔란티어,쿠팡,Zim</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center">테슬라</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">암호화폐</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">웨이브,비트코인</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-            </div>
-            <br />
-            <br />
-            산업 레이팅
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">산업</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">해운,곡물,천연가스</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">방산</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center">조선</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center">건설</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">뉴스</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">우크라이나 전쟁</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">금리인상</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">트렌드</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">에너지 가격 인상</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">전기차</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-            </div>
-            <br />
-            <br />
-            위험,악재 키워드
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <MtTable className={classes.table} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">악재</TableCell>
-                    <TableCell align="center">....</TableCell>
-                    <TableCell align="center">....</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">1등급</TableCell>
-                    <TableCell align="center">러시아 디폴트</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">2등급</TableCell>
-                    <TableCell align="center">암호화폐 특근법</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">3등급</TableCell>
-                    <TableCell align="center">긴축 속도</TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell align="center">4등급</TableCell>
-                    <TableCell align="center"></TableCell>
-                    <TableCell align="center"></TableCell>
-                  </TableRow>
-                </TableBody>
-              </MtTable>
-            </div>
-            <br />
-            <br />
           </Paper>
-          <Paper className={classes.paper}></Paper>
+          <Paper className={classes.paper}>최근 관심군</Paper>
           <Paper className={classes.paper}>
-            {/* (장기 국내주식 매매종료 ) (장기 가상화폐 매매종료 ) */}
+            <br />
+            나의 레벨(주식)
+            <br />
+            <br />
+            레벨 측정요소 : 기술,기본 기타 등등
+            <br />
+            내가 잘하는것 : 국제 정세 흐름에 맞게 섹터를 잘 선정해서 투자함
+          </Paper>
+          <Paper className={classes.paper}>
+            나의 레벨(코인)
+            <br />
+            <br />
+            레벨 측정요소 : 챠트분석,기타 거시흐름
+            <br />
+            내가 잘하는것 : 국제 정세 흐름에 맞게 섹터를 잘 선정해서 투자함
+            <br />
+            내가 못하는것 : 만원수익 초단타 하려다가 손절 못함
+          </Paper>
+          <Paper className={classes.paper}>스트라바앱 ,기타앱</Paper>
+          <Paper className={classes.paper}>
+            선물옵션 흐름
+            <br />
+            선물 옵션 만기일
           </Paper>
         </Grid>
       </Grid>

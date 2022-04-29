@@ -5,7 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import { tradingRepository } from "../repositories";
-
+import LifeViewCalendar from "../component/LifeViewCalendar";
+import events_life from "./events_life";
 // 테이블 정보
 import { useQuery } from "react-query";
 const useStyles = makeStyles((theme) => ({
@@ -99,8 +100,7 @@ export default function Orders() {
       <Grid container spacing={9}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            2022년 일상변화 (현재 04월)
-            <br />
+            <LifeViewCalendar todo={events_life} />
           </Paper>
 
           <Paper className={classes.paper}>
@@ -112,60 +112,106 @@ export default function Orders() {
               <div
                 style={{
                   width: "700px",
-                  height: "500px",
-                  backgroundColor: "#ffffff",
+                  height: "700px",
+                  backgroundColor: "",
                   margin: "0.1rem",
                   borderRadius: "6px",
-                  backgroundColor: "#EAEAEA",
+
+                  border: "0.3px dashed #BDBDBD",
                   // float: "right",
                 }}
               >
-                현장답사
+                <input type="radio" name="theme" value="DARK" />
+                일간
+                <input type="radio" name="theme" value="LIGHT" />
+                월간
+                <input type="radio" name="theme" value="LIGHT" />
+                년간
+                <input type="radio" name="theme" value="LIGHT" />
+                전체
+                {/* <br />
+                2.대륙별선택:미국 ,중국 ,홍콩,대만,유로,중앙 아시아 */}
                 <br />
-                백화점,공항,번화가 거리 유동인구 확인
+                <input type="radio" name="theme" value="DARK" />
+                백화점
+                <input type="radio" name="theme" value="LIGHT" />
+                공항
+                <input type="radio" name="theme" value="LIGHT" />
+                번화가 거리
+                <input type="radio" name="theme" value="LIGHT" />
+                동대문 관광버스
+                <br />
+                <input type="radio" name="theme" value="DARK" />
+                TV
+                <input type="radio" name="theme" value="LIGHT" />
+                신문
+                <input type="radio" name="theme" value="LIGHT" />
+                서점
                 <br />
                 <br />
                 <br />
-                대중들의 소비 여가생활 패턴
-                <br />
-                강방천 , 버핏행님,화장품,여행
                 <br />
                 <br />
-                tv광고
+                <br />
               </div>
 
               <div>
                 <div
                   style={{
                     width: "900px",
-                    height: "50px",
-                    backgroundColor: "#ffffff",
+                    height: "20px",
+                    backgroundColor: "#D9E5FF",
                     margin: "0.1rem",
                     borderRadius: "6px",
-                    backgroundColor: "#EAEAEA",
+                    border: "0.3px dashed #BDBDBD",
+                    // border: "0.3px solid #c7c7c7",
                   }}
-                >
-                  <div
-                    // className={classes.box}
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
-                    <br />
-                    헤드라인&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                  </div>
-
-                  <br />
-                </div>
+                ></div>
                 <div
                   ref={setRootTarget}
                   style={{
                     overflow: "scroll",
                     width: "900px",
-                    height: "600px",
+                    height: "700px",
                     alignItems: "center",
-                    backgroundColor: "#FFFFFF",
+                    backgroundColor: "#EAEAEA",
                   }}
                 >
-                  2022.04.15 금 홍대 유동인구 관찰 : 최근3개월보다 엄청 많아졌음
+                  <div
+                    style={{
+                      height: "120px",
+                      alignItems: "center",
+                      backgroundColor: "#FFFFFF",
+                      border: "0.3px solid #c7c7c7",
+                      margin: "5px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <table>
+                      <tr>
+                        <td
+                          style={{
+                            width: "60px",
+                          }}
+                        >
+                          제목:
+                        </td>
+                        <td
+                          style={{
+                            width: "600px",
+                          }}
+                        >
+                          유동인구 관찰
+                        </td>
+                        <td>날짜:</td>
+                        <td> 2022-03-29 화요일</td>
+                      </tr>
+                      <tr>
+                        <td>내용:</td>
+                        <td>홍대 유동인구 증가</td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

@@ -119,13 +119,13 @@ export default [
   },
   {
     id: 14,
-    title: "파워렛저",
+    title: "국내주식:200만원",
     start: new Date(new Date().setHours(new Date().getHours() - 3)),
     end: new Date(new Date().setHours(new Date().getHours() + 3)),
   },
   {
     id: 15,
-    title: "샌드 박스",
+    title: "비트코인:50만원",
     start: now,
     end: now,
   },

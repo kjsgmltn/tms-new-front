@@ -54,7 +54,7 @@ export default function CenteredGrid() {
     <Grid item xs={12}>
       <Paper className={classes.paper}>
         <div className={classes.root}>
-          <h1>자산시장 일정</h1>
+          <h1></h1>
           {/* <TestCal /> */}
           {/* <Calendar
             localizer={localizer}
@@ -70,7 +70,7 @@ export default function CenteredGrid() {
             step={60}
             events={events}
             // events={myEventsList}
-            style={{ height: 260 }}
+            style={{ height: 660 }}
           />
         </div>
       </Paper>

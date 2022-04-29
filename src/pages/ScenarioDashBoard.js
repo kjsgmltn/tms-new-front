@@ -98,7 +98,7 @@ export default function Orders() {
     <div className={classes.root}>
       <Grid container spacing={9}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>최종 시나리오</Paper>
+          <Paper className={classes.paper}>최종 시나리오(매매전략선정)</Paper>
 
           <Paper className={classes.paper}>
             <div
@@ -117,8 +117,17 @@ export default function Orders() {
                   // float: "right",
                 }}
               >
-                2022/04.17 기준 작성 <br />
-                2022/04.18 ~ 22 일 실천 계획
+                <input type="radio" name="theme" value="DARK" />
+                일간
+                <input type="radio" name="theme" value="LIGHT" />
+                월간
+                <input type="radio" name="theme" value="LIGHT" />
+                년간
+                <input type="radio" name="theme" value="LIGHT" />
+                전체
+                <br />
+                <br />
+                (1).2022/04.18 ~ 22 일 실천 계획 ,2022/04.17 기준 작성
                 <br />
               </div>
 

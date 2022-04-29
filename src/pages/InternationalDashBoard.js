@@ -8,9 +8,14 @@ import { tradingRepository } from "../repositories";
 
 // 테이블 정보
 import { useQuery } from "react-query";
+
+import YearViewCalendar from "../component/YearViewCalendar";
+import events_3 from "./events_3";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    height: 1000,
   },
   paper: {
     padding: theme.spacing(3),
@@ -99,30 +104,9 @@ export default function Orders() {
       <Grid container spacing={9}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            올해의 거시 정치 경제 키워드,타임라인
-            <br />
-            <br />
-            우크라이나 전쟁
-            <br />
-            금리인상
-            <br />
-            환율전쟁
-            <br />
-            코로나 리오프닝
+            <YearViewCalendar todo={events_3} />
           </Paper>
-          <Paper className={classes.paper}>
-            국내 : (1)인플레이션 지표, (2)소비자 물가 지수 CPI,
-            (3)원유,(4)실업자수,(5)하이일드 스프레드,(6)고객예탁금
-            추이,(7)hts외국인 기관 매매현황 추이 <br />
-            미국 : 금리
-            <br />
-            <br />
-          </Paper>
-          <Paper className={classes.paper}>
-            선물옵션 흐름
-            <br />
-            선물 옵션 만기일
-          </Paper>
+
           <Paper className={classes.paper}>
             <div
               style={{
@@ -132,37 +116,71 @@ export default function Orders() {
               <div
                 style={{
                   width: "700px",
-                  height: "500px",
-                  backgroundColor: "#ffffff",
+                  height: "700px",
+                  backgroundColor: "",
                   margin: "0.1rem",
                   borderRadius: "6px",
-                  backgroundColor: "#EAEAEA",
+
+                  border: "0.3px dashed #BDBDBD",
                   // float: "right",
                 }}
               >
-                대륙별 뉴스 <br />
-                종합 ,미국 ,중국 ,홍콩,대만,유로,중앙 아시아
+                <div
+                  style={{
+                    height: "120px",
+                    alignItems: "center",
+                    backgroundColor: "#FFFFFF",
+                    margin: "5px",
+                    borderBottom: "0.3px solid #f2f2f2",
+                  }}
+                >
+                  <input type="radio" name="theme" value="DARK" />
+                  일간
+                  <input type="radio" name="theme" value="LIGHT" />
+                  월간
+                  <input type="radio" name="theme" value="LIGHT" />
+                  년간
+                  <input type="radio" name="theme" value="LIGHT" />
+                  전체
+                  <br />
+                  <input type="radio" name="theme_2" value="DARK" />
+                  미국
+                  <input type="radio" name="theme_2" value="LIGHT" />
+                  중국
+                  <input type="radio" name="theme_2" value="LIGHT" />
+                  홍콩
+                  <input type="radio" name="theme_2" value="LIGHT" />
+                  대만
+                  <input type="radio" name="theme_2" value="LIGHT" />
+                  유럽
+                  <input type="radio" name="theme_2" value="LIGHT" />
+                  중앙 아시아
+                </div>
+                <br />
+                <div
+                  style={{
+                    height: "120px",
+                    alignItems: "center",
+                    backgroundColor: "#FFFFFF",
+                    margin: "5px",
+                  }}
+                >
+                  *총 게시물:200개
+                </div>
               </div>
 
               <div>
                 <div
                   style={{
                     width: "900px",
-                    height: "50px",
-                    backgroundColor: "#ffffff",
+                    height: "20px",
+                    backgroundColor: "#D9E5FF",
                     margin: "0.1rem",
                     borderRadius: "6px",
-                    backgroundColor: "#EAEAEA",
+                    border: "0.3px dashed #BDBDBD",
+                    // border: "0.3px solid #c7c7c7",
                   }}
                 >
-                  <div
-                    // className={classes.box}
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
-                    <br />
-                    헤드라인&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                  </div>
-
                   <br />
                 </div>
                 <div
@@ -170,45 +188,221 @@ export default function Orders() {
                   style={{
                     overflow: "scroll",
                     width: "900px",
-                    height: "600px",
+                    height: "700px",
                     alignItems: "center",
-                    backgroundColor: "#FFFFFF",
+                    backgroundColor: "#EAEAEA",
                   }}
                 >
-                  2022.04.18 월 <br />
-                  경기선행지수 스태그 플레이션 2022.04.17 <br />
-                  <br />
-                  <br />
-                  '금리인상 수혜' 보험주, 올해 들어 코스피 업종 수익률 1위
-                  <br />
-                  <br />
-                  2022.04.13 <br />
-                  데이터센터 수요 폭증
-                  <br />
-                  2022.04.11 수
-                  <br />
-                  상하이 봉쇄발 생산자물가 고공행진 유럽에서는 태양광 힘들다
-                  태양광은 가성비가 나오기 힘듬 LNG 그래서 빙우가 대우조선해양
-                  외쳤구나 결국에는 증시에 안좋을수 밖에 없다 세계 제조업의
-                  중심지 상하이 그래서 유가 선물이 하락 봉쇄를 하는 다른 이유가
-                  있는건가 중국은 원자재 최대 수입국 외인들은 최근 대량 순매도후
-                  KT 통신 등등 경기방어주들 매수 함
-                  <br />
-                  2022.04.08 금 <br /> 버핏이 HP 를 산이유 원격회의 장비 부수입
-                  <br />
-                  2022.03.25 <br /> 원자력 유럽 전력난
-                  <br />
-                  2022.03.02 <br />
-                  곡물 값 증가 --> 맥주값 증가 러시아 원유 배제기간 길어짐 월가
-                  (유대인)세력과 러시아 세력의 싸움 러시아를 배제하고 싶어한다
-                  곧 파이프라인 전쟁 지중해에 엄청난 가스전 PNG 유럽 에너지 전쟁
-                  터키가 경제 공격을 받고 있는 이유 대두나 옥수수를 짜서 기름을
-                  만들수 있음 중남미
+                  <div
+                    style={{
+                      height: "120px",
+                      alignItems: "center",
+                      backgroundColor: "#FFFFFF",
+                      border: "0.3px solid #c7c7c7",
+                      margin: "5px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <table>
+                      <tr>
+                        <td
+                          style={{
+                            width: "70px",
+                          }}
+                        >
+                          제목:
+                        </td>
+                        <td
+                          style={{
+                            width: "600px",
+                          }}
+                        >
+                          지표참고
+                        </td>
+                        <td>날짜:</td>
+                        <td> 2022.04.18 월요일</td>
+                      </tr>
+                      <tr>
+                        <td>내용:</td>
+                        <td>경기선행지수 스태그 플레이션</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div
+                    style={{
+                      height: "120px",
+                      alignItems: "center",
+                      backgroundColor: "#FFFFFF",
+                      border: "0.3px solid #c7c7c7",
+                      margin: "5px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <table>
+                      <tr>
+                        <td
+                          style={{
+                            width: "70px",
+                          }}
+                        >
+                          제목:
+                        </td>
+                        <td
+                          style={{
+                            width: "600px",
+                          }}
+                        >
+                          늘어나는 인프라 센터
+                        </td>
+                        <td>날짜:</td>
+                        <td> 2022.04.13 수요일</td>
+                      </tr>
+                      <tr>
+                        <td>내용:</td>
+                        <td> 데이터센터 수요 폭증</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div
+                    style={{
+                      height: "120px",
+                      alignItems: "center",
+                      backgroundColor: "#FFFFFF",
+                      border: "0.3px solid #c7c7c7",
+                      margin: "5px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <table>
+                      <tr>
+                        <td
+                          style={{
+                            width: "70px",
+                          }}
+                        >
+                          제목:
+                        </td>
+                        <td
+                          style={{
+                            width: "600px",
+                          }}
+                        >
+                          아시아 물류중심지의 코로나 봉쇄
+                        </td>
+                        <td>날짜:</td>
+                        <td> 2022.04.11 수요일</td>
+                      </tr>
+                      <tr>
+                        <td>내용:</td>
+                        <td>
+                          {" "}
+                          상하이 봉쇄발 생산자물가 고공행진 유럽에서는 태양광
+                          힘들다 태양광은 가성비가 나오기 힘듬 LNG 그래서 빙우가
+                          대우조선해양 외쳤구나 결국에는 증시에 안좋을수 밖에
+                          없다 세계 제조업의 중심지 상하이 그래서 유가 선물이
+                          하락 봉쇄를 하는 다른 이유가 있는건가 중국은 원자재
+                          최대 수입국 외인들은 최근 대량 순매도후 KT 통신 등등
+                          경기방어주들 매수 함
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div
+                    style={{
+                      height: "120px",
+                      alignItems: "center",
+                      backgroundColor: "#FFFFFF",
+                      border: "0.3px solid #c7c7c7",
+                      margin: "5px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <table>
+                      <tr>
+                        <td
+                          style={{
+                            width: "70px",
+                          }}
+                        >
+                          제목:
+                        </td>
+                        <td
+                          style={{
+                            width: "600px",
+                          }}
+                        >
+                          전력 에너지 위기
+                        </td>
+                        <td>날짜:</td>
+                        <td> 2022.03.25 금요일</td>
+                      </tr>
+                      <tr>
+                        <td>내용:</td>
+                        <td> 유럽 원자력난</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div
+                    style={{
+                      height: "120px",
+                      alignItems: "center",
+                      backgroundColor: "#FFFFFF",
+                      border: "0.3px solid #c7c7c7",
+                      margin: "5px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <table>
+                      <tr>
+                        <td
+                          style={{
+                            width: "70px",
+                          }}
+                        >
+                          제목:
+                        </td>
+                        <td
+                          style={{
+                            width: "600px",
+                          }}
+                        >
+                          곡물위기
+                        </td>
+                        <td>날짜:</td>
+                        <td> 2022.03.02 수요일</td>
+                      </tr>
+                      <tr>
+                        <td>내용:</td>
+                        <td>
+                          {" "}
+                          곡물 값 증가 * 맥주값 증가 러시아 원유 배제기간 길어짐
+                          월가 (유대인)세력과 러시아 세력의 싸움 러시아를
+                          배제하고 싶어한다 곧 파이프라인 전쟁 지중해에 엄청난
+                          가스전 PNG 유럽 에너지 전쟁 터키가 경제 공격을 받고
+                          있는 이유 대두나 옥수수를 짜서 기름을 만들수 있음
+                          중남미
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </Paper>
-
+          <Paper className={classes.paper}>
+            구글 트렌드
+            <br />
+            국내 : (1)인플레이션 지표, (2)소비자 물가 지수 CPI,
+            (3)원유,(4)실업자수,(5)하이일드 스프레드,(6)고객예탁금
+            추이,(7)hts외국인 기관 매매현황 추이,(8) 선행지수 <br />
+            미국 : 금리
+            <br />
+            <br />
+          </Paper>
           <Paper className={classes.paper}>
             정치@뉴스
             <br />
@@ -216,6 +410,8 @@ export default function Orders() {
             <br />
             윤석열 대통령 5월11일 취임식
           </Paper>
+          <Paper className={classes.paper}>10배 100배 갈 종목 찾기</Paper>
+          <Paper className={classes.paper}>거시흐름 예측</Paper>
         </Grid>
       </Grid>
     </div>

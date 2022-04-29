@@ -31,6 +31,11 @@ const navConfig = [
         icon: PieChartIcon,
         href: "/TimeManage",
       },
+      {
+        title: "저니맵",
+        icon: PieChartIcon,
+        href: "/",
+      },
     ],
   },
   {
@@ -83,12 +88,25 @@ const navConfig = [
             href: "/InvestSCheduler",
           },
           {
-            title: "트레이딩 종합",
+            title: "시드 사용내역",
+            href: "/InvestSCheduler",
+          },
+
+          {
+            title: "(8).트레이딩 종합",
             href: "/TradingDashBoard",
           },
           {
-            title: "손절심사&관리",
+            title: "(9).손절심사",
             href: "/",
+          },
+          {
+            title: "(10).평가",
+            href: "/TradingEvaluateBoard",
+          },
+          {
+            title: "(11).정답 ",
+            href: "/ObserveBoard",
           },
         ],
       },
@@ -102,11 +120,11 @@ const navConfig = [
         icon: AwardIcon,
         items: [
           {
-            title: "(1).거시&국제정세",
+            title: "(1).거시&세상변화",
             href: "/InternationalDashBoard",
           },
           {
-            title: "(2).일상&미래변화 맵",
+            title: "(2).내 주변변화 맵",
             href: "/PoliticsDashBoard",
           },
 
@@ -115,22 +133,18 @@ const navConfig = [
             href: "/InterestDashBoard",
           },
 
+          // {
+          //   title: "(4).레이팅 작업",
+          //   href: "/StrategyDashBoard",
+          // },
           {
-            title: "(4).레이팅&매매전략 선정",
-            href: "/StrategyDashBoard",
-          },
-          {
-            title: "(*)레이팅 히스토리",
+            title: "(4)레이팅 매기기",
             href: "/RatingHistoryDashBoard",
-          },
-          {
-            title: "(*)레이팅 히스토리 입력",
-            href: "/",
           },
 
           {
             title: "(5).시뮬레이션",
-            href: "/",
+            href: "/StrategyDashBoard",
           },
 
           {
@@ -164,6 +178,7 @@ const navConfig = [
             title: "주식 거래내역",
             href: "/",
           },
+
           {
             title: "투자 형상관리",
             href: "/",
@@ -257,10 +272,6 @@ const navConfig = [
           {
             title: "종합 평가",
             href: "/OutcomeBoard",
-          },
-          {
-            title: "투자 평가",
-            href: "/ObserveBoard",
           },
 
           {

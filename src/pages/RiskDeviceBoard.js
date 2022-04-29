@@ -54,7 +54,7 @@ export default function MainPage() {
           <Paper className={classes.paper}>
             위험관리 도구
             <br />
-            <br />
+            현재 비중과 포지션에 대해서 줄이는게좋을지..늘리는게 좋을지 검토
             <br />
             {/* 가망없는 종목을 계획적 으로 손절하고 얼마만큼 손절했는지,어느
             종목에서 복구 할지 전략 그리고 복구에 성공했는지 */}

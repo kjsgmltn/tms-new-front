@@ -12,7 +12,6 @@ const tableHeadTr = css`
   font-size: 14px;
   font-weight: bold;
   color: #333333;
-  vertical-align: middle;
 `;
 
 const tableHeadTh = css`

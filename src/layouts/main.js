@@ -44,6 +44,7 @@ import PoliticsDashBoard from "../pages/PoliticsDashBoard";
 import InterestDashBoard from "../pages/InterestDashBoard";
 import StrategyDashBoard from "../pages/StrategyDashBoard";
 import ScenarioDashBoard from "../pages/ScenarioDashBoard";
+import TradingEvaluateBoard from "../pages/TradingEvaluateBoard";
 
 import moment from "moment";
 import { BrowserRouter, Route, Routes, Outlet, Switch } from "react-router-dom";
@@ -264,6 +265,10 @@ export default function Dashboard() {
             <Route path="/InterestDashBoard" component={InterestDashBoard} />
             <Route path="/StrategyDashBoard" component={StrategyDashBoard} />
             <Route path="/ScenarioDashBoard" component={ScenarioDashBoard} />
+            <Route
+              path="/TradingEvaluateBoard"
+              component={TradingEvaluateBoard}
+            />
           </Switch>
         </Container>
       </main>

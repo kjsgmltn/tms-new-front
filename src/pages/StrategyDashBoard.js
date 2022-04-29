@@ -98,7 +98,10 @@ export default function Orders() {
     <div className={classes.root}>
       <Grid container spacing={9}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>레이팅 & 매매전략 선정</Paper>
+          <Paper className={classes.paper}>
+            <br />
+            요즘 코스피 시초 추세..
+          </Paper>
           <Paper className={classes.paper}>
             <div
               style={{
@@ -115,8 +118,10 @@ export default function Orders() {
                   backgroundColor: "#EAEAEA",
                   // float: "right",
                 }}
-              ></div>
-              <div></div>
+              >
+                빈공간_1
+              </div>
+              <div>빈공간_2</div>
             </div>
           </Paper>
           <Paper className={classes.paper}></Paper>

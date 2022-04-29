@@ -88,9 +88,17 @@ export default function MainPage() {
   return (
     <div className={classes.root}>
       <Grid item xs={12}>
-        <Paper className={classes.paper}> 정답관리</Paper>
+        <Paper className={classes.paper}>
+          주간평가 체크리스트 작성(평가)
+          <br />
+          <br />
+          (1)아침 10시까지 매수 금지 사항 지켰는지
+          <br />
+          (2)월화수목금 비중조절을 잘했는지
+        </Paper>
 
         <Paper className={classes.paper}>
+          정답관리
           <br />
           <div
             style={{
@@ -117,7 +125,6 @@ export default function MainPage() {
               년간
               <input type="radio" name="theme" value="LIGHT" />
               전체
-              <br />
               <br />
             </div>
 
@@ -154,7 +161,7 @@ export default function MainPage() {
               >
                 <div
                   style={{
-                    height: "120px",
+                    height: "400px",
                     alignItems: "center",
                     backgroundColor: "#FFFFFF",
                     border: "0.3px solid #c7c7c7",
@@ -176,228 +183,77 @@ export default function MainPage() {
                           width: "600px",
                         }}
                       >
-                        국내증시
-                      </td>
-                      <td>날짜:</td>
-                      <td> 2022.04.29 금요일</td>
-                    </tr>
-                    <tr>
-                      <td>내용:</td>
-                      <td>건설기계,아스콘(아스팔트)</td>
-                    </tr>
-                  </table>
-                </div>
-                <div
-                  style={{
-                    height: "120px",
-                    alignItems: "center",
-                    backgroundColor: "#FFFFFF",
-                    border: "0.3px solid #c7c7c7",
-                    margin: "5px",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <table>
-                    <tr>
-                      <td
-                        style={{
-                          width: "60px",
-                        }}
-                      >
-                        제목:
-                      </td>
-                      <td
-                        style={{
-                          width: "600px",
-                        }}
-                      >
-                        국내증시
-                      </td>
-                      <td>날짜:</td>
-                      <td> 2022.04.27 수요일</td>
-                    </tr>
-                    <tr>
-                      <td>내용:</td>
-                      <td>가스 유틸리티,건강관리업체</td>
-                    </tr>
-                  </table>
-                </div>
-
-                <div
-                  style={{
-                    height: "120px",
-                    alignItems: "center",
-                    backgroundColor: "#FFFFFF",
-                    border: "0.3px solid #c7c7c7",
-                    margin: "5px",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <table>
-                    <tr>
-                      <td
-                        style={{
-                          width: "60px",
-                        }}
-                      >
-                        제목:
-                      </td>
-                      <td
-                        style={{
-                          width: "600px",
-                        }}
-                      >
-                        국내증시
-                      </td>
-                      <td>날짜:</td>
-                      <td> 2022.04.27 수요일</td>
-                    </tr>
-                    <tr>
-                      <td>내용:</td>
-                      <td>가스 유틸리티,건강관리업체</td>
-                    </tr>
-                  </table>
-                </div>
-
-                <div
-                  style={{
-                    height: "120px",
-                    alignItems: "center",
-                    backgroundColor: "#FFFFFF",
-                    border: "0.3px solid #c7c7c7",
-                    margin: "5px",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <table>
-                    <tr>
-                      <td
-                        style={{
-                          width: "60px",
-                        }}
-                      >
-                        제목:
-                      </td>
-                      <td
-                        style={{
-                          width: "600px",
-                        }}
-                      >
-                        국내증시
-                      </td>
-                      <td>날짜:</td>
-                      <td> 2022.04.26 화요일</td>
-                    </tr>
-                    <tr>
-                      <td>내용:</td>
-                      <td>사료,육계,수산</td>
-                    </tr>
-                  </table>
-                </div>
-
-                <div
-                  style={{
-                    height: "120px",
-                    alignItems: "center",
-                    backgroundColor: "#FFFFFF",
-                    border: "0.3px solid #c7c7c7",
-                    margin: "5px",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <table>
-                    <tr>
-                      <td
-                        style={{
-                          width: "60px",
-                        }}
-                      >
-                        제목:
-                      </td>
-                      <td
-                        style={{
-                          width: "600px",
-                        }}
-                      >
-                        국내증시
-                      </td>
-                      <td>날짜:</td>
-                      <td> 2022.04.25 월요일</td>
-                    </tr>
-                    <tr>
-                      <td>내용:</td>
-                      <td>수산</td>
-                    </tr>
-                  </table>
-                </div>
-
-                <div
-                  style={{
-                    height: "120px",
-                    alignItems: "center",
-                    backgroundColor: "#FFFFFF",
-                    border: "0.3px solid #c7c7c7",
-                    margin: "5px",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <table>
-                    <tr>
-                      <td
-                        style={{
-                          width: "60px",
-                        }}
-                      >
-                        제목:
-                      </td>
-                      <td
-                        style={{
-                          width: "600px",
-                        }}
-                      >
-                        국내증시
-                      </td>
-                      <td>날짜:</td>
-                      <td> 2022.04.15 금요일</td>
-                    </tr>
-                    <tr>
-                      <td>내용:</td>
-                      <td>4대 금융주</td>
-                    </tr>
-                  </table>
-                </div>
-                <div
-                  style={{
-                    height: "120px",
-                    alignItems: "center",
-                    backgroundColor: "#FFFFFF",
-                    border: "0.3px solid #c7c7c7",
-                    margin: "5px",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <table>
-                    <tr>
-                      <td
-                        style={{
-                          width: "60px",
-                        }}
-                      >
-                        제목:
-                      </td>
-                      <td
-                        style={{
-                          width: "600px",
-                        }}
-                      >
-                        국내증시
+                        4월3주차 국내증시 트레이딩 평가
                       </td>
                       <td>날짜:</td>
                       <td> 2022.03.29 화요일</td>
                     </tr>
                     <tr>
                       <td>내용:</td>
-                      <td>로봇주 </td>
+                      <td>
+                        <br />
+                        <br />
+                        주말 알트코인 매수에 물려서 육계주식 구입에 실패 했음..
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div
+                  style={{
+                    height: "400px",
+                    alignItems: "center",
+                    backgroundColor: "#FFFFFF",
+                    border: "0.3px solid #c7c7c7",
+                    margin: "5px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <table>
+                    <tr>
+                      <td
+                        style={{
+                          width: "60px",
+                        }}
+                      >
+                        제목:
+                      </td>
+                      <td
+                        style={{
+                          width: "600px",
+                        }}
+                      >
+                        4월2주차 국내증시 트레이딩 평가
+                      </td>
+                      <td>날짜:</td>
+                      <td> 2022.03.29 화요일</td>
+                    </tr>
+                    <tr>
+                      <td>내용:</td>
+                      <td>
+                        <br />
+                        <br />
+                        나의 장점 요즘은 적당히 빨간불 들어오면 익절하고
+                        매도세가 강해지면 그때 다시 매수해야함 오래 포지션을
+                        가져가는 장세가 아니다
+                        <br />
+                        불타기 할때도 기준이 없으니 충동결정 내리게 되는듯
+                        <br />
+                        최근에 수익 못내고 있는 원인을 스스로 뭐라고 생각하는지
+                        :
+                        <br />
+                        아직도 코로나 초기 대상승장을 원하고 있다고 생각함
+                        <br />
+                        <br />
+                        투자도 사업과 비슷함
+                        <br />
+                        상승전 마지막 발사대 만들때 올인하는거지 , 그 이외에는
+                        올인 해서는 안된다
+                        <br />
+                        <br />
+                        문제는 나에게 있다 내가 유지하고 있는 배분 속도 유지
+                        양을 잘 파악해보자
+                      </td>
                     </tr>
                   </table>
                 </div>

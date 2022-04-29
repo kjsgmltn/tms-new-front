@@ -7,14 +7,14 @@ import { useQuery } from "react-query";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import { bnsRepository } from "../repositories";
 import moment from "moment";
-
+import CalcuViewCalendar from "../component/CalcuViewCalendar";
+import events_5 from "./events_5";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(10),
-    //textAlign: 'center',
+    padding: theme.spacing(2),
     color: theme.palette.text.secondary,
   },
   box: {
@@ -149,6 +149,10 @@ export default function CenteredGrid() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <CalcuViewCalendar todo={events_5} />
+          </Paper>
+
           <Paper className={classes.paper}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ textAlign: "left" }}>
@@ -430,9 +434,6 @@ export default function CenteredGrid() {
                 </table>
               </div>
             </div>
-            <br />
-            수입/지출/손실 다 확인 합시다
-            <br />
             <br />
             <br />
             <TabPanel />
