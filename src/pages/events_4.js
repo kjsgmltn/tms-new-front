@@ -68,4 +68,20 @@ export default [
     ],
     todoCount: 1,
   },
+  {
+    idx: 2,
+    weather: "맑음",
+    start: "2022-5",
+    todo: [
+      {
+        time: "07:30",
+        title: "농업,종합상사",
+      },
+      {
+        time: null,
+        title: "비료,유틸리티",
+      },
+    ],
+    todoCount: 1,
+  },
 ];

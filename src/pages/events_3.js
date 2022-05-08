@@ -68,4 +68,21 @@ export default [
     ],
     todoCount: 1,
   },
+
+  {
+    idx: 2,
+    weather: "맑음",
+    start: "2022-5",
+    todo: [
+      {
+        time: "07:30",
+        title: "스태그 플레이션",
+      },
+      {
+        time: null,
+        title: "애그 플레이션",
+      },
+    ],
+    todoCount: 1,
+  },
 ];
